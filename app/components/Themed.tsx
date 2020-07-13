@@ -20,7 +20,7 @@ export const theme: ThemeProps = {
   colour: {
     black: '#2b292d',
     white: '#fff',
-    blue: '#0046FF',
+    blue: '#1732FF',
     grey: '#98A2AB',
     lightgrey: '#BFC5D2'
   },
