@@ -1,9 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
-import Navigation from './navigation';
+import React from 'react'
+import { StatusBar } from 'expo-status-bar'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
+import { ThemeProvider } from 'styled-components/native'
+import Navigation from './navigation'
+import { theme } from './components/Themed'
 
-export default function App() {
+function App() {
   const isLoadingComplete = true;
   const isUserAuthenticated = true;
 
@@ -18,3 +20,10 @@ export default function App() {
     );
   }
 }
+
+// wrap App component using theme provider to gain access to styled component themes
+export default () => (
+  <ThemeProvider theme={theme}>
+    <App />
+  </ThemeProvider>
+)

@@ -4,10 +4,18 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { BottomTabParamList } from '../types'
 import { RootScreenName } from '../constants/ScreenNames'
 import { ExploreScreen, SearchScreen, WishListScreen, ProfileScreen } from '../screens/Root'
+import { theme } from '../components/Themed'
 
 // Component to display navigation icons using Image component 
 function TabBarIcon({ image, color }: { image: ImageProps; color: string }) {
   return <Image source={image} style={{ height: 24, width: 24, tintColor: color }} resizeMode="contain"/>
+}
+
+// set bottom tab navigatior options
+const tabBarOptions = {
+  activeTintColor: theme.colour.blue,
+  inactiveTintColor: theme.colour.lightgrey,
+  style: { backgroundColor: theme.colour.white }
 }
 
 // Bottom tab navigatior
@@ -15,7 +23,7 @@ function TabBarIcon({ image, color }: { image: ImageProps; color: string }) {
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName={RootScreenName.EXPLORE} tabBarOptions={{ activeTintColor: '#0046FF', inactiveTintColor: '#BFC5D2', style: { backgroundColor: '#fff' }}}>
+    <BottomTab.Navigator initialRouteName={RootScreenName.EXPLORE} tabBarOptions={tabBarOptions}>
       <BottomTab.Screen
         name={RootScreenName.EXPLORE}
         component={ExploreScreen}
