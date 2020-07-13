@@ -1,5 +1,4 @@
-// import { combineReducers } from 'redux'
+import { combineReducers } from 'redux'
+import  authentication from './authentication'
 
-// export default combineReducers({ session: { test: 'true' } })
-
-export default () => { session: true }
+export default combineReducers({ session: authentication })
