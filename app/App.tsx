@@ -5,7 +5,7 @@ import Navigation from './navigation';
 
 export default function App() {
   const isLoadingComplete = true;
-  const isUserAuthenticated = false;
+  const isUserAuthenticated = true;
 
   if (!isLoadingComplete) {
     return null;

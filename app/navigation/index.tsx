@@ -12,6 +12,7 @@ type NavigationContainerParamsList = {
   isUserAuthenticated: boolean
 }
 
+// Navigation container to determin which navigation screens to show
 export default function Navigation({ colorScheme, isUserAuthenticated }: NavigationContainerParamsList) {
   return (
     <NavigationContainer theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
@@ -20,6 +21,8 @@ export default function Navigation({ colorScheme, isUserAuthenticated }: Navigat
   )
 }
 
+// Root stack navigatior
+// screens will display when user has signed in
 const Stack = createStackNavigator<RootStackParamList>();
 function RootNavigator() {
   return (
