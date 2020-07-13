@@ -19,5 +19,7 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "forceConsistentCasingInFileNames": true
-  }
+  },
+  "exclude": ["node_modules", "__tests__/**/*-test.ts"],
+  "include": ["**/*.ts", "**/*.tsx"]
 }

@@ -5,12 +5,12 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { BottomTabParamList } from '../../types'
 import { RootScreenName } from '../../constants/ScreenNames'
 
-export const ExploreScreen = ({
+export const SearchScreen = ({
   navigation,
-}: StackScreenProps<BottomTabParamList, RootScreenName.EXPLORE>) => {
+}: StackScreenProps<BottomTabParamList, RootScreenName.SEARCH>) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>This screen ExploreScreen</Text>
+      <Text style={styles.title}>This screen SearchScreen</Text>
       <TouchableOpacity onPress={() => navigation.replace('Explore')} style={styles.link}>
         <Text style={styles.linkText}>Go to home screen!</Text>
       </TouchableOpacity>
