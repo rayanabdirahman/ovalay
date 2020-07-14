@@ -7,28 +7,22 @@ import Navigation from './navigation'
 import { theme } from './components/Themed'
 import { store } from './store'
 
+// ThemeProvider component provideds access to styled component theme
 function App() {
-  const isLoadingComplete = true
   const isUserAuthenticated = false
-
-  if (!isLoadingComplete) {
-    return null
-  } else {
-    return (
+  return (
+    <ThemeProvider theme={theme}>
       <SafeAreaProvider>
         <Navigation isUserAuthenticated={isUserAuthenticated}  />
         <StatusBar />
       </SafeAreaProvider>
-    )
-  }
+    </ThemeProvider>
+  )
 }
 
 // Provider component provides access to application state
-// ThemeProvider component provideds access to styled component themes
 export default () => (
   <Provider store={store}>
-    <ThemeProvider theme={theme}>
       <App />
-    </ThemeProvider>
   </Provider>
 )
