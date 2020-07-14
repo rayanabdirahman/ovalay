@@ -8,22 +8,23 @@ import { theme } from './components/Themed'
 import { store } from './store'
 
 function App() {
-  const isLoadingComplete = true;
-  const isUserAuthenticated = true;
+  const isLoadingComplete = true
+  const isUserAuthenticated = false
 
   if (!isLoadingComplete) {
-    return null;
+    return null
   } else {
     return (
       <SafeAreaProvider>
         <Navigation isUserAuthenticated={isUserAuthenticated}  />
         <StatusBar />
       </SafeAreaProvider>
-    );
+    )
   }
 }
 
-// wrap App component using theme provider to gain access to styled component themes
+// Provider component provides access to application state
+// ThemeProvider component provideds access to styled component themes
 export default () => (
   <Provider store={store}>
     <ThemeProvider theme={theme}>
