@@ -1,40 +1,19 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import * as React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react'
+import { Text } from 'react-native'
+import { StackScreenProps } from '@react-navigation/stack'
 
-import { RootStackParamList } from '../../types';
+import { AuthenticationStackParamList } from '../../types'
+import { Layout, LayoutProps } from '../../components/Layout'
+import { AuthenticationScreenName } from '../../constants/ScreenNames'
 
-export const LoginScreen = ({
-  navigation,
-}: StackScreenProps<RootStackParamList, 'NotFound'>) => {
-  return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen LoginScreen</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Root')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
-    </View>
-  );
+type Props = LayoutProps & {
+  navigation: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});
+export const LoginScreen = (props: Props) => {
+  return (
+    <Layout {...props} fullwidth={true} background={'blue'}>
+      <Text>This screen LoginScreen</Text>
+    </Layout>
+  )
+}
