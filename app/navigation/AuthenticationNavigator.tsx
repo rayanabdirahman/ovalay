@@ -9,9 +9,9 @@ import { LoginScreen, SignUpScreen } from '../screens/Authentication'
 const AuthenticationStack = createStackNavigator<AuthenticationStackParamList>()
 export default function AuthenticationNavigator() {
   return (
-    <AuthenticationStack.Navigator>
-      <AuthenticationStack.Screen name={AuthenticationScreenName.LOGIN} component={LoginScreen} options={{ headerShown: false }}/>
-      <AuthenticationStack.Screen name={AuthenticationScreenName.SIGN_UP} component={SignUpScreen} options={{ headerTitle: "", headerBackTitle: " " }}/>
+    <AuthenticationStack.Navigator screenOptions={{ headerShown: false }}>
+      <AuthenticationStack.Screen name={AuthenticationScreenName.LOGIN} component={LoginScreen}/>
+      <AuthenticationStack.Screen name={AuthenticationScreenName.SIGN_UP} component={SignUpScreen}/>
     </AuthenticationStack.Navigator>
   )
 }
