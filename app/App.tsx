@@ -1,29 +1,28 @@
 import React from 'react'
+import { Provider } from 'react-redux'
 import { StatusBar } from 'expo-status-bar'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 import { ThemeProvider } from 'styled-components/native'
 import Navigation from './navigation'
 import { theme } from './components/Themed'
+import { store } from './store'
 
+// ThemeProvider component provideds access to styled component theme
 function App() {
-  const isLoadingComplete = true;
-  const isUserAuthenticated = true;
-
-  if (!isLoadingComplete) {
-    return null;
-  } else {
-    return (
+  const isUserAuthenticated = false
+  return (
+    <ThemeProvider theme={theme}>
       <SafeAreaProvider>
         <Navigation isUserAuthenticated={isUserAuthenticated}  />
         <StatusBar />
       </SafeAreaProvider>
-    );
-  }
+    </ThemeProvider>
+  )
 }
 
-// wrap App component using theme provider to gain access to styled component themes
+// Provider component provides access to application state
 export default () => (
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>
+  <Provider store={store}>
+      <App />
+  </Provider>
 )
