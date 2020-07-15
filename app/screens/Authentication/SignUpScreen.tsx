@@ -10,16 +10,10 @@ import { SignUpForm } from '../../components/SignUpForm'
 import { Text } from '../../components/Text'
 import { Button } from '../../components/Button'
 
-const BlueContainer = styled.View<ThemeProps>`
-  background-color: ${props => props.theme.colour.blue};
-  flex: 0.4;
-`
-
 const Container = styled.View<ThemeProps>`
-  background-color: ${props => props.theme.colour.white};
-  flex: 0.6;
+  flex: 1;
   padding: 32px 24px;
-  margin-bottom: 32px;
+  margin-top: 32px;
 `
 
 const Footer = styled.View<ThemeProps>`
@@ -34,7 +28,6 @@ export const SignUpScreen = ({
 }: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.SIGN_UP>) => {
   return (
     <Layout fullwidth>
-      <BlueContainer></BlueContainer>
       <Container>
         <SignUpForm />
         <Footer>
