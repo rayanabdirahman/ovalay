@@ -1,19 +1,35 @@
 import React from 'react'
-import { Text } from 'react-native'
 import { StackScreenProps } from '@react-navigation/stack'
+import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../types'
-import { Layout, LayoutProps } from '../../components/Layout'
+import { Layout } from '../../components/Layout'
 import { AuthenticationScreenName } from '../../constants/ScreenNames'
+import { LoginForm } from '../../components/LoginForm'
+import { Button } from '../../components/Button'
+import { ThemeProps } from '../../components/Themed'
 
-type Props = LayoutProps & {
-  navigation: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>
-}
 
-export const LoginScreen = (props: Props) => {
+const BlueContainer = styled.View<ThemeProps>`
+  background-color: ${props => props.theme.colour.blue};
+  flex: 0.4;
+`
+
+const Container = styled.View<ThemeProps>`
+  background-color: ${props => props.theme.colour.white};
+  flex: 0.6;
+  padding: 32px 24px;
+  margin-bottom: 32px;
+`
+
+export const LoginScreen = ({ navigation }: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
   return (
-    <Layout {...props} fullwidth={true} background={'blue'}>
-      <Text>This screen LoginScreen</Text>
+    <Layout fullwidth>
+      <BlueContainer></BlueContainer>
+      <Container>
+        <LoginForm />
+        <Button primary title={"Create Account"} onPress={() => navigation.push(AuthenticationScreenName.SIGN_UP)}></Button>
+      </Container>
     </Layout>
   )
 }
