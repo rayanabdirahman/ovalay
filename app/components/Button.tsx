@@ -6,16 +6,18 @@ import { Text } from './Text'
 export type ButtonProps = DefaultButton['props'] & {
   primary?: boolean
   secondary?: boolean
+  outline?: boolean
 }
 
 const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
   background-color: ${ props => props.primary ? props.theme.colour.blue : props.theme.colour.white };
-  border: 2px solid ${ props => props.theme.colour.blue };
-  padding: 20px 16px;
+  border: ${ props => props.outline ? 0 : `2px solid ${props.theme.colour.blue}` };
+  padding: ${ props => props.outline ? 0 : '20px 16px' };
   border-radius: 8px;
   align-items: center;
   justify-content: center;
-  margin-bottom: 16px;
+  margin-bottom: ${ props => props.outline ? '8px' : '16px' };
+  margin-left: ${ props => props.outline ? '8px' : 0 };
 `
 
 const ButtonText = styled(Text)<ButtonProps>`
