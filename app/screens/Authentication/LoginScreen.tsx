@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../types'
 import { Layout } from '../../components/Layout'
-import { AuthenticationScreenName } from '../../constants/ScreenNames'
+import { AuthenticationScreenName } from '../../navigation/ScreenNames'
 import { LoginForm } from '../../components/LoginForm'
 import { Button } from '../../components/Button'
 import { ThemeProps } from '../../components/Themed'
@@ -22,7 +22,9 @@ const Container = styled.View<ThemeProps>`
   margin-bottom: 32px;
 `
 
-export const LoginScreen = ({ navigation }: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
+export const LoginScreen = ({ 
+  navigation 
+}: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
   return (
     <Layout fullwidth>
       <BlueContainer></BlueContainer>

@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, ImageProps } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { BottomTabParamList } from '../types'
-import { RootScreenName } from '../constants/ScreenNames'
+import { RootScreenName } from './ScreenNames'
 import { ExploreScreen, SearchScreen, WishListScreen, ProfileScreen } from '../screens/Root'
 import { theme } from '../components/Themed'
 

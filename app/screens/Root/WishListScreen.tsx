@@ -3,7 +3,7 @@ import * as React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { BottomTabParamList } from '../../types'
-import { RootScreenName } from '../../constants/ScreenNames'
+import { RootScreenName } from '../../navigation/ScreenNames'
 
 export const WishListScreen = ({
   navigation,
