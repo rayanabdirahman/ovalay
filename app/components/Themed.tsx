@@ -1,4 +1,4 @@
-export type ColourProps = {
+type ColourProps = {
   black: string
   white: string
   blue: string
@@ -6,13 +6,19 @@ export type ColourProps = {
   lightgrey: string
 }
 
-export type ScreenLayoutProps = {
+type FontWeightProps = {
+  bold: string
+  regular: string
+}
+
+type ScreenLayoutProps = {
   fullwidth: string
   container: string
 }
 
 export type ThemeProps = {
   colour: ColourProps
+  fontweight: FontWeightProps
   layout: ScreenLayoutProps
 }
 
@@ -23,6 +29,10 @@ export const theme: ThemeProps = {
     blue: '#1732FF',
     grey: '#98A2AB',
     lightgrey: '#BFC5D2'
+  },
+  fontweight: {
+    bold: '500',
+    regular: '400'
   },
   layout: {
     fullwidth: '0',
