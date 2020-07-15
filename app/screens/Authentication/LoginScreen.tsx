@@ -22,7 +22,9 @@ const Container = styled.View<ThemeProps>`
   margin-bottom: 32px;
 `
 
-export const LoginScreen = ({ navigation }: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
+export const LoginScreen = ({ 
+  navigation 
+}: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
   return (
     <Layout fullwidth>
       <BlueContainer></BlueContainer>

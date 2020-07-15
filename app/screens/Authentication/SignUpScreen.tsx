@@ -24,7 +24,7 @@ const Footer = styled.View<ThemeProps>`
 `
 
 export const SignUpScreen = ({
-  navigation,
+  navigation
 }: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.SIGN_UP>) => {
   return (
     <Layout fullwidth>
