@@ -6,7 +6,7 @@ import { AuthenticationStackParamList } from '../../types'
 import { AuthenticationScreenName } from '../../navigation/ScreenNames'
 import { Layout } from '../../components/Layout'
 import { ThemeProps } from '../../components/Themed'
-import { SignUpForm } from '../../components/SignUpFormForm '
+import { SignUpForm } from '../../components/SignUpForm'
 import { Text } from '../../components/Text'
 import { Button } from '../../components/Button'
 
