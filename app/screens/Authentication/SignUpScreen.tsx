@@ -1,40 +1,47 @@
-import { StackScreenProps } from '@react-navigation/stack';
-import * as React from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React from 'react'
+import { StackScreenProps } from '@react-navigation/stack'
+import styled from 'styled-components/native'
 
-import { RootStackParamList } from '../../types';
+import { AuthenticationStackParamList } from '../../types'
+import { AuthenticationScreenName } from '../../constants/ScreenNames'
+import { Layout } from '../../components/Layout'
+import { ThemeProps } from '../../components/Themed'
+import { SignUpForm } from '../../components/SignUpFormForm '
+import { Text } from '../../components/Text'
+import { Button } from '../../components/Button'
+
+const BlueContainer = styled.View<ThemeProps>`
+  background-color: ${props => props.theme.colour.blue};
+  flex: 0.4;
+`
+
+const Container = styled.View<ThemeProps>`
+  background-color: ${props => props.theme.colour.white};
+  flex: 0.6;
+  padding: 32px 24px;
+  margin-bottom: 32px;
+`
+
+const Footer = styled.View<ThemeProps>`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`
 
 export const SignUpScreen = ({
   navigation,
-}: StackScreenProps<RootStackParamList, 'NotFound'>) => {
+}: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.SIGN_UP>) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen SignUpScreen</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Root')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
-    </View>
-  );
+    <Layout fullwidth>
+      <BlueContainer></BlueContainer>
+      <Container>
+        <SignUpForm />
+        <Footer>
+          <Text light>Already have an account?</Text>
+          <Button outline title={"Login"} onPress={() => navigation.push(AuthenticationScreenName.LOGIN)}/>
+        </Footer>
+      </Container>
+    </Layout>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-});
