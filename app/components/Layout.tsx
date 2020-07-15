@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { View } from 'react-native'
-import { ThemeProps } from './Themed'
 
-export type LayoutProps = ThemeProps & View['props'] & {
-  fullwidth: boolean
-  background: string
+export type LayoutProps = View['props'] & {
+  fullwidth?: boolean
+  background?: string
 }
 
 const ScreenContainer = styled.View<LayoutProps>`
