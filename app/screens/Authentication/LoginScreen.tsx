@@ -4,7 +4,7 @@ import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../types'
 import { Layout } from '../../components/Layout'
-import { AuthenticationScreenName } from '../../constants/ScreenNames'
+import { AuthenticationScreenName } from '../../navigation/ScreenNames'
 import { LoginForm } from '../../components/LoginForm'
 import { Button } from '../../components/Button'
 import { ThemeProps } from '../../components/Themed'
