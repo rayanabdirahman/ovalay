@@ -3,7 +3,6 @@ import logger from './util/logger'
 import { RegistrableController } from './api/registrable.controller'
 import container from './inversify.config'
 import TYPES from './types'
-import ApiResponse from './util/api-response'
 
 export default async (): Promise<express.Application> => (
   new Promise<express.Application>(async (resolve, reject) => {
