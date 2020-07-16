@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { AuthenticationStackParamList } from '../types'
+import { AuthenticationStackParamList } from './types'
 import { AuthenticationScreenName } from './ScreenNames'
 import { LoginScreen, SignUpScreen } from '../screens/Authentication'
 

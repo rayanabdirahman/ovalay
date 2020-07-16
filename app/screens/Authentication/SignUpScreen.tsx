@@ -2,7 +2,7 @@ import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import styled from 'styled-components/native'
 
-import { AuthenticationStackParamList } from '../../types'
+import { AuthenticationStackParamList } from '../../navigation/types'
 import { AuthenticationScreenName } from '../../navigation/ScreenNames'
 import { Layout } from '../../components/Layout'
 import { ThemeProps } from '../../components/Themed'

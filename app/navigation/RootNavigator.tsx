@@ -1,6 +1,6 @@
 import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
-import { RootStackParamList } from '../types'
+import { RootStackParamList } from './types'
 import BottomTabNavigator from './BottomTabNavigator'
 import NotFoundScreen from '../screens/NotFoundScreen'
 

@@ -2,7 +2,7 @@ import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
-import { BottomTabParamList } from '../../types'
+import { BottomTabParamList } from '../../navigation/types'
 import { RootScreenName } from '../../navigation/ScreenNames'
 
 export const ExploreScreen = ({
