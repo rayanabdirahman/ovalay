@@ -10,6 +10,8 @@ export default async (): Promise<express.Application> => (
     try {
       const app = express()
 
+      // TODO: add a check to ensure JWT secret has been set in process.env 
+
       // set middleware
       app.use(express.json())
       app.use(express.urlencoded({ extended: false }))
