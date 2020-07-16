@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { View } from 'react-native'
+import { View as DefaultView } from 'react-native'
 
-export type LayoutProps = View['props'] & {
+export type LayoutProps = DefaultView['props'] & {
   fullwidth?: boolean
   background?: string
 }

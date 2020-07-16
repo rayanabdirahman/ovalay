@@ -3,19 +3,15 @@ import { StackScreenProps } from '@react-navigation/stack'
 import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../navigation/types'
-import { Layout } from '../../components/Layout'
 import { AuthenticationScreenName } from '../../navigation/ScreenNames'
-import { LoginForm } from '../../components/LoginForm'
-import { Button } from '../../components/Button'
-import { ThemeProps } from '../../components/Themed'
+import { Layout, LoginForm, Button } from '../../components'
 
-
-const BlueContainer = styled.View<ThemeProps>`
+const BlueContainer = styled.View`
   background-color: ${props => props.theme.colour.blue};
   flex: 0.4;
 `
 
-const Container = styled.View<ThemeProps>`
+const Container = styled.View`
   background-color: ${props => props.theme.colour.white};
   flex: 0.6;
   padding: 32px 24px;

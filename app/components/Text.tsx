@@ -1,11 +1,10 @@
 import styled from 'styled-components/native'
 import { Text as DefaultText } from 'react-native'
-import { ThemeProps } from './Themed'
 
-export type TextProps = ThemeProps & DefaultText['props'] & {
-  h1: boolean
-  h2: boolean
-  light: boolean
+export type TextProps = DefaultText['props'] & {
+  h1?: boolean
+  h2?: boolean
+  light?: boolean
 }
 
 export const Text = styled.Text<TextProps>`

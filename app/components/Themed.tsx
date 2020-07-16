@@ -1,3 +1,5 @@
+import 'styled-components'
+
 type ColourProps = {
   black: string
   white: string
@@ -38,4 +40,10 @@ export const theme: ThemeProps = {
     fullwidth: '0',
     container: '0 20px'
   }
+}
+
+// extend default theme to accept custom theme properties
+type Theme = typeof theme
+declare module 'styled-components' {
+  export interface DefaultTheme extends Theme {}
 }

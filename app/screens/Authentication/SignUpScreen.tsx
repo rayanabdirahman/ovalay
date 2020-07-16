@@ -4,19 +4,15 @@ import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../navigation/types'
 import { AuthenticationScreenName } from '../../navigation/ScreenNames'
-import { Layout } from '../../components/Layout'
-import { ThemeProps } from '../../components/Themed'
-import { SignUpForm } from '../../components/SignUpForm'
-import { Text } from '../../components/Text'
-import { Button } from '../../components/Button'
+import { Layout, SignUpForm, Text, Button } from '../../components'
 
-const Container = styled.View<ThemeProps>`
+const Container = styled.View`
   flex: 1;
   padding: 32px 24px;
   margin-top: 32px;
 `
 
-const Footer = styled.View<ThemeProps>`
+const Footer = styled.View`
   display: flex;
   flex-direction: row;
   align-items: center;
