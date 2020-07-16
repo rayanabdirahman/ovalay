@@ -29,6 +29,6 @@ function App() {
 // Provider component provides access to application state
 export default () => (
   <Provider store={store}>
-      <App />
+    <App />
   </Provider>
 )
