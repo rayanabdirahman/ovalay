@@ -1,18 +1,21 @@
 .navbar {
-  padding-top: 3rem;
+  padding-top: 2rem;
 
   a {
     color: $colour-black;
-    font-weight: $font-weight-medium;
+    font-weight: $font-weight-regular;
+
+    &.navbar-brand {
+      font-size: 1.5rem;
+      font-weight: $font-weight-bold;
+    }
   }
 }
 
-.navbar-brand {
-  font-size: 1.5rem;
-  font-weight: $font-weight-bold;
-  color: $colour-black;
+.navbar-collapse {
+  justify-content: flex-end;
 }
 
-.navbar-collapse {
-  justify-content: center;
+.navbar-light {
+  background-color: $colour-white;
 }
