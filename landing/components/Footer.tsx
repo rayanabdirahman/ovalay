@@ -5,28 +5,28 @@ export const Footer: React.FunctionComponent = () => (
     <div className="container-fluid">
       <div className="row">
         <div className="col-6">
-          <p>made with &hearts; in London</p>
+          <p>made with ♥️  in London</p>
         </div>
         <div className="col-6">
           <ul className="social-links">
             <li className="social-item">              
               <Link href="#">
                 <a>
-                  <img src="/twitter.png" alt="twitter"/>
+                  <img src="/twitter-white.png" alt="twitter"/>
                 </a>
               </Link>
             </li>
             <li className="social-item">              
               <Link href="#">
                 <a>
-                  <img src="/instagram.png" alt="instagram"/>
+                  <img src="/instagram-white.png" alt="instagram"/>
                 </a>
               </Link>
             </li>
             <li className="social-item">              
               <Link href="#">
                 <a>
-                  <img src="/mail.png" alt="mail"/>
+                  <img src="/mail-white.png" alt="mail"/>
                 </a>
               </Link>
             </li>
