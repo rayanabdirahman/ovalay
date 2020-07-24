@@ -12,21 +12,21 @@ export const Footer: React.FunctionComponent = () => (
             <li className="social-item">              
               <Link href="#">
                 <a>
-                  <img src="/twitter.png" alt="twitter"/>
+                  <img src="/twitter-white.png" alt="twitter"/>
                 </a>
               </Link>
             </li>
             <li className="social-item">              
               <Link href="#">
                 <a>
-                  <img src="/instagram.png" alt="instagram"/>
+                  <img src="/instagram-white.png" alt="instagram"/>
                 </a>
               </Link>
             </li>
             <li className="social-item">              
               <Link href="#">
                 <a>
-                  <img src="/mail.png" alt="mail"/>
+                  <img src="/mail-white.png" alt="mail"/>
                 </a>
               </Link>
             </li>
