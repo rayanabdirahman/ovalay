@@ -5,7 +5,7 @@ export const Footer: React.FunctionComponent = () => (
     <div className="container-fluid">
       <div className="row">
         <div className="col-6">
-          <p>made with &hearts; in London</p>
+          <p>made with ♥️  in London</p>
         </div>
         <div className="col-6">
           <ul className="social-links">

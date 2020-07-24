@@ -2,12 +2,17 @@
   padding-top: 2rem;
 
   a {
-    color: $colour-black;
+    color: $colour-white;
     font-weight: $font-weight-regular;
 
     &.navbar-brand {
       font-size: 1.5rem;
       font-weight: $font-weight-bold;
+    }
+
+    &.nav-link {
+      color: $colour-white;
+      font-weight: $font-weight-regular;
     }
   }
 }
