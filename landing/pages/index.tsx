@@ -3,7 +3,7 @@ import { Hero } from '../components/Hero'
 import { SellingPoints } from '../components/SellingPoints'
 
 const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
+  <Layout title="Mainstreet | The online mall for trainers">
     <Hero />
     <SellingPoints />
   </Layout>
