@@ -1,4 +1,4 @@
-import Link from 'next/link'
+// import Link from 'next/link'
 import { MailChimpForm } from './MailChimpForm'
 
 export const Footer: React.FunctionComponent = () => (
@@ -41,11 +41,9 @@ export const Footer: React.FunctionComponent = () => (
                 </Link>
               </li> */}
               <li className="social-item">              
-                <Link href="#">
-                  <a href="mailto:trymainstreet@gmail.com">
-                    <img src="/mail-white.png" alt="mail"/>
-                  </a>
-                </Link>
+                <a href="mailto:trymainstreet@gmail.com">
+                  <img src="/mail-white.png" alt="mail"/>
+                </a>
               </li>
             </ul>
           </div>
