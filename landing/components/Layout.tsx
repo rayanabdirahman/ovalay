@@ -20,11 +20,9 @@ const Layout = ({ children, title = 'This is the default title' }: Props) => (
         content="Mainstreet is an online marketplace designed to connect shoppers with their favourite retail brands"
       />
     </Head>
-    <main className="container">
     <Navbar />
-      {children}
-      <Footer />
-    </main>
+    {children}
+    <Footer />
   </div>
 )
 
