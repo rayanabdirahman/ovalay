@@ -1,29 +1,19 @@
 .form {
   position: relative;
-  display: flex;
-  align-items: center;
   button {
     padding: 1.2rem;
-    border: 2px solid $colour-white;
-    background-color: transparent;
-    color: $colour-white;
-    margin-top: 8px;
     position: absolute;
+    top: 0;
     right: 0;
+    border: 2px solid $colour-black;
+    background-color: $colour-black;
+    color: $colour-white;
   }
-}
-
-.form-group {
-  width: 100%;
 }
 
 .form-control {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  border: 2px solid $colour-black;
   border-radius: 0;
-  border: 2px solid $colour-white;
-  padding: 2rem;
-  background-color: transparent;
-
-  &::placeholder {
-    color: $colour-white;
-  }
 }
