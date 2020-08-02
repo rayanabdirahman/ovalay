@@ -1,4 +1,4 @@
-import { MailChimpForm } from "./MailChimpForm";
+import { MailChimpForm } from './MailChimpForm';
 
 export const Hero: React.FunctionComponent = () => (
   <section className="jumbotron">

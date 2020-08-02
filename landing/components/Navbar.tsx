@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 export const Navbar: React.FunctionComponent = () => (
   <div className="navbar navbar-expand-lg">
     <div className="container">
