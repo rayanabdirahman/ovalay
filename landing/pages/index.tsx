@@ -5,7 +5,7 @@ import { SellingPoints } from '../components/SellingPoints'
 const IndexPage = () => (
   <Layout title="Mainstreet | The online mall for trainers">
     <Hero />
-    <SellingPoints />
+    {/* <SellingPoints /> */}
   </Layout>
 )
 

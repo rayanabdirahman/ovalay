@@ -3,7 +3,7 @@ import Link from 'next/link'
 export const Navbar: React.FunctionComponent = () => (
   <div className="navbar navbar-expand-lg">
     <a className="navbar-brand" href="#">mainstreet</a>
-    <div className="collapse navbar-collapse" id="navbarNav">
+    {/* <div className="collapse navbar-collapse" id="navbarNav">
       <ul className="navbar-nav">
         <li className="nav-item">
           <Link  href="#">
@@ -21,6 +21,6 @@ export const Navbar: React.FunctionComponent = () => (
           </Link>
         </li>
       </ul>
-    </div>
+    </div> */}
   </div>
 )
