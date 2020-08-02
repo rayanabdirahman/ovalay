@@ -6,13 +6,13 @@ export const Footer: React.FunctionComponent = () => (
     <div className="jumbotron">
       <div className="container-fluid">
         <div className="row justify-content-center">
-          <div className="col-3 text-center">
+          <div className="col-sm-12 col-md-4 col-lg-4 text-center">
             <h2 className="h1 mb-5">We’re redefining the shopping experience</h2>
           </div>
         </div>
         <div className="row justify-content-center">
-          <div className="col-6 justify-content-center">
-            <div className="col-6 m-auto">
+          <div className="col-sm-12 col-md-12 col-lg-12 justify-content-center">
+            <div className="col-sm-12 col-md-6 col-lg-6 m-auto">
               <p className="lead mb-3">Join our waitlist to get early access</p>
               <MailChimpForm />
             </div>
