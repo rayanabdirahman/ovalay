@@ -26,7 +26,7 @@ export const Footer: React.FunctionComponent = () => (
           </div>
           <div className="col-6">
             <ul className="social-links">
-              <li className="social-item">              
+              {/* <li className="social-item">              
                 <Link href="#">
                   <a>
                     <img src="/twitter-white.png" alt="twitter"/>
@@ -39,10 +39,10 @@ export const Footer: React.FunctionComponent = () => (
                     <img src="/instagram-white.png" alt="instagram"/>
                   </a>
                 </Link>
-              </li>
+              </li> */}
               <li className="social-item">              
                 <Link href="#">
-                  <a>
+                  <a href="mailto:trymainstreet@gmail.com">
                     <img src="/mail-white.png" alt="mail"/>
                   </a>
                 </Link>
