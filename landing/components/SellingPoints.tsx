@@ -1,27 +1,24 @@
 export const SellingPoints: React.FunctionComponent = () => (
   <section>
-    <div className="row align-items-center justify-content-center mb-5">
-      <div className="col-5">
-        <h2>Shop your favourite high street stores and brands from one place</h2>
+    <div className="container">
+      <div className="row justify-content-center text-center mb-5">
+        <div className="col-8">
+          <h2 className="display-4">Shopping, but better</h2>
+        </div>
       </div>
-      <div className="col-6">
-        <img src="/shoes.png" alt="" width="100%"/>
-      </div>
-    </div>
-    <div className="row align-items-center justify-content-center flex-row-reverse mb-5">
-      <div className="col-5">
-        <h2>Follow the stores you love for better recommendations</h2>
-      </div>
-      <div className="col-6">
-        <img src="/recommendations.png" alt="" width="100%"/>
-      </div>
-    </div>
-    <div className="row align-items-center justify-content-center mb-5">
-      <div className="col-5">
-        <h2>Keep up to date with the latest sales and drops</h2>
-      </div>
-      <div className="col-6">
-        <img src="/sales.png" alt="" width="100%"/>
+      <div className="row">
+        <div className="col-4 text-center">
+          <img className="mb-5" src="/Nike-Air-Force.png" alt="" width="200px"/>
+          <p className="h4">Shop your favourite stores from one place</p>
+        </div>
+        <div className="col-4 text-center">
+          <img className="mb-5" src="/Converse-All-Star.png" alt="" width="200px"/>
+          <p className="h4">Follow the stores you love for better recommendations</p>
+        </div>
+        <div className="col-4 text-center">
+          <img className="mb-5" src="/Nike-Air-Max-1.png" alt="" width="200px"/>
+          <p className="h4">Keep updated on sales and new drops</p>
+        </div>
       </div>
     </div>
   </section>
