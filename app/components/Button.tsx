@@ -10,8 +10,8 @@ export type ButtonProps = DefaultButton['props'] & {
 }
 
 const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
-  background-color: ${ props => props.primary ? props.theme.colour.blue : props.theme.colour.white };
-  border: ${ props => props.outline ? 0 : `2px solid ${props.theme.colour.blue}` };
+  background-color: ${ props => props.primary ? props.theme.colour.black : props.theme.colour.white };
+  border: ${ props => props.outline ? 0 : `2px solid ${props.theme.colour.black}` };
   padding: ${ props => props.outline ? 0 : '20px 16px' };
   border-radius: 8px;
   align-items: center;
@@ -21,7 +21,7 @@ const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
 `
 
 const ButtonText = styled(Text)<ButtonProps>`
-  color: ${ props => props.primary ? props.theme.colour.white : props.theme.colour.blue };
+  color: ${ props => props.primary ? props.theme.colour.white : props.theme.colour.black };
   margin: 0;
   font-weight: ${ props => props.theme.fontweight.bold };
 `
