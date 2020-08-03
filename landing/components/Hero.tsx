@@ -10,7 +10,7 @@ export const Hero: React.FunctionComponent = () => (
           <MailChimpForm />
         </div>
         <div className="col-sm-12 col-md-6 col-lg-6">
-          <img src="/recommendations.png" alt="" width="100%"/>
+          <img src="/recommendations.png" alt="product image" width="100%"/>
         </div>
       </div>
     </div>

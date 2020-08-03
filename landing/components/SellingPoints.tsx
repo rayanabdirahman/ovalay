@@ -8,15 +8,15 @@ export const SellingPoints: React.FunctionComponent = () => (
       </div>
       <div className="row">
         <div className="col-sm-12 col-md-4 col-lg-4 text-center">
-          <img className="mb-5" src="/Nike-Air-Force.png" alt="" width="200px"/>
+          <img className="mb-5" src="/Nike-Air-Force.png" alt="Nike Air Force trainers" width="150px"/>
           <p className="h4">Shop your favourite stores from one place</p>
         </div>
         <div className="col-sm-12 col-md-4 col-lg-4 text-center">
-          <img className="mb-5" src="/Converse-All-Star.png" alt="" width="200px"/>
+          <img className="mb-5" src="/Converse-All-Star.png" alt="Converse All Star trainers" width="150px"/>
           <p className="h4">Follow the stores you love for better recommendations</p>
         </div>
         <div className="col-sm-12 col-md-4 col-lg-4 text-center">
-          <img className="mb-5" src="/Nike-Air-Max-1.png" alt="" width="200px"/>
+          <img className="mb-5" src="/Nike-Air-Max-1.png" alt="Nike Air Max trainers" width="150px"/>
           <p className="h4">Keep updated on sales and new drops</p>
         </div>
       </div>
