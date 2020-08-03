@@ -14,9 +14,9 @@ const Container = styled.View`
   margin-top: 32px;
 `
 
-export const ExploreScreen = ({
+export const FeedScreen = ({
   navigation,
-}: StackScreenProps<BottomTabParamList, RootScreenName.EXPLORE>) => {
+}: StackScreenProps<BottomTabParamList, RootScreenName.FEED>) => {
   return (
     <Layout fullwidth>
       <Container>

@@ -4,7 +4,7 @@ export enum AuthenticationScreenName {
 }
 
 export enum RootScreenName {
-  EXPLORE = 'Explore',
+  FEED = 'Feed',
   SEARCH = 'Search',
   WISHLIST = 'WishList',
   PROFILE = 'Profile'

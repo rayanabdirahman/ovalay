@@ -9,7 +9,7 @@ export type AuthenticationStackParamList = {
 }
 
 export type BottomTabParamList = {
-  Explore: undefined
+  Feed: undefined
   Search: undefined
   WishList: undefined
   Profile: undefined
