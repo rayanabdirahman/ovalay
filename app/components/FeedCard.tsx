@@ -122,7 +122,7 @@ export const FeedCard = ({
           </DefaultView>
         </Head>
         <Body style={{ flexDirection: "column" }}>
-          <DefaultView style={{ flexDirection: "row", marginBottom: 16 }}>
+          <DefaultView style={{ flexDirection: "row", marginBottom: 8 }}>
             {
               [
                 require('../assets/icons/star-filled.png'),
@@ -136,7 +136,7 @@ export const FeedCard = ({
             }
           </DefaultView>
 
-          <DefaultView style={{ flexDirection: "row", justifyContent: "space-between" }}>
+          <DefaultView style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" }}>
             <DefaultView style={{ maxWidth: 250 }}>
               <Text>Extremely comfortable couldn't recommend them enough</Text>
             </DefaultView>
