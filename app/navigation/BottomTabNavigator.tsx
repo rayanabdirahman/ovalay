@@ -13,7 +13,7 @@ function TabBarIcon({ image, color }: { image: ImageProps; color: string }) {
 
 // set bottom tab navigatior options
 const tabBarOptions = {
-  activeTintColor: theme.colour.blue,
+  activeTintColor: theme.colour.black,
   inactiveTintColor: theme.colour.lightgrey,
   style: { backgroundColor: theme.colour.white }
 }
