@@ -6,8 +6,8 @@ import { AuthenticationStackParamList } from '../../navigation/types'
 import { AuthenticationScreenName } from '../../navigation/ScreenNames'
 import { Layout, LoginForm, Button } from '../../components'
 
-const BlueContainer = styled.View`
-  background-color: ${props => props.theme.colour.blue};
+const ImageContainer = styled.View`
+  background-color: ${props => props.theme.colour.white};
   flex: 0.4;
 `
 
@@ -23,7 +23,7 @@ export const LoginScreen = ({
 }: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
   return (
     <Layout fullwidth>
-      <BlueContainer></BlueContainer>
+      <ImageContainer></ImageContainer>
       <Container>
         <LoginForm />
         <Button primary title={"Create Account"} onPress={() => navigation.push(AuthenticationScreenName.SIGN_UP)}></Button>
