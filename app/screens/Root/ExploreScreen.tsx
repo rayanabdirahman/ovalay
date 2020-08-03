@@ -1,41 +1,30 @@
 import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
 
 import { BottomTabParamList } from '../../navigation/types'
 import { RootScreenName } from '../../navigation/ScreenNames'
+import { Layout, Text, FeedCard } from '../../components'
+import styled from 'styled-components/native'
+import { ScrollView } from 'react-native'
+
+const Container = styled.View`
+  flex: 1;
+  padding: 32px 24px;
+  margin-top: 32px;
+`
 
 export const ExploreScreen = ({
   navigation,
 }: StackScreenProps<BottomTabParamList, RootScreenName.EXPLORE>) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen ExploreScreen</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Explore')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
-    </View>
+    <Layout fullwidth>
+      <Container>
+        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+          <Text h1>Feed</Text>
+          <FeedCard />
+        </ScrollView>
+      </Container>
+    </Layout>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-})
