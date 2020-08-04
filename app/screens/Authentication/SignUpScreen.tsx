@@ -3,7 +3,7 @@ import { StackScreenProps } from '@react-navigation/stack'
 import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../navigation/types'
-import { AuthenticationScreenName } from '../../navigation/ScreenNames'
+import { AuthenticationNavigatorScreenName } from '../../navigation/ScreenNames'
 import { Layout, SignUpForm, Text, Button } from '../../components'
 
 const Container = styled.View`
@@ -21,14 +21,14 @@ const Footer = styled.View`
 
 export const SignUpScreen = ({
   navigation
-}: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.SIGN_UP>) => {
+}: StackScreenProps<AuthenticationStackParamList, AuthenticationNavigatorScreenName.SIGN_UP>) => {
   return (
     <Layout fullwidth>
       <Container>
         <SignUpForm />
         <Footer>
           <Text light>Already have an account?</Text>
-          <Button outline title={"Login"} onPress={() => navigation.push(AuthenticationScreenName.LOGIN)}/>
+          <Button outline title={"Login"} onPress={() => navigation.push(AuthenticationNavigatorScreenName.LOGIN)}/>
         </Footer>
       </Container>
     </Layout>

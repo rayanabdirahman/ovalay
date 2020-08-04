@@ -2,11 +2,11 @@ import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
 
 import { BottomTabParamList } from '../../navigation/types'
-import { RootScreenName } from '../../navigation/ScreenNames'
+import { RootNavigatorScreenName } from '../../navigation/ScreenNames'
 import { Layout, ContentContainer, Text, FeedCard } from '../../components'
 import { ScrollView } from 'react-native'
 
-export const FeedScreen = ({ navigation }: StackScreenProps<BottomTabParamList, RootScreenName.FEED>) => {
+export const FeedScreen = ({ navigation }: StackScreenProps<BottomTabParamList, RootNavigatorScreenName.FEED>) => {
   return (
     <Layout fullwidth>
       <ContentContainer>

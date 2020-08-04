@@ -3,11 +3,11 @@ import * as React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { BottomTabParamList } from '../../navigation/types'
-import { RootScreenName } from '../../navigation/ScreenNames'
+import { RootNavigatorScreenName } from '../../navigation/ScreenNames'
 
 export const SearchScreen = ({
   navigation,
-}: StackScreenProps<BottomTabParamList, RootScreenName.SEARCH>) => {
+}: StackScreenProps<BottomTabParamList, RootNavigatorScreenName.SEARCH>) => {
   return (
     <View style={styles.container}>
       <Text style={styles.title}>This screen SearchScreen</Text>

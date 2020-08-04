@@ -1,16 +1,16 @@
-export enum AuthenticationScreenName {
+export enum AuthenticationNavigatorScreenName {
   LOGIN = 'Login',
   SIGN_UP = 'SignUp'
 }
 
-export enum RootScreenName {
+export enum RootNavigatorScreenName {
   FEED = 'Feed',
   SEARCH = 'Search',
   WISHLIST = 'WishList',
   PROFILE = 'Profile'
 }
 
-export enum FeedScreenName {
+export enum FeedNavigatorScreenName {
   FEED = 'Feed',
   PRODUCT = 'Product'
 }
