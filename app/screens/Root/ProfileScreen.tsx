@@ -1,41 +1,22 @@
 import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import { BottomTabParamList } from '../../navigation/types'
 import { RootScreenName } from '../../navigation/ScreenNames'
+import { Layout, ContentContainer, Text, Button } from '../../components'
+import { logoutUser } from '../../store/actions/authentication'
+import { useDispatch } from 'react-redux'
 
 export const ProfileScreen = ({
   navigation,
 }: StackScreenProps<BottomTabParamList, RootScreenName.PROFILE>) => {
+  const dispatch = useDispatch()
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen ProfileScreen</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Explore')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
-    </View>
+    <Layout fullwidth>
+      <ContentContainer>
+        <Text h1>Profile</Text>
+        <Button title="Logout" onPress={() => dispatch(logoutUser())} />
+      </ContentContainer>
+    </Layout>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-})
