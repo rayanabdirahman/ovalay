@@ -3,8 +3,9 @@ import { Image, ImageProps } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { BottomTabParamList } from './types'
 import { RootScreenName } from './ScreenNames'
-import { FeedScreen, SearchScreen, WishListScreen, ProfileScreen } from '../screens/Root'
+import { SearchScreen, WishListScreen, ProfileScreen } from '../screens/Root'
 import { theme } from '../components/Themed'
+import FeedScreenNavigator from './FeedScreenNavigator'
 
 // Component to display navigation icons using Image component 
 function TabBarIcon({ image, color }: { image: ImageProps; color: string }) {
@@ -26,7 +27,7 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator initialRouteName={RootScreenName.FEED} tabBarOptions={tabBarOptions}>
       <BottomTab.Screen
         name={RootScreenName.FEED}
-        component={FeedScreen}
+        component={FeedScreenNavigator}
         options={{ 
           tabBarIcon: ({ color }) => <TabBarIcon image={require('../assets/icons/basket.png')} color={color} /> 
         }} 

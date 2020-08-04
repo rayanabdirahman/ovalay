@@ -14,3 +14,9 @@ export type BottomTabParamList = {
   WishList: undefined
   Profile: undefined
 }
+
+// screens
+export type FeedScreenStackParamList = {
+  Feed: undefined
+  Product: undefined
+}

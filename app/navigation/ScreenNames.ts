@@ -9,3 +9,8 @@ export enum RootScreenName {
   WISHLIST = 'WishList',
   PROFILE = 'Profile'
 }
+
+export enum FeedScreenName {
+  FEED = 'Feed',
+  PRODUCT = 'Product'
+}
