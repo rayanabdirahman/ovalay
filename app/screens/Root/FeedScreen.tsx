@@ -20,8 +20,8 @@ export const FeedScreen = ({
   return (
     <Layout fullwidth>
       <Container>
+        <Text h1>Feed</Text>
         <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-          <Text h1>Feed</Text>
           <FeedCard />
         </ScrollView>
       </Container>
