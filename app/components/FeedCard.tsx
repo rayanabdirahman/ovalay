@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { View as DefaultView, Image as DefaultImage } from 'react-native'
+import { View as DefaultView, Image as DefaultImage, ScrollView } from 'react-native'
 import { Text as DefaultText } from './Text'
-import { Button } from './Button'
 import { Thumbnail } from 'native-base'
 
 export type ViewProps = DefaultView['props'] & {}
@@ -56,7 +55,7 @@ export const FeedCard = ({
     require('../assets/images/air-max-orange.jpg'),
     require('../assets/images/jordan-1-red.jpg'),
     require('../assets/images/air-max.jpg'),
-    require('../assets/images/air-max.jpg')
+    require('../assets/images/nike-95.jpg')
   ]
 
 }) => {
@@ -96,15 +95,15 @@ export const FeedCard = ({
           </DefaultView>
         </Head>
         <Body>
-          {
-            imagesArr.map((image, index, arr) => {
-              return (arr.length > 2) ? 
-                <Image key={`product-image--${index}`} small source={image} resizeMode="cover" /> : 
-                <Image key={`product-image--${index}`} source={image} resizeMode="cover" />
-            })
-          }
-          
-          { imagesArr.length > 2 ? <Button secondary title={`+ ${images.length - 3}`} onPress={() => alert('clciked')} /> : null }
+          <ScrollView horizontal showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+            {
+              images.map((image, index, arr) => {
+                return (arr.length > 2) ? 
+                  <Image key={`product-image--${index}`} small source={image} resizeMode="cover" /> :
+                  <Image key={`product-image--${index}`} source={image} resizeMode="cover" />
+              })
+            }
+          </ScrollView>
         </Body>
       </Card>
       
@@ -159,17 +158,19 @@ export const FeedCard = ({
           </DefaultView>
         </Head>
         <Body>
-          {
-            [
-              require('../assets/images/nike-95.jpg'),
-              require('../assets/images/yeezy.jpg'),
-            ].map((image, index, arr) => {
-              return (arr.length > 2) ? 
-                <Image key={`product-image--${index}`} small source={image} resizeMode="cover" /> : 
-                <Image key={`product-image--${index}`} source={image} resizeMode="cover" />
-            })
-          }
-          { imagesArr.length > 2 ? <Button secondary title={`+ ${images.length - 3}`} onPress={() => alert('clciked')} /> : null }
+          <ScrollView horizontal showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+            {
+              [
+                require('../assets/images/nike-95.jpg'),
+                require('../assets/images/yeezy.jpg'),
+                require('../assets/images/vans.jpg'),
+              ].map((image, index, arr) => {
+                return (arr.length > 2) ? 
+                  <Image key={`product-image--${index}`} small source={image} resizeMode="cover" /> : 
+                  <Image key={`product-image--${index}`} source={image} resizeMode="cover" />
+              })
+            }
+          </ScrollView>
         </Body>
       </Card>
     </React.Fragment>
