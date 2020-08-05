@@ -2,7 +2,7 @@ import React from 'react'
 import { Image, ImageProps } from 'react-native'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { BottomTabParamList } from './types'
-import { RootNavigatorScreenName } from './ScreenNames'
+import { BottomNavigatorScreenName } from './ScreenNames'
 import { SearchScreen, WishListScreen, ProfileScreen, FeedScreen } from '../screens/Root'
 import { theme } from '../components/Themed'
 // import FeedScreenNavigator from './FeedScreenNavigator'
@@ -24,9 +24,9 @@ const tabBarOptions = {
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 export default function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName={RootNavigatorScreenName.FEED} tabBarOptions={tabBarOptions}>
+    <BottomTab.Navigator initialRouteName={BottomNavigatorScreenName.FEED} tabBarOptions={tabBarOptions}>
       <BottomTab.Screen
-        name={RootNavigatorScreenName.FEED}
+        name={BottomNavigatorScreenName.FEED}
         component={FeedScreen}
         options={{ 
           tabBarIcon: ({ color }) => <TabBarIcon image={require('../assets/icons/basket.png')} color={color} /> 
@@ -34,7 +34,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name={RootNavigatorScreenName.SEARCH}
+        name={BottomNavigatorScreenName.SEARCH}
         component={SearchScreen}
         options={{ 
           tabBarIcon: ({ color }) => <TabBarIcon image={require('../assets/icons/search.png')} color={color} />
@@ -42,7 +42,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name={RootNavigatorScreenName.WISHLIST}
+        name={BottomNavigatorScreenName.WISHLIST}
         component={WishListScreen}
         options={{ 
           tabBarIcon: ({ color }) => <TabBarIcon image={require('../assets/icons/heart.png')} color={color} />
@@ -50,7 +50,7 @@ export default function BottomTabNavigator() {
       />
 
       <BottomTab.Screen
-        name={RootNavigatorScreenName.PROFILE}
+        name={BottomNavigatorScreenName.PROFILE}
         component={ProfileScreen}
         options={{ 
           tabBarIcon: ({ color }) => <TabBarIcon image={require('../assets/icons/person.png')} color={color} />
