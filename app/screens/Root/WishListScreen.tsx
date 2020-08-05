@@ -1,41 +1,20 @@
-import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StackScreenProps } from '@react-navigation/stack'
 
 import { BottomTabParamList } from '../../navigation/types'
-import { RootScreenName } from '../../navigation/ScreenNames'
+import { BottomNavigatorScreenName } from '../../navigation/ScreenNames'
+import { Layout, ContentContainer, Text, WishList } from '../../components'
+import { ScrollView } from 'react-native'
 
-export const WishListScreen = ({
-  navigation,
-}: StackScreenProps<BottomTabParamList, RootScreenName.WISHLIST>) => {
+export const WishListScreen = ({ navigation }: StackScreenProps<BottomTabParamList, BottomNavigatorScreenName.WISHLIST>) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>This screen WishListScreen</Text>
-      <TouchableOpacity onPress={() => navigation.replace('Explore')} style={styles.link}>
-        <Text style={styles.linkText}>Go to home screen!</Text>
-      </TouchableOpacity>
-    </View>
+    <Layout fullwidth>
+      <ContentContainer>
+        <Text h1>Wishlist</Text>
+        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
+          <WishList navigation={navigation} />
+        </ScrollView>
+      </ContentContainer>
+    </Layout>
   )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  title: {
-    fontSize: 20,
-    fontWeight: 'bold',
-  },
-  link: {
-    marginTop: 15,
-    paddingVertical: 15,
-  },
-  linkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
-})

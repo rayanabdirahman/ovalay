@@ -1,6 +1,7 @@
 export type RootStackParamList = {
   Root: undefined
   NotFound: undefined
+  Modal: undefined
 }
 
 export type AuthenticationStackParamList = {
@@ -9,7 +10,7 @@ export type AuthenticationStackParamList = {
 }
 
 export type BottomTabParamList = {
-  Explore: undefined
+  Feed: undefined
   Search: undefined
   WishList: undefined
   Profile: undefined

@@ -19,7 +19,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <SafeAreaProvider>
-        <Navigation isUserAuthenticated={session.isAuthenticated}  />
+        {/* <Navigation isUserAuthenticated={session.isAuthenticated}  /> */}
+        <Navigation isUserAuthenticated={true}  />
         <StatusBar />
       </SafeAreaProvider>
     </ThemeProvider>

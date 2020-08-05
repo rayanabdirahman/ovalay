@@ -3,11 +3,11 @@ import { StackScreenProps } from '@react-navigation/stack'
 import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../navigation/types'
-import { AuthenticationScreenName } from '../../navigation/ScreenNames'
+import { AuthenticationNavigatorScreenName } from '../../navigation/ScreenNames'
 import { Layout, LoginForm, Button } from '../../components'
 
-const BlueContainer = styled.View`
-  background-color: ${props => props.theme.colour.blue};
+const ImageContainer = styled.View`
+  background-color: ${props => props.theme.colour.white};
   flex: 0.4;
 `
 
@@ -20,13 +20,13 @@ const Container = styled.View`
 
 export const LoginScreen = ({ 
   navigation 
-}: StackScreenProps<AuthenticationStackParamList, AuthenticationScreenName.LOGIN>) => {
+}: StackScreenProps<AuthenticationStackParamList, AuthenticationNavigatorScreenName.LOGIN>) => {
   return (
     <Layout fullwidth>
-      <BlueContainer></BlueContainer>
+      <ImageContainer></ImageContainer>
       <Container>
         <LoginForm />
-        <Button primary title={"Create Account"} onPress={() => navigation.push(AuthenticationScreenName.SIGN_UP)}></Button>
+        <Button primary title={"Create Account"} onPress={() => navigation.push(AuthenticationNavigatorScreenName.SIGN_UP)}></Button>
       </Container>
     </Layout>
   )
