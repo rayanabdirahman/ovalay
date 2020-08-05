@@ -4,6 +4,8 @@ import { View as DefaultView, Image as DefaultImage, ScrollView } from 'react-na
 import { Text as DefaultText } from './Text'
 import { Thumbnail } from 'native-base'
 import { TouchableOpacity } from 'react-native-gesture-handler'
+import { ProductScreen } from '../screens/Root'
+import { useNavigation } from '@react-navigation/native'
 
 export type ViewProps = DefaultView['props'] & {}
 
@@ -57,10 +59,14 @@ export const FeedCard = ({
     require('../assets/images/jordan-1-red.jpg'),
     require('../assets/images/air-max.jpg'),
     require('../assets/images/nike-95.jpg')
-  ],
-  navigation
+  ]
 }: any) => {
   const imagesArr = (images.length <= 2) ? images : images.slice(0, 3);
+  
+  const navigation = useNavigation();
+  const handleNavigation = () => {
+    return navigation.navigate("Modal", { component: <ProductScreen title="feed" />})
+  }
 
   return (
     <React.Fragment>
@@ -78,7 +84,8 @@ export const FeedCard = ({
           </DefaultView>
         </Head>
         <Body>
-          <TouchableOpacity onPress={() => navigation.navigate("Modal")}>
+          {/* <TouchableOpacity onPress={() => navigation.navigate("Modal", {component: <ProductScreen title="feed" /> })}> */}
+          <TouchableOpacity onPress={handleNavigation}>
             <Image source={require('../assets/images/vans.jpg')} resizeMode="cover" />
           </TouchableOpacity>
           

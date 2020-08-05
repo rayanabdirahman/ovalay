@@ -12,7 +12,7 @@ export const FeedScreen = ({ navigation }: StackScreenProps<BottomTabParamList, 
       <ContentContainer>
         <Text h1>Feed</Text>
         <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-          <FeedCard navigation={navigation} />
+          <FeedCard />
         </ScrollView>
       </ContentContainer>
     </Layout>
