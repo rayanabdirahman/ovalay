@@ -4,12 +4,15 @@ import { View as DefaultView } from 'react-native'
 
 export type LayoutProps = DefaultView['props'] & {
   fullwidth?: boolean
+  smallPaddingTop?: boolean
   background?: string
 }
 
-export const ContentContainer = styled.View`
+export const ContentContainer = styled.View<LayoutProps>`
   flex: 1;
-  padding: 32px 24px;
+  padding-top: ${ props => props.smallPaddingTop ? 0 : '32px'};
+  padding-left: 24px;
+  padding-right: 24px;
   margin-top: 32px;
 `
 

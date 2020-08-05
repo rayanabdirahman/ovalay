@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 import { View as DefaultView, Image as DefaultImage, ScrollView, TouchableOpacity } from 'react-native'
 import { Text as DefaultText } from './Text'
 import { Thumbnail } from 'native-base'
+import {ProductScreen} from '../screens/Root/ProductScreen'
 
 export type ViewProps = DefaultView['props'] & {}
 
@@ -68,9 +69,12 @@ export const WishList = ({
           </Head>
           <Body>
             <Image source={require('../assets/images/vans.jpg')} resizeMode="cover" />
-            <TouchableOpacity onPress={() => navigation.navigate("Modal")}>
+            
+            <TouchableOpacity onPress={() => navigation.navigate("Modal", {component: <ProductScreen title="wishlist" /> })}>
               <Image source={require('../assets/images/air-max.jpg')} resizeMode="cover" />
             </TouchableOpacity>
+          
+          
           </Body>
         </Card>
         <Card>
