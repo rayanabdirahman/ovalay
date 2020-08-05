@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { RootStackParamList } from './types'
 import BottomTabNavigator from './BottomTabNavigator'
 import NotFoundScreen from '../screens/NotFoundScreen'
+import { ModalScreen } from '../screens/Root'
 
 // Root stack navigatior
 // screens will display when user has signed in
@@ -15,6 +16,11 @@ export default function RootNavigator() {
         name="NotFound"
         component={NotFoundScreen}
         options={{ title: 'Oops!' }}
+      />
+      <Stack.Screen
+        name="Modal"
+        component={ModalScreen}
+        options={{ title: "", headerShown: true, headerBackTitle: " " }}
       />
     </Stack.Navigator>
   )

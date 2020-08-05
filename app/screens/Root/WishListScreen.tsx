@@ -12,7 +12,7 @@ export const WishListScreen = ({ navigation }: StackScreenProps<BottomTabParamLi
       <ContentContainer>
         <Text h1>Wishlist</Text>
         <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-          <WishList />
+          <WishList navigation={navigation} />
         </ScrollView>
       </ContentContainer>
     </Layout>

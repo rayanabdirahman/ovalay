@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 import { View as DefaultView, Image as DefaultImage, ScrollView } from 'react-native'
 import { Text as DefaultText } from './Text'
 import { Thumbnail } from 'native-base'
+import { TouchableOpacity } from 'react-native-gesture-handler'
 
 export type ViewProps = DefaultView['props'] & {}
 
@@ -56,9 +57,9 @@ export const FeedCard = ({
     require('../assets/images/jordan-1-red.jpg'),
     require('../assets/images/air-max.jpg'),
     require('../assets/images/nike-95.jpg')
-  ]
-
-}) => {
+  ],
+  navigation
+}: any) => {
   const imagesArr = (images.length <= 2) ? images : images.slice(0, 3);
 
   return (
@@ -77,7 +78,11 @@ export const FeedCard = ({
           </DefaultView>
         </Head>
         <Body>
-          <Image source={require('../assets/images/vans.jpg')} resizeMode="cover" />
+          <TouchableOpacity onPress={() => navigation.navigate("Modal")}>
+            <Image source={require('../assets/images/vans.jpg')} resizeMode="cover" />
+          </TouchableOpacity>
+          
+          
           <Image source={require('../assets/images/air-max.jpg')} resizeMode="cover" />
         </Body>
       </Card>
