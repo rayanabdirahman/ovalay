@@ -15,6 +15,9 @@ spec:
       containers:
       - name: product
         image: rayanma/product
+        env:
+          - name: MONGO_URI
+            value: "mongodb://product-mongo-service:27017/product"
         resources:
           limits:
             memory: "128Mi"

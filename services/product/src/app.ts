@@ -6,6 +6,10 @@ export default async (): Promise<express.Application> => (
     try {
       const app = express()
 
+      // check if env variables have been set
+      if (!process.env.MONGO_URI) throw new Error('MONGO_URI must be defined') // check if database URI is defined
+      // TODO: add a check to ensure JWT secret has been set in process.env 
+
       // set middleware
       app.use(express.json())
       app.use(express.urlencoded({ extended: false }))

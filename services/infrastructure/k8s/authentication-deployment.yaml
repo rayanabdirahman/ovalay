@@ -15,6 +15,9 @@ spec:
       containers:
       - name: authentication
         image: rayanma/authentication
+        env:
+          - name: MONGO_URI
+            value: "mongodb://authentication-mongo-service:27017/authentication"
         resources:
           limits:
             memory: "128Mi"
