@@ -1,6 +1,6 @@
 import supertest from 'supertest'
 import bootstrapApp from '../../app'
-import { CreateNewProductModel } from '../../domain/interfaces'
+// import { CreateNewProductModel } from '../../domain/interfaces'
 
 /**
  * Create a new product
