@@ -1,4 +1,5 @@
 import express from 'express'
+import logger from './util/logger'
 
 export default async (): Promise<express.Application> => (
   new Promise<express.Application>(async (resolve, reject) => {
@@ -17,7 +18,7 @@ export default async (): Promise<express.Application> => (
       resolve(app)
 
     } catch(error) {
-      console.error(`Error when bootstrapping app: ${error}`)
+      logger.error(`Error when bootstrapping app: ${error}`)
       reject(error)
     }
   })
