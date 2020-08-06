@@ -5,6 +5,7 @@ import BottomTabNavigator from './BottomTabNavigator'
 import NotFoundScreen from '../screens/NotFoundScreen'
 import { ModalScreen } from '../screens/Root'
 import { RootNavigatorScreenName } from './ScreenNames'
+import { theme } from '../components/Themed'
 
 // Root stack navigatior
 // screens will display when user has signed in
@@ -21,7 +22,13 @@ export default function RootNavigator() {
       <Stack.Screen
         name={RootNavigatorScreenName.MODAL}
         component={ModalScreen}
-        options={{ title: "", headerShown: true, headerBackTitle: " " }}
+        options={{ 
+          title: "",
+          headerShown: true,
+          headerBackTitle: " ",
+          headerTintColor: theme.colour.black,
+          headerStyle: { shadowOpacity: 0 },
+        }}
       />
     </Stack.Navigator>
   )
