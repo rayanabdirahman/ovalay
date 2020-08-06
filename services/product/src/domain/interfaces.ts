@@ -10,5 +10,11 @@ export interface CreateNewProductModel {
   rating: [number]
 }
 export interface CreateCategory {
-  title: string
+  type: string
+}
+
+export interface CreateOwner {
+  name: string,
+  about: string,
+  photo: string
 }
