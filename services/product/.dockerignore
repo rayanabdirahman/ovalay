@@ -1,0 +1,8 @@
+# npm
+node_modules
+
+# VS Code settings
+.vscode
+
+# macOS
+.DS_Store
