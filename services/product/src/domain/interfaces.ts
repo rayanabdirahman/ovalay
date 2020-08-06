@@ -9,3 +9,6 @@ export interface CreateNewProductModel {
   stockQuantity: number
   rating: [number]
 }
+export interface CreateCategory {
+  title: string
+}
