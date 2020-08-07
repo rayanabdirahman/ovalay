@@ -14,3 +14,7 @@ spec:
             backend:
               serviceName: authentication-service
               servicePort: 3000
+          - path: /api/product/?(.*)
+            backend:
+              serviceName: product-service
+              servicePort: 3000
