@@ -12,10 +12,10 @@ beforeAll(async () => {
   mongo = new MongoMemoryServer()
 
   // retrieve database connection uri
-  const DB_URI = await mongo.getUri()
+  process.env.MONGO_URI = await mongo.getUri()
 
   // connect to database
-  await connectToDbClient(DB_URI)
+  await connectToDbClient()
 })
 
 beforeEach(async () => {
