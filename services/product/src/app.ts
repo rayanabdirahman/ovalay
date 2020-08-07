@@ -22,9 +22,11 @@ export default async (): Promise<express.Application> => (
       controllers.forEach(controller => controller.registerRoutes(app))
 
       // test api route
-      app.get('/api/user/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
-        return res.json({ 'Stickatag Authentication API': 'Version 1' })
+      app.get('/api/product/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
+        return res.json({ 'Mainstreet Product API': 'Version 1' })
       })
+
+      // TODO: add catch all for incorrect routes
 
       resolve(app)
 

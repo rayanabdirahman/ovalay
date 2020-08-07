@@ -5,6 +5,7 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
     nginx.ingress.kubernetes.io/use-regex: "true"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
 spec:
   rules:
     - host: stickatag.com
@@ -13,4 +14,8 @@ spec:
           - path: /api/user/?(.*)
             backend:
               serviceName: authentication-service
+              servicePort: 3000
+          - path: /api/product/?(.*)
+            backend:
+              serviceName: product-service
               servicePort: 3000

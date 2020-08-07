@@ -1,23 +1,23 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: authentication-deployment
+  name: product-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: authentication
+      app: product
   template:
     metadata:
       labels:
-        app: authentication
+        app: product
     spec:
       containers:
-      - name: authentication
-        image: rayanma/authentication
+      - name: product
+        image: rayanma/product
         env:
           - name: MONGO_URI
-            value: "mongodb://authentication-mongo-service:27017/authentication"
+            value: "mongodb://product-mongo-service:27017/product"
         resources:
           limits:
             memory: "128Mi"
@@ -26,12 +26,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: authentication-service
+  name: product-service
 spec:
   selector:
-    app: authentication
+    app: product
   ports:
-  - name: authentication
+  - name: product
     protocol: TCP
     port: 3000
     targetPort: 3000
