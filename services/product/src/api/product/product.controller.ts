@@ -15,7 +15,7 @@ export default class ProductController implements RegistrableController {
   }
 
   registerRoutes(app: express.Application): void {
-    app.post('/api/product/', (req, res) => this.createOne)
+    app.post('/api/product/', this.createOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -31,8 +31,7 @@ export default class ProductController implements RegistrableController {
         return ApiResponse.error(res, message)
       }
       
-
-      return ApiResponse.success(res,  {"hello": "world"})
+      return ApiResponse.success(res,  model)
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: createOne] - Unable to create product: ${message}`)

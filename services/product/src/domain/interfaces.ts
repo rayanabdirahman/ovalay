@@ -1,6 +1,6 @@
 export interface CreateNewProductModel {
-  category: string | object
-  owner: string | object
+  category?: string | object
+  owner?: string | object
   brand: string
   title: string
   description: string
