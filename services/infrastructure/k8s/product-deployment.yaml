@@ -18,6 +18,21 @@ spec:
         env:
           - name: MONGO_URI
             value: "mongodb://product-mongo-service:27017/product"
+          - name: AWS_S3_PRODUCT_PHOTOS_BUCKET
+            valueFrom:
+              secretKeyRef:
+                name: aws-s3-product-photos-bucket
+                key: AWS_S3_PRODUCT_PHOTOS_BUCKET
+          - name: AWS_SECRET_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: aws-secret-access-key
+                key: AWS_SECRET_ACCESS_KEY
+          - name: AWS_ACCESS_KEY_ID
+            valueFrom:
+              secretKeyRef:
+                name: aws-access-key-id
+                key: AWS_ACCESS_KEY_ID
         resources:
           limits:
             memory: "128Mi"

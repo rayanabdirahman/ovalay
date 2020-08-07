@@ -10,7 +10,11 @@ export default async (): Promise<express.Application> => (
       const app = express()
 
       // check if env variables have been set
-      if (!process.env.MONGO_URI) throw new Error('MONGO_URI must be defined') // check if database URI is defined
+      if (!process.env.MONGO_URI) throw new Error('MONGO_URI must be defined')
+      if (!process.env.AWS_S3_PRODUCT_PHOTOS_BUCKET) throw new Error('AWS_S3_PRODUCT_PHOTOS_BUCKET must be defined')
+      if (!process.env.AWS_ACCESS_KEY_ID) throw new Error('AWS_ACCESS_KEY_ID must be defined')
+      if (!process.env.AWS_SECRET_ACCESS_KEY) throw new Error('AWS_SECRET_ACCESS_KEY must be defined')
+      
       // TODO: add a check to ensure JWT secret has been set in process.env 
 
       // set middleware

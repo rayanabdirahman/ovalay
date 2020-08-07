@@ -7,6 +7,7 @@ import ApiResponse from '../../util/api-response'
 import { CreateNewProductModel } from '../../domain/interfaces'
 import ProductValidator from './product.validator'
 import { ProductService } from '../../service/product.service'
+import MulterUpload from '../../middleware/multer.middleware'
 
 
 @injectable()
@@ -18,13 +19,15 @@ export default class ProductController implements RegistrableController {
   }
 
   registerRoutes(app: express.Application): void {
-    app.post('/api/product/', this.createOne)
+    app.post('/api/product/', MulterUpload.single('photo'), this.createOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
       const model: CreateNewProductModel = {
-        ...req.body
+        ...req.body,
+        // @ts-ignore
+        photo: req.file ? req.file.location : null
       }
 
       // validate request body
