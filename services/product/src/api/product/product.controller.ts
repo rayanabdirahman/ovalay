@@ -21,6 +21,7 @@ export default class ProductController implements RegistrableController {
   registerRoutes(app: express.Application): void {
     app.post('/api/product/', MulterUpload.single('photo'), this.createOne)
     app.get('/api/product/', this.findAll)
+    app.get('/api/product/:_id', this.findOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -55,6 +56,18 @@ export default class ProductController implements RegistrableController {
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: findAll] - Unable to find products: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  findOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const { _id } = req.params
+      const product = await this.productService.findOne(_id)
+      return ApiResponse.success(res,  product)
+    } catch (error) {
+      const { message } = error
+      logger.error(`[ProductController: findOne] - Unable to find product: ${message}`)
       return ApiResponse.error(res, message)
     }
   }
