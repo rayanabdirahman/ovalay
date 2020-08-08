@@ -9,16 +9,20 @@ import { CategoryRepository, CategoryRepositoryImpl } from './data_access/reposi
 import { OwnerRepository, OwnerRepositoryImpl } from './data_access/repository/owner.repository'
 import CategoryController from './api/category/category.controller'
 import { CategoryService, CategoryServiceImpl } from './service/category.service'
+import OwnerController from './api/owner/owner.controller'
+import { OwnerService, OwnerServiceImpl } from './service/owner.service'
 
 const container = new Container()
 
 // controllers
 container.bind<RegistrableController>(TYPES.Controller).to(ProductController)
 container.bind<RegistrableController>(TYPES.Controller).to(CategoryController)
+container.bind<RegistrableController>(TYPES.Controller).to(OwnerController)
 
 // services
 container.bind<ProductService>(TYPES.ProductService).to(ProductServiceImpl)
 container.bind<CategoryService>(TYPES.CategoryService).to(CategoryServiceImpl)
+container.bind<OwnerService>(TYPES.OwnerService).to(OwnerServiceImpl)
 
 // repository
 container.bind<ProductRepository>(TYPES.ProductRepository).to(ProductRepositoryImpl)
