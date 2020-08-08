@@ -30,6 +30,10 @@ export default async (): Promise<express.Application> => (
         return res.json({ 'Mainstreet Product API': 'Version 1' })
       })
 
+      app.get('/api/category/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
+        return res.json({ 'Mainstreet Category API': 'Version 1' })
+      })
+
       // TODO: add catch all for incorrect routes
 
       resolve(app)
