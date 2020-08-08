@@ -7,6 +7,7 @@ import { ProductDocument } from '../data_access/model/product.model'
 
 export interface ProductService {
   createOne(model: CreateNewProductModel): Promise<ProductDocument>
+  findAll(): Promise<ProductDocument[] | null>
 }
 
 @injectable()
@@ -22,6 +23,16 @@ export class ProductServiceImpl implements ProductService {
       return await this.productRepository.createOne(model)
     } catch(error) {
       logger.error(`[ProductService: createOne]: Unable to create product: ${error}`)
+      throw error
+    }
+  }
+
+
+  async findAll(): Promise<ProductDocument[] | null> { 
+    try {
+      return await this.productRepository.findAll()
+    } catch(error) {
+      logger.error(`[ProductService: findAll]: Unable to find products: ${error}`)
       throw error
     }
   }

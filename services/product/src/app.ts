@@ -25,11 +25,6 @@ export default async (): Promise<express.Application> => (
       const controllers: RegistrableController[] = container.getAll<RegistrableController>(TYPES.Controller)
       controllers.forEach(controller => controller.registerRoutes(app))
 
-      // test api route
-      app.get('/api/product/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
-        return res.json({ 'Mainstreet Product API': 'Version 1' })
-      })
-
       // TODO: add catch all for incorrect routes
 
       resolve(app)

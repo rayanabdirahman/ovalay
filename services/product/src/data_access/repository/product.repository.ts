@@ -5,6 +5,7 @@ import { CreateNewProductModel } from '../../domain/interfaces'
 export interface ProductRepository {
   createOne(model: CreateNewProductModel): Promise<ProductDocument>
   findById(_id: string): Promise<ProductDocument | null>
+  findAll(): Promise<ProductDocument[] | null>
 }
 
 @injectable()
@@ -16,5 +17,9 @@ export class ProductRepositoryImpl implements ProductRepository {
 
   async findById(_id: string): Promise<ProductDocument | null> {
     return await Product.findById(_id)
+  }
+
+  async findAll(): Promise<ProductDocument[] | null> {
+    return await Product.find().select('-__v')
   }
 }

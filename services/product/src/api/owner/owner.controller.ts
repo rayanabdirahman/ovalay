@@ -53,7 +53,7 @@ export default class OwnerController implements RegistrableController {
       return ApiResponse.success(res,  owner)
     } catch (error) {
       const { message } = error
-      logger.error(`[OwnerController: findAll] - Unable to find owner: ${message}`)
+      logger.error(`[OwnerController: findAll] - Unable to find owners: ${message}`)
       return ApiResponse.error(res, message)
     }
   }
