@@ -7,6 +7,7 @@ import ApiResponse from '../../util/api-response'
 import { CreateOwner} from '../../domain/interfaces'
 import OwnerValidator from './owner.validator'
 import { OwnerService } from '../../service/owner.service'
+import MulterUpload from '../../middleware/multer.middleware'
 
 @injectable()
 export default class OwnerController implements RegistrableController {
@@ -17,13 +18,15 @@ export default class OwnerController implements RegistrableController {
   }
 
   registerRoutes(app: express.Application): void {
-    app.post('/api/owner/', this.createOne)
+    app.post('/api/owner/', MulterUpload.single('photo'), this.createOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
       const model: CreateOwner = {
-        ...req.body
+        ...req.body,
+        // @ts-ignore
+        photo: req.file ? req.file.location : null
       }
 
       // validate request body
