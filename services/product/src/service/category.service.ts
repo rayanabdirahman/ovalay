@@ -7,6 +7,7 @@ import { CategoryDocument } from '../data_access/model/category.model'
 
 export interface CategoryService {
   createOne(model: CreateCategory): Promise<CategoryDocument>
+  findAll(): Promise<CategoryDocument[] | null>
 }
 
 @injectable()
@@ -22,6 +23,15 @@ export class CategoryServiceImpl implements CategoryService {
       return await this.categoryRepository.createOne(model)
     } catch(error) {
       logger.error(`[CategoryService: createOne]: Unable to create category: ${error}`)
+      throw error
+    }
+  }
+
+  async findAll(): Promise<CategoryDocument[] | null> { 
+    try {
+      return await this.categoryRepository.findAll()
+    } catch(error) {
+      logger.error(`[CategoryService: findAll]: Unable to find category: ${error}`)
       throw error
     }
   }

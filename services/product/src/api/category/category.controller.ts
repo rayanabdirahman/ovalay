@@ -18,6 +18,7 @@ export default class CategoryController implements RegistrableController {
 
   registerRoutes(app: express.Application): void {
     app.post('/api/category/', this.createOne)
+    app.get('/api/category/', this.findAll)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -35,6 +36,17 @@ export default class CategoryController implements RegistrableController {
 
       const category = await this.categoryService.createOne(model)
       
+      return ApiResponse.success(res,  category)
+    } catch (error) {
+      const { message } = error
+      logger.error(`[CategoryController: createOne] - Unable to create category: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const category = await this.categoryService.findAll()
       return ApiResponse.success(res,  category)
     } catch (error) {
       const { message } = error
