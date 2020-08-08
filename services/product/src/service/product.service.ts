@@ -9,6 +9,7 @@ export interface ProductService {
   createOne(model: CreateNewProductModel): Promise<ProductDocument>
   findAll(): Promise<ProductDocument[] | null>
   findOne(_id: string): Promise<ProductDocument | null>
+  updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null>
 }
 
 @injectable()
@@ -45,4 +46,14 @@ export class ProductServiceImpl implements ProductService {
       throw error
     }
   }
+
+  async updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null> { 
+    try {
+      return await this.productRepository.updateOne(_id, model)
+    } catch(error) {
+      logger.error(`[ProductService: updateOne]: Unable to create product: ${error}`)
+      throw error
+    }
+  }
+
 }

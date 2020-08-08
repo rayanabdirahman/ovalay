@@ -6,6 +6,7 @@ export interface ProductRepository {
   createOne(model: CreateNewProductModel): Promise<ProductDocument>
   findById(_id: string): Promise<ProductDocument | null>
   findAll(): Promise<ProductDocument[] | null>
+  updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null>
 }
 
 @injectable()
@@ -21,5 +22,9 @@ export class ProductRepositoryImpl implements ProductRepository {
 
   async findAll(): Promise<ProductDocument[] | null> {
     return await Product.find().select('-__v')
+  }
+
+  async updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null> {
+    return await Product.findOneAndUpdate({ _id }, { $set: { ...model } }, { new: true });
   }
 }
