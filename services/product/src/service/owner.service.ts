@@ -7,6 +7,7 @@ import { OwnerDocument } from '../data_access/model/owner.model'
 
 export interface OwnerService {
   createOne(model: CreateOwner): Promise<OwnerDocument>
+  findAll(): Promise<OwnerDocument[] | null>
 }
 
 @injectable()
@@ -22,6 +23,15 @@ export class OwnerServiceImpl implements OwnerService {
       return await this.ownerRepository.createOne(model)
     } catch(error) {
       logger.error(`[OwnerService: createOne]: Unable to create owner: ${error}`)
+      throw error
+    }
+  }
+
+  async findAll(): Promise<OwnerDocument[] | null> { 
+    try {
+      return await this.ownerRepository.findAll()
+    } catch(error) {
+      logger.error(`[OwnerService: findAll]: Unable to find owners: ${error}`)
       throw error
     }
   }

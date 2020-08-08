@@ -19,6 +19,7 @@ export default class OwnerController implements RegistrableController {
 
   registerRoutes(app: express.Application): void {
     app.post('/api/owner/', MulterUpload.single('photo'), this.createOne)
+    app.get('/api/owner/', this.findAll)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -42,6 +43,17 @@ export default class OwnerController implements RegistrableController {
     } catch (error) {
       const { message } = error
       logger.error(`[OwnerController: createOne] - Unable to create owner: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const owner = await this.ownerService.findAll()
+      return ApiResponse.success(res,  owner)
+    } catch (error) {
+      const { message } = error
+      logger.error(`[OwnerController: findAll] - Unable to find owner: ${message}`)
       return ApiResponse.error(res, message)
     }
   }

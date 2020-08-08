@@ -31,7 +31,7 @@ export class CategoryServiceImpl implements CategoryService {
     try {
       return await this.categoryRepository.findAll()
     } catch(error) {
-      logger.error(`[CategoryService: findAll]: Unable to find category: ${error}`)
+      logger.error(`[CategoryService: findAll]: Unable to find categories: ${error}`)
       throw error
     }
   }

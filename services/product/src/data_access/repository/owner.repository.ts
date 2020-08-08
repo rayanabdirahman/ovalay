@@ -5,6 +5,7 @@ import { CreateOwner } from '../../domain/interfaces'
 export interface OwnerRepository {
   createOne(model: CreateOwner): Promise<OwnerDocument>
   findById(_id: string): Promise<OwnerDocument | null>
+  findAll(): Promise<OwnerDocument[] | null>
 }
 
 @injectable()
@@ -16,5 +17,9 @@ export class OwnerRepositoryImpl implements OwnerRepository {
 
   async findById(_id: string): Promise<OwnerDocument | null> {
     return await Owner.findById(_id)
+  }
+
+  async findAll(): Promise<OwnerDocument[] | null> {
+    return await Owner.find().select('-__v')
   }
 }

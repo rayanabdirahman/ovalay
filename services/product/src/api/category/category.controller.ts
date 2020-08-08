@@ -50,7 +50,7 @@ export default class CategoryController implements RegistrableController {
       return ApiResponse.success(res,  category)
     } catch (error) {
       const { message } = error
-      logger.error(`[CategoryController: createOne] - Unable to create category: ${message}`)
+      logger.error(`[CategoryController: findAll] - Unable to find categories: ${message}`)
       return ApiResponse.error(res, message)
     }
   }
