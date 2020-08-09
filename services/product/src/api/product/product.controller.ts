@@ -43,7 +43,7 @@ export default class ProductController implements RegistrableController {
 
       const product = await this.productService.createOne(model)
       
-      return ApiResponse.success(res,  product)
+      return ApiResponse.success(res,  { product })
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: createOne] - Unable to create product: ${message}`)
@@ -54,7 +54,7 @@ export default class ProductController implements RegistrableController {
   findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
       const products = await this.productService.findAll()
-      return ApiResponse.success(res,  products)
+      return ApiResponse.success(res,  { products })
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: findAll] - Unable to find products: ${message}`)
@@ -66,7 +66,7 @@ export default class ProductController implements RegistrableController {
     try {
       const { _id } = req.params
       const product = await this.productService.findOne(_id)
-      return ApiResponse.success(res,  product)
+      return ApiResponse.success(res,  { product })
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: findOne] - Unable to find product: ${message}`)
@@ -93,7 +93,7 @@ export default class ProductController implements RegistrableController {
 
       const product = await this.productService.updateOne(_id, model)
       
-      return ApiResponse.success(res,  product)
+      return ApiResponse.success(res,  { product })
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: updateOne] - Unable to update product: ${message}`)
@@ -105,7 +105,7 @@ export default class ProductController implements RegistrableController {
     try {
       const { _id } = req.params
       const product = await this.productService.deleteOne(_id)
-      return ApiResponse.success(res,  product)
+      return ApiResponse.success(res,  { product })
     } catch (error) {
       const { message } = error
       logger.error(`[ProductController: deleteOne] - Unable to delete product: ${message}`)
