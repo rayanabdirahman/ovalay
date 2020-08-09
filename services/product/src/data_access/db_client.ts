@@ -6,7 +6,8 @@ const connectToDbClient = async (uri: string = `${process.env.MONGO_URI}`): Prom
     await mongoose.connect(uri, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true
+      useCreateIndex: true,
+      useFindAndModify: false
     })
 
     logger.info(`Successfully connected to database ✅`)

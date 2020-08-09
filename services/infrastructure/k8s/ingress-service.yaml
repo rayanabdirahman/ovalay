@@ -19,3 +19,11 @@ spec:
             backend:
               serviceName: product-service
               servicePort: 3000
+          - path: /api/category/?(.*)
+            backend:
+              serviceName: product-service
+              servicePort: 3000
+          - path: /api/owner/?(.*)
+            backend:
+              serviceName: product-service
+              servicePort: 3000

@@ -7,6 +7,10 @@ import { ProductDocument } from '../data_access/model/product.model'
 
 export interface ProductService {
   createOne(model: CreateNewProductModel): Promise<ProductDocument>
+  findAll(): Promise<ProductDocument[] | null>
+  findOne(_id: string): Promise<ProductDocument | null>
+  updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null>
+  deleteOne(_id: string): Promise<ProductDocument | null>
 }
 
 @injectable()
@@ -22,6 +26,42 @@ export class ProductServiceImpl implements ProductService {
       return await this.productRepository.createOne(model)
     } catch(error) {
       logger.error(`[ProductService: createOne]: Unable to create product: ${error}`)
+      throw error
+    }
+  }
+
+  async findAll(): Promise<ProductDocument[] | null> { 
+    try {
+      return await this.productRepository.findAll()
+    } catch(error) {
+      logger.error(`[ProductService: findAll]: Unable to find products: ${error}`)
+      throw error
+    }
+  }
+
+  async findOne(_id: string): Promise<ProductDocument | null> { 
+    try {
+      return await this.productRepository.findById(_id)
+    } catch(error) {
+      logger.error(`[ProductService: findOne]: Unable to find product: ${error}`)
+      throw error
+    }
+  }
+  
+  async updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null> { 
+    try {
+      return await this.productRepository.updateOne(_id, model)
+    } catch(error) {
+      logger.error(`[ProductService: updateOne]: Unable to update product: ${error}`)
+      throw error
+    }
+  }
+
+  async deleteOne(_id: string): Promise<ProductDocument | null> { 
+    try {
+      return await this.productRepository.deleteOne(_id)
+    } catch(error) {
+      logger.error(`[ProductService: deleteOne]: Unable to delete product: ${error}`)
       throw error
     }
   }

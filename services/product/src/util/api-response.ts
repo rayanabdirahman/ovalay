@@ -1,12 +1,12 @@
 import { Response } from 'express'
 
 interface IApiResponse {
-  success(res: Response, data: object | string): Response
+  success(res: Response, data: object | string | null): Response
   error(res: Response, error: object | string): Response
 } 
 
 const ApiResponse: IApiResponse = {
-  success: (res: Response, data: object | string): Response => {
+  success: (res: Response, data: object | string | null): Response => {
     return res.status(200).json({
       status: 'success',
       code: res.statusCode,

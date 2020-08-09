@@ -1,6 +1,8 @@
+import mongoose from 'mongoose'
+
 export interface CreateNewProductModel {
-  category?: string | object
-  owner?: string | object
+  category?: mongoose.Types.ObjectId
+  owner?: mongoose.Types.ObjectId
   brand: string
   title: string
   description: string
