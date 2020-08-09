@@ -1,0 +1,11 @@
+name: tests-product
+on:
+  pull_request:
+    paths:
+      - "services/product/**"
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: cd services/product && npm install && npm run test:ci
