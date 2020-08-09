@@ -7,6 +7,7 @@ export interface ProductRepository {
   findById(_id: string): Promise<ProductDocument | null>
   findAll(): Promise<ProductDocument[] | null>
   updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null>
+  deleteOne(_id: string): Promise<ProductDocument | null>
 }
 
 @injectable()
@@ -26,5 +27,9 @@ export class ProductRepositoryImpl implements ProductRepository {
 
   async updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null> {
     return await Product.findOneAndUpdate({ _id }, { $set: { ...model } }, { new: true });
+  }
+
+  async deleteOne(_id: string): Promise<ProductDocument | null> {
+    return await Product.findOneAndDelete({ _id })
   }
 }

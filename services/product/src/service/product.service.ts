@@ -10,6 +10,7 @@ export interface ProductService {
   findAll(): Promise<ProductDocument[] | null>
   findOne(_id: string): Promise<ProductDocument | null>
   updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null>
+  deleteOne(_id: string): Promise<ProductDocument | null>
 }
 
 @injectable()
@@ -46,7 +47,7 @@ export class ProductServiceImpl implements ProductService {
       throw error
     }
   }
-
+  
   async updateOne(_id: string, model: CreateNewProductModel): Promise<ProductDocument | null> { 
     try {
       return await this.productRepository.updateOne(_id, model)
@@ -56,4 +57,12 @@ export class ProductServiceImpl implements ProductService {
     }
   }
 
+  async deleteOne(_id: string): Promise<ProductDocument | null> { 
+    try {
+      return await this.productRepository.deleteOne(_id)
+    } catch(error) {
+      logger.error(`[ProductService: deleteOne]: Unable to find product: ${error}`)
+      throw error
+    }
+  }
 }
