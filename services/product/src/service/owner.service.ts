@@ -8,6 +8,7 @@ import { OwnerDocument } from '../data_access/model/owner.model'
 export interface OwnerService {
   createOne(model: CreateOwner): Promise<OwnerDocument>
   findAll(): Promise<OwnerDocument[] | null>
+  updateOne(_id: string, model: CreateOwner): Promise<OwnerDocument | null>
   deleteOne(_id: string): Promise<OwnerDocument| null>
 }
 
@@ -33,6 +34,15 @@ export class OwnerServiceImpl implements OwnerService {
       return await this.ownerRepository.findAll()
     } catch(error) {
       logger.error(`[OwnerService: findAll]: Unable to find owners: ${error}`)
+      throw error
+    }
+  }
+
+  async updateOne(_id: string, model: CreateOwner): Promise<OwnerDocument | null> { 
+    try {
+      return await this.ownerRepository.updateOne(_id, model)
+    } catch(error) {
+      logger.error(`[OwnerService: updateOne]: Unable to update owner: ${error}`)
       throw error
     }
   }

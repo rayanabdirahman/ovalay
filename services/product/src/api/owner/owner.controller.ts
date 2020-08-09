@@ -20,6 +20,7 @@ export default class OwnerController implements RegistrableController {
   registerRoutes(app: express.Application): void {
     app.post('/api/owner/', MulterUpload.single('photo'), this.createOne)
     app.get('/api/owner/', this.findAll)
+    app.put('/api/owner/:_id', MulterUpload.single('photo'), this.updateOne)
     app.delete('/api/owner/:_id', this.deleteOne)
   }
 
@@ -55,6 +56,33 @@ export default class OwnerController implements RegistrableController {
     } catch (error) {
       const { message } = error
       logger.error(`[OwnerController: findAll] - Unable to find owners: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  updateOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const { _id } = req.params
+
+      const model: CreateOwner = {
+        ...req.body,
+        // @ts-ignore
+        photo: req.file ? req.file.location : null
+      }
+
+      // validate request body
+      const validity = OwnerValidator.createOne(model)
+      if (validity.error) {
+        const { message } = validity.error
+        return ApiResponse.error(res, message)
+      }
+
+      const owner = await this.ownerService.updateOne(_id, model)
+      
+      return ApiResponse.success(res,  owner)
+    } catch (error) {
+      const { message } = error
+      logger.error(`[OwnerController: updateOne] - Unable to update owner: ${message}`)
       return ApiResponse.error(res, message)
     }
   }

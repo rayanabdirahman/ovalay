@@ -52,7 +52,7 @@ export class ProductServiceImpl implements ProductService {
     try {
       return await this.productRepository.updateOne(_id, model)
     } catch(error) {
-      logger.error(`[ProductService: updateOne]: Unable to create product: ${error}`)
+      logger.error(`[ProductService: updateOne]: Unable to update product: ${error}`)
       throw error
     }
   }
