@@ -36,3 +36,17 @@ export type LoginModel = {
   email: string;
   password: string;
 }
+
+// product
+export type Product = {
+  _id: string
+  category: string
+  owner: string
+  brand: string
+  title: string
+  description: string
+  photo: string
+  price: number
+  stockQuantity: number
+  rating?: [number]
+}
