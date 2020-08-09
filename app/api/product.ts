@@ -16,7 +16,7 @@ const ProductAPI: ProductAPI = {
    */
   async findAll(): Promise<ApiSuccessResponse> {
     try {
-      const response  = await axios.post(`${API_BASE_URL}/`)
+      const response  = await axios.get(`${API_BASE_URL}/`)
       return response.data
     } catch (error) {
       throw error.response ? error.response.data.error : error.request

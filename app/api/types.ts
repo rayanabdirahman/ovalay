@@ -8,6 +8,8 @@ export type ApiSuccessResponse = {
 export type ApiSuccessDataResponse = {
   token: string
   user: User
+  product: Product
+  products: Product[]
 }
 
 export type ApiErrorResponse = {
