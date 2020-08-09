@@ -8,6 +8,7 @@ import { CategoryDocument } from '../data_access/model/category.model'
 export interface CategoryService {
   createOne(model: CreateCategory): Promise<CategoryDocument>
   findAll(): Promise<CategoryDocument[] | null>
+  deleteOne(_id: string): Promise<CategoryDocument | null>
 }
 
 @injectable()
@@ -32,6 +33,15 @@ export class CategoryServiceImpl implements CategoryService {
       return await this.categoryRepository.findAll()
     } catch(error) {
       logger.error(`[CategoryService: findAll]: Unable to find categories: ${error}`)
+      throw error
+    }
+  }
+
+  async deleteOne(_id: string): Promise<CategoryDocument | null> { 
+    try {
+      return await this.categoryRepository.deleteOne(_id)
+    } catch(error) {
+      logger.error(`[CategoryService: deleteOne]: Unable to delete category: ${error}`)
       throw error
     }
   }

@@ -19,6 +19,7 @@ export default class CategoryController implements RegistrableController {
   registerRoutes(app: express.Application): void {
     app.post('/api/category/', this.createOne)
     app.get('/api/category/', this.findAll)
+    app.delete('/api/category/:_id', this.deleteOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -51,6 +52,18 @@ export default class CategoryController implements RegistrableController {
     } catch (error) {
       const { message } = error
       logger.error(`[CategoryController: findAll] - Unable to find categories: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  deleteOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const { _id } = req.params
+      const category = await this.categoryService.deleteOne(_id)
+      return ApiResponse.success(res,  category)
+    } catch (error) {
+      const { message } = error
+      logger.error(`[CategoryController: deleteOne] - Unable to delete category: ${message}`)
       return ApiResponse.error(res, message)
     }
   }

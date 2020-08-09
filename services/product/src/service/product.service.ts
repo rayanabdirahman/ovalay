@@ -61,7 +61,7 @@ export class ProductServiceImpl implements ProductService {
     try {
       return await this.productRepository.deleteOne(_id)
     } catch(error) {
-      logger.error(`[ProductService: deleteOne]: Unable to find product: ${error}`)
+      logger.error(`[ProductService: deleteOne]: Unable to delete product: ${error}`)
       throw error
     }
   }
