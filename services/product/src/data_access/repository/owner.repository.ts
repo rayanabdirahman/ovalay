@@ -6,6 +6,7 @@ export interface OwnerRepository {
   createOne(model: CreateOwner): Promise<OwnerDocument>
   findById(_id: string): Promise<OwnerDocument | null>
   findAll(): Promise<OwnerDocument[] | null>
+  deleteOne(_id: string): Promise<OwnerDocument | null>
 }
 
 @injectable()
@@ -21,5 +22,9 @@ export class OwnerRepositoryImpl implements OwnerRepository {
 
   async findAll(): Promise<OwnerDocument[] | null> {
     return await Owner.find().select('-__v')
+  }
+
+  async deleteOne(_id: string): Promise<OwnerDocument | null> {
+    return await Owner.findOneAndDelete({ _id })
   }
 }

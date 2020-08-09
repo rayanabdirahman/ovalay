@@ -8,6 +8,7 @@ import { OwnerDocument } from '../data_access/model/owner.model'
 export interface OwnerService {
   createOne(model: CreateOwner): Promise<OwnerDocument>
   findAll(): Promise<OwnerDocument[] | null>
+  deleteOne(_id: string): Promise<OwnerDocument| null>
 }
 
 @injectable()
@@ -32,6 +33,15 @@ export class OwnerServiceImpl implements OwnerService {
       return await this.ownerRepository.findAll()
     } catch(error) {
       logger.error(`[OwnerService: findAll]: Unable to find owners: ${error}`)
+      throw error
+    }
+  }
+
+  async deleteOne(_id: string): Promise<OwnerDocument | null> { 
+    try {
+      return await this.ownerRepository.deleteOne(_id)
+    } catch(error) {
+      logger.error(`[OwnerService: deleteOne]: Unable to delete owner: ${error}`)
       throw error
     }
   }
