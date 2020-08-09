@@ -6,6 +6,7 @@ export interface CategoryRepository {
   createOne(model: CreateCategory): Promise<CategoryDocument>
   findById(_id: string): Promise<CategoryDocument | null>
   findAll(): Promise<CategoryDocument[] | null>
+  updateOne(_id: string, model: CreateCategory): Promise<CategoryDocument | null>
   deleteOne(_id: string): Promise<CategoryDocument | null>
 }
 
@@ -22,6 +23,10 @@ export class CategoryRepositoryImpl implements CategoryRepository {
 
   async findAll(): Promise<CategoryDocument[] | null> {
     return await Category.find().select('-__v')
+  }
+
+  async updateOne(_id: string, model: CreateCategory): Promise<CategoryDocument | null> {
+    return await Category.findOneAndUpdate({ _id }, { $set: { ...model } }, { new: true });
   }
 
   async deleteOne(_id: string): Promise<CategoryDocument | null> {

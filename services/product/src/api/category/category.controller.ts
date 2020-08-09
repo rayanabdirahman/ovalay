@@ -19,6 +19,7 @@ export default class CategoryController implements RegistrableController {
   registerRoutes(app: express.Application): void {
     app.post('/api/category/', this.createOne)
     app.get('/api/category/', this.findAll)
+    app.put('/api/category/:_id', this.updateOne)
     app.delete('/api/category/:_id', this.deleteOne)
   }
 
@@ -52,6 +53,31 @@ export default class CategoryController implements RegistrableController {
     } catch (error) {
       const { message } = error
       logger.error(`[CategoryController: findAll] - Unable to find categories: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  updateOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const { _id } = req.params
+
+      const model: CreateCategory = {
+        ...req.body
+      }
+
+      // validate request body
+      const validity = CategoryValidator.createOne(model)
+      if (validity.error) {
+        const { message } = validity.error
+        return ApiResponse.error(res, message)
+      }
+
+      const category = await this.categoryService.updateOne(_id, model)
+      
+      return ApiResponse.success(res,  category)
+    } catch (error) {
+      const { message } = error
+      logger.error(`[CategoryController: updateOne] - Unable to upload category: ${message}`)
       return ApiResponse.error(res, message)
     }
   }
