@@ -24,7 +24,7 @@ export interface CreateOwner {
 export interface CreateReview {
   body: string
   photo: string
-  rating: number
-  user: mongoose.Types.ObjectId
-  product: mongoose.Types.ObjectId
+  rating?: number
+  user?: mongoose.Types.ObjectId
+  product?: mongoose.Types.ObjectId
 }

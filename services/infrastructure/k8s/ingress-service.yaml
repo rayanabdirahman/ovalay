@@ -27,3 +27,7 @@ spec:
             backend:
               serviceName: product-service
               servicePort: 3000
+          - path: /api/review/?(.*)
+            backend:
+              serviceName: product-service
+              servicePort: 3000

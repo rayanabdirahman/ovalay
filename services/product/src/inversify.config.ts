@@ -12,6 +12,8 @@ import { CategoryService, CategoryServiceImpl } from './service/category.service
 import OwnerController from './api/owner/owner.controller'
 import { OwnerService, OwnerServiceImpl } from './service/owner.service'
 import { ReviewRepository, ReviewRepositoryImpl } from './data_access/repository/review.repository'
+import ReviewController from './api/review/review.controller'
+import { ReviewService, ReviewServiceImpl } from './service/review.service'
 
 const container = new Container()
 
@@ -19,11 +21,13 @@ const container = new Container()
 container.bind<RegistrableController>(TYPES.Controller).to(ProductController)
 container.bind<RegistrableController>(TYPES.Controller).to(CategoryController)
 container.bind<RegistrableController>(TYPES.Controller).to(OwnerController)
+container.bind<RegistrableController>(TYPES.Controller).to(ReviewController)
 
 // services
 container.bind<ProductService>(TYPES.ProductService).to(ProductServiceImpl)
 container.bind<CategoryService>(TYPES.CategoryService).to(CategoryServiceImpl)
 container.bind<OwnerService>(TYPES.OwnerService).to(OwnerServiceImpl)
+container.bind<ReviewService>(TYPES.ReviewService).to(ReviewServiceImpl)
 
 // repository
 container.bind<ProductRepository>(TYPES.ProductRepository).to(ProductRepositoryImpl)
