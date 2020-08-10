@@ -3,7 +3,10 @@ import { StackScreenProps } from '@react-navigation/stack'
 
 import { BottomTabParamList } from '../../navigation/types'
 import { BottomNavigatorScreenName } from '../../navigation/ScreenNames'
-import { Layout, ContentContainer, Text, WishList } from '../../components'
+import { Layout } from '../../components/Layout'
+import { ContentContainer } from '../../components/Layout'
+import { Text } from '../../components/Text'
+import { WishList } from '../../components/WishList'
 import { ScrollView } from 'react-native'
 
 export const WishListScreen = ({ navigation }: StackScreenProps<BottomTabParamList, BottomNavigatorScreenName.WISHLIST>) => {

@@ -4,7 +4,10 @@ import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../navigation/types'
 import { AuthenticationNavigatorScreenName } from '../../navigation/ScreenNames'
-import { Layout, SignUpForm, Text, Button } from '../../components'
+import { Layout } from '../../components/Layout'
+import { SignUpForm } from '../../components/SignUpForm'
+import { Text } from '../../components/Text'
+import { Button } from '../../components/Button'
 
 const Container = styled.View`
   flex: 1;
