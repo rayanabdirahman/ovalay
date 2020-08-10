@@ -7,7 +7,7 @@ import { ReviewDocument } from '../data_access/model/review.model'
 
 export interface ReviewService {
   createOne(model: CreateReview): Promise<ReviewDocument>
-  findAll(): Promise<ReviewDocument[] | null>
+  findAll(_id: string): Promise<ReviewDocument[] | null>
   updateOne(_id: string, model: CreateReview): Promise<ReviewDocument | null>
   deleteOne(_id: string): Promise<ReviewDocument| null>
 }
@@ -29,9 +29,9 @@ export class ReviewServiceImpl implements ReviewService {
     }
   }
 
-  async findAll(): Promise<ReviewDocument[] | null> { 
+  async findAll(_id: string): Promise<ReviewDocument[] | null> { 
     try {
-      return await this.reviewRepository.findAll()
+      return await this.reviewRepository.findAll(_id)
     } catch(error) {
       logger.error(`[ReviewService: findAll]: Unable to find reviews: ${error}`)
       throw error

@@ -18,18 +18,22 @@ export default class ReviewController implements RegistrableController {
   }
 
   registerRoutes(app: express.Application): void {
-    app.post('/api/review/', MulterUpload.single('photo'), this.createOne)
-    app.get('/api/review/', this.findAll)
+    app.post('/api/review/:_id', MulterUpload.single('photo'), this.createOne)
+    app.get('/api/review/:_id', this.findAll)
     app.put('/api/review/:_id', MulterUpload.single('photo'), this.updateOne)
     app.delete('/api/review/:_id', this.deleteOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
+      // get product _id
+      const { _id } = req.params 
+
       const model: CreateReview = {
         ...req.body,
         // @ts-ignore
-        photo: req.file ? req.file.location : null
+        photo: req.file ? req.file.location : null,
+        product: _id
       }
 
       // validate request body
@@ -51,8 +55,11 @@ export default class ReviewController implements RegistrableController {
 
   findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
-      const review = await this.reviewService.findAll()
-      return ApiResponse.success(res,  { review })
+      // get product _id
+      const { _id } = req.params 
+      
+      const review = await this.reviewService.findAll(_id)
+      return ApiResponse.success(res,   review )
     } catch (error) {
       const { message } = error
       logger.error(`[ReviewController: findAll] - Unable to find reviews: ${message}`)
