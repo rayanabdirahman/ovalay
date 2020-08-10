@@ -11,6 +11,7 @@ import CategoryController from './api/category/category.controller'
 import { CategoryService, CategoryServiceImpl } from './service/category.service'
 import OwnerController from './api/owner/owner.controller'
 import { OwnerService, OwnerServiceImpl } from './service/owner.service'
+import { ReviewRepository, ReviewRepositoryImpl } from './data_access/repository/review.repository'
 
 const container = new Container()
 
@@ -28,5 +29,6 @@ container.bind<OwnerService>(TYPES.OwnerService).to(OwnerServiceImpl)
 container.bind<ProductRepository>(TYPES.ProductRepository).to(ProductRepositoryImpl)
 container.bind<CategoryRepository>(TYPES.CategoryRepository).to(CategoryRepositoryImpl)
 container.bind<OwnerRepository>(TYPES.OwnerRepository).to(OwnerRepositoryImpl)
+container.bind<ReviewRepository>(TYPES.ReviewRepository).to(ReviewRepositoryImpl)
 
 export default container
