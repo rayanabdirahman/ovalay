@@ -4,7 +4,9 @@ import styled from 'styled-components/native'
 
 import { AuthenticationStackParamList } from '../../navigation/types'
 import { AuthenticationNavigatorScreenName } from '../../navigation/ScreenNames'
-import { Layout, LoginForm, Button } from '../../components'
+import { Layout } from '../../components/Layout'
+import { LoginForm } from '../../components/LoginForm'
+import { Button } from '../../components/Button'
 
 const ImageContainer = styled.View`
   background-color: ${props => props.theme.colour.white};

@@ -3,7 +3,10 @@ import * as React from 'react'
 
 import { BottomTabParamList } from '../../navigation/types'
 import { BottomNavigatorScreenName } from '../../navigation/ScreenNames'
-import { Layout, ContentContainer, Text, Button } from '../../components'
+import { Layout } from '../../components/Layout'
+import { ContentContainer } from '../../components/Layout'
+import { Text } from '../../components/Text'
+import { Button } from '../../components/Button'
 import { logoutUser } from '../../store/actions/authentication'
 import { useDispatch } from 'react-redux'
 
