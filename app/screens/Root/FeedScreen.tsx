@@ -6,17 +6,15 @@ import { BottomNavigatorScreenName } from '../../navigation/ScreenNames'
 import { Layout } from '../../components/Layout'
 import { ContentContainer } from '../../components/Layout'
 import { Text } from '../../components/Text'
-import { ScrollView } from 'react-native'
-import { FeedCard } from '../../components/Card/Feed'
+import { CardList } from '../../components/Card/CardList'
+import { products } from '../../temp/product'
 
 export const FeedScreen = ({  }: StackScreenProps<BottomTabParamList, BottomNavigatorScreenName.FEED>) => {
   return (
     <Layout fullwidth>
       <ContentContainer>
         <Text h1>Feed</Text>
-        <ScrollView showsVerticalScrollIndicator={false} showsHorizontalScrollIndicator={false}>
-          <FeedCard />
-        </ScrollView>
+        <CardList list={products} />
       </ContentContainer>
     </Layout>
   )
