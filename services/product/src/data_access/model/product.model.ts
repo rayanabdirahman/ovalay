@@ -9,7 +9,6 @@ export interface ProductDocument extends mongoose.Document {
   photo: string
   price: number
   stockQuantity: number
-  review: [mongoose.Types.ObjectId]
 }
 
 const ProductSchema: mongoose.Schema = new mongoose.Schema({
@@ -20,8 +19,7 @@ const ProductSchema: mongoose.Schema = new mongoose.Schema({
   description: String,
   photo: String,
   price: Number,
-  stockQuantity: Number,
-  review: [{ type: mongoose.Types.ObjectId, ref: 'Review' }],
+  stockQuantity: Number
 })
 
 export default mongoose.model<ProductDocument>('Product', ProductSchema)
