@@ -15,7 +15,7 @@ export interface ReviewRepository {
 export class ReviewRepositoryImpl implements ReviewRepository {
   async createOne(model: CreateReview): Promise<ReviewDocument> {
     const review = new Review(model)
-    await Product.updateOne({ _id: review.product }, { $push: { review: review._id }})
+    // await Product.updateOne({ _id: review.product }, { $push: { review: review._id }})
 
     return await review.save()
   }
@@ -25,8 +25,9 @@ export class ReviewRepositoryImpl implements ReviewRepository {
   }
 
   async findAll(_id: string): Promise<ReviewDocument[] | null> {
-    // TODO: Fix unable to find User schema error by cinnecting microservices
-    return await Review.find({ product: _id }).populate('user').select('-__v').exec()
+    // TODO: Fix unable to find User schema error by connecting microservices
+    // return await Review.find({ product: _id }).populate('user').select('-__v').exec()
+    return await Review.find({ product: _id }).select('-__v')
   }
 
   async updateOne(_id: string, model: CreateReview): Promise<ReviewDocument | null> {

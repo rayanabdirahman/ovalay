@@ -59,7 +59,7 @@ export default class ReviewController implements RegistrableController {
       const { _id } = req.params 
       
       const review = await this.reviewService.findAll(_id)
-      return ApiResponse.success(res,   review )
+      return ApiResponse.success(res,   { review })
     } catch (error) {
       const { message } = error
       logger.error(`[ReviewController: findAll] - Unable to find reviews: ${message}`)
