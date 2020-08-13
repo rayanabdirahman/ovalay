@@ -1,26 +1,12 @@
 import React from 'react'
-import styled from 'styled-components/native'
 import { View as DefaultView, FlatList } from 'react-native'
 import { Thumbnail } from 'native-base'
-import { Text as DefaultText } from '../Text'
+import { CardHeaderText, SmallText } from '../Text'
 import { Image } from '../Image'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-const Text = styled(DefaultText)`
-  margin-bottom: 4px;
-`
-
-const SmallText = styled(DefaultText)`
-  font-size: 15px;
-`
-
-
-
 export const CardItem = ({ data }: any) => {
-  const renderItem = ({ item }: any) => (
-    <Image small={(data.product.length > 2) ? true : false} source={item.photo} resizeMode="cover" />
-  )
-
+  const renderItem = ({ item }: any) => (<Image small={(data.product.length > 2) ? true : false} source={item.photo} resizeMode="cover" />)
   return (
     <DefaultView style={{ marginBottom: 24 }}>
       {/* Head */}
@@ -30,7 +16,7 @@ export const CardItem = ({ data }: any) => {
             <Thumbnail small source={data.photo} />
           </TouchableOpacity>
           <DefaultView style={{ flexDirection: "column", marginLeft: 8 }}>
-            <Text h2 m-0>{data.name}</Text>
+            <CardHeaderText h2 m-0>{data.name}</CardHeaderText>
             <SmallText light> 
               { (data.role === "seller") ? ` Realsed ${data.product.length} new items` : `Bought ${data.product.length} items` }
             </SmallText>

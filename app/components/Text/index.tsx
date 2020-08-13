@@ -14,3 +14,11 @@ export const Text = styled.Text<TextProps>`
   font-weight: ${ props => (props.h1 || props.h2 || props.bold) ? 'bold' : 'normal' };
   margin-bottom: ${ props => props.h1 ? '32px' : '8px' };
 `
+
+export const CardHeaderText = styled(Text)`
+  margin-bottom: 4px;
+`
+
+export const SmallText = styled(Text)`
+  font-size: 15px;
+`
