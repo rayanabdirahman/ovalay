@@ -1,14 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { View as DefaultView, Image as DefaultImage, FlatList } from 'react-native'
+import { View as DefaultView, FlatList } from 'react-native'
 import { Thumbnail } from 'native-base'
 import { Text as DefaultText } from '../Text'
+import { Image } from '../Image'
 import { TouchableOpacity } from 'react-native-gesture-handler'
-
-export type ImageProps = DefaultImage['props'] & {
-  small?: boolean
-}
-
 
 const Text = styled(DefaultText)`
   margin-bottom: 4px;
@@ -18,25 +14,12 @@ const SmallText = styled(DefaultText)`
   font-size: 15px;
 `
 
-// TODO: images should shrink or grow to fit white space
-const Image = styled.Image<ImageProps>`
-  width: ${ props => props.small ? '64px' : '140px' };
-  height: ${ props => props.small ? '64px' : '140px' };
-  margin-right: ${ props => props.small ? '8px' : '16px' }; 
-  border-radius: 8px;
-`
+
 
 export const CardItem = ({ data }: any) => {
-  const renderItem = ({ item }: any) => {
-    return (data.product.length > 2) ?
-    <TouchableOpacity onPress={() => alert('product')}>
-      <Image small source={item.photo} resizeMode="cover" />
-    </TouchableOpacity>
-    :
-    <TouchableOpacity onPress={() => alert('product')}>
-      <Image source={item.photo} resizeMode="cover" />
-    </TouchableOpacity>
-  }
+  const renderItem = ({ item }: any) => (
+    <Image small={(data.product.length > 2) ? true : false} source={item.photo} resizeMode="cover" />
+  )
 
   return (
     <DefaultView style={{ marginBottom: 24 }}>
