@@ -7,10 +7,7 @@ type Props = {
 }
 
 export const CardList: React.FunctionComponent<Props> = ({ list }) => {
-  const renderItem = ({ item }: any) => {
-    return <CardItem data={item} />
-  }
-
+  const renderItem = ({ item }: any) => <CardItem data={item} />
   return (
     <FlatList
       data={list}
