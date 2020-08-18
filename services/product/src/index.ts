@@ -1,6 +1,7 @@
 import bootstrapApp from './app'
 import logger from './util/logger'
 import connectToDbClient from './data_access/db_client'
+import { natsClient } from './events/nats-client'
 
 const runApp = async () => {
   try {
@@ -8,6 +9,17 @@ const runApp = async () => {
 
     // connect to database
     await connectToDbClient()
+
+    // connect to NATS
+    await natsClient.connect('mainstreet', 'random', 'http://nats-service:4222')
+    
+    // handle NATS termination
+    natsClient.client.on('close', () => {
+      logger.debug(`Connection to NATS terminated`)
+      process.exit()
+    })
+    process.on('SIGINT', () => natsClient.client)
+    process.on('SIGTERM', () => natsClient.client)
   
     const app = await bootstrapApp()
   

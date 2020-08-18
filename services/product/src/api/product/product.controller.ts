@@ -8,6 +8,9 @@ import { CreateNewProductModel } from '../../domain/interfaces'
 import ProductValidator from './product.validator'
 import { ProductService } from '../../service/product.service'
 import MulterUpload from '../../middleware/multer.middleware'
+import { ProductCreatedPublisher } from '../../events/publishers/product-created'
+import { ProductUpdatedPublisher } from '../../events/publishers/product-updated'
+import { natsClient } from '../../events/nats-client'
 
 
 @injectable()
@@ -42,7 +45,15 @@ export default class ProductController implements RegistrableController {
       }
 
       const product = await this.productService.createOne(model)
-      
+
+      // publish nats event for created product
+      new ProductCreatedPublisher(natsClient.client).publish({
+        id: product._id,
+        title: product.title,
+        price: product.price,
+        userId: product.owner.toHexString()
+      })
+
       return ApiResponse.success(res,  { product })
     } catch (error) {
       const { message } = error
@@ -92,6 +103,14 @@ export default class ProductController implements RegistrableController {
       } 
 
       const product = await this.productService.updateOne(_id, model)
+
+      // publish nats event for updated product
+      new ProductUpdatedPublisher(natsClient.client).publish({
+        id: product!._id,
+        title: product!.title,
+        price: product!.price,
+        userId: product!.owner.toHexString()
+      })
       
       return ApiResponse.success(res,  { product })
     } catch (error) {

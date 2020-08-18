@@ -28,3 +28,15 @@ export interface CreateReview {
   user?: mongoose.Types.ObjectId
   product?: mongoose.Types.ObjectId
 }
+
+export interface Product {
+  _id: string
+  brand: string
+  name: string
+  description: string
+  image: string
+  owner_id: string // reference user _id
+  quantity: number
+  price: number
+  created_at: Date
+}
