@@ -15,3 +15,7 @@ web-build/
 
 # macOS
 .DS_Store
+
+
+# TODO: delete folder
+temp
