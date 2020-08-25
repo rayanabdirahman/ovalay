@@ -5,7 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 export default function Feed() {
   return (
     <View style={styles.container}>
-      <Text>Feed</Text>
+      <Text style={styles.text}>Jaime Greenwood</Text>
       <StatusBar style="auto" />
     </View>
   );
@@ -18,4 +18,8 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  text: {
+    fontWeight: "bold",
+    fontSize: 16
+  }
 });

@@ -19,19 +19,19 @@ function BottomTabNavigator() {
       <BottomTab.Screen name={'Feed'}
           component={Feed}
           options={{ 
-            tabBarIcon: ({ color }) => <AntDesign name="home" size={26} color={color} /> 
+            tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} /> 
           }} 
         />
       <BottomTab.Screen name={'Search'}
           component={Search}
           options={{ 
-            tabBarIcon: ({ color }) => <AntDesign name="search1" size={26} color={color} /> 
+            tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
           }} 
         />
       <BottomTab.Screen name={'Profile'}
           component={Profile}
           options={{ 
-            tabBarIcon: ({ color }) => <AntDesign name="user" size={26} color={color} /> 
+            tabBarIcon: ({ color }) => <AntDesign name="user" size={24} color={color} /> 
           }} 
         />
     </BottomTab.Navigator>

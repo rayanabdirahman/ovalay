@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import Navigation from './navigation';
-import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { StatusBar } from 'expo-status-bar'
+import React from 'react'
+import Navigation from './navigation'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 export default function App() {
   return (
@@ -9,5 +9,5 @@ export default function App() {
       <Navigation isUserAuthenticated={true}  />
       <StatusBar style="auto" />
     </SafeAreaProvider>
-  );
+  )
 }
