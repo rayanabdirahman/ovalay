@@ -3,7 +3,7 @@ import React from 'react'
 import Navigation from './navigation'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-export default function App() {
+function App() {
   return (
     <SafeAreaProvider>
       <Navigation isUserAuthenticated={true}  />
@@ -11,3 +11,7 @@ export default function App() {
     </SafeAreaProvider>
   )
 }
+
+export default () => (
+  <App />
+)
