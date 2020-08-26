@@ -5,11 +5,12 @@ type Props = DefaultText['props']
 
 const BaseText = styled.Text<Props>`
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 400;
+  color: ${ ({ theme }) => theme.colour.black };
 `
 
 export const ScreenTitle = styled(BaseText)`
   font-size: 24px;
   margin-bottom: 32px;
-  font-weight: bold;
+  font-weight: 700;
 `

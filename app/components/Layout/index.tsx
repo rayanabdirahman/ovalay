@@ -7,8 +7,9 @@ type Props = DefaultView['props'] & {
 }
 
 const BaseContainer = styled.View<Props>`
-  padding: ${props  => props.fullwidth ? 0 : `0 20px` };
+  padding: ${ ({ fullwidth })  => fullwidth ? 0 : `0 20px` };
   height: 100%;
+  background-color: ${ ({ theme }) => theme.colour.white };
 `
 
 const ContentContainer = styled.View<Props>`

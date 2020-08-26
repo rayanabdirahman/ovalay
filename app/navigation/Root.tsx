@@ -6,11 +6,12 @@ import Feed from '../screens/app/Feed'
 import Search from '../screens/app/Search'
 import Profile from '../screens/app/Profile'
 import { RootStackParamList, RootNavigationScreenName } from './types'
+import { theme } from '../components/Theme'
 
 const tabBarOptions = {
-  activeTintColor: '#2b292d',
-  inactiveTintColor: '#BFC5D2',
-  style: { backgroundColor: '#FFF' }
+  activeTintColor: theme.colour.black,
+  inactiveTintColor: theme.colour.lightgrey,
+  style: { backgroundColor: theme.colour.white }
 }
 
 // Bottom tab navigation for authorised users
