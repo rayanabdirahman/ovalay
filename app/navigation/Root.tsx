@@ -28,6 +28,12 @@ function BottomTabNavigator() {
             tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
           }} 
         />
+      <BottomTab.Screen name={'WishList'}
+          component={Search}
+          options={{ 
+            tabBarIcon: ({ color }) => <AntDesign name="hearto" size={24} color={color} /> 
+          }} 
+        />
       <BottomTab.Screen name={'Profile'}
           component={Profile}
           options={{ 
