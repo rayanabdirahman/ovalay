@@ -1,13 +1,19 @@
+// export const user = {
+//   _id: 1,
+//   createdAt: "2020-02-12T04:41:58.971Z",
+//   name: "Joanny Kessler",
+//   email: "Eloisa_Rath53@hotmail.com",
+//   image: {
+//     url: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+//   }
+// }
+
 export const user = {
-  data: {
-    _id: 1,
-    createdAt: "2020-02-12T04:41:58.971Z",
-    name: "Leonard Walsh",
-    email: "Eloisa_Rath53@hotmail.com",
-    image: {
-      url: "https://s3.amazonaws.com/uifaces/faces/twitter/justinrgraham/128.jpg"
-    }
-  }
+  _id: 1,
+  createdAt: "2020-02-12T04:41:58.971Z",
+  name: "Joanny Kessler",
+  email: "Eloisa_Rath53@hotmail.com",
+  image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
 }
 
 export const product = {
