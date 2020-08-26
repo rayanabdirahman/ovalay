@@ -4,7 +4,6 @@ export enum RootNavigationScreenName {
   MODAL = 'Modal',
   FEED = 'Feed',
   SEARCH = 'Search',
-  WISH_LIST = 'Wishlist',
   PROFILE = 'Profile'
 }
 
@@ -24,6 +23,5 @@ export type RootStackParamList = {
   Modal: undefined
   Feed: undefined
   Search: undefined
-  Wishlist: undefined
   Profile: undefined
 }
