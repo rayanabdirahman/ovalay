@@ -1,21 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { Layout } from '../../components/Layout'
+import { ScreenTitle } from '../../components/Text'
 
 export default function Search() {
   return (
-    <View style={styles.container}>
-      <Text>Search</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    <Layout fullwidth>
+      <ScreenTitle>Search</ScreenTitle>
+    </Layout>
+  )
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
