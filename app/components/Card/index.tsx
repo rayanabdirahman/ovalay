@@ -19,7 +19,7 @@ export const Card = ({ data }: any) => {
   }
 
   return (
-    <DefaultView style={{ marginBottom: 24 }}>
+    <DefaultView style={{ marginBottom: 32 }}>
       {/* Head */}
       <DefaultView style={{ marginBottom: 16, flexDirection: "row", justifyContent: "space-between" }}>
         <DefaultView style={{ flexDirection: "row" }}>

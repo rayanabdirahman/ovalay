@@ -1,7 +1,7 @@
 import React from 'react'
 import { ScreenTitle } from '../../components/Text'
 import { Layout } from '../../components/Layout'
-import { FlatList, Text } from 'react-native'
+import { FlatList } from 'react-native'
 import { orders } from '../../temp/data'
 import { Card } from '../../components/Card'
 
