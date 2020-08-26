@@ -15,6 +15,7 @@ const BaseContainer = styled.View<Props>`
 const ContentContainer = styled.View<Props>`
   padding: 32px 24px 0;
   margin-top: 32px;
+  height: 100%;
 `
 
 export const Layout = (props: Props) => (
