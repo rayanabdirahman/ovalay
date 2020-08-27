@@ -2,7 +2,7 @@ import 'styled-components'
 
 enum Colour {
   BLACK = '#2B292D',
-  WHITE = '#fff',
+  WHITE = '#FFF',
   LIGHT_GREY = '#BFC5D2'
 }
 
