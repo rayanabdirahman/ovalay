@@ -1,11 +1,13 @@
 import React from 'react'
 import { Layout } from '../../components/Layout'
-import { ScreenTitle } from '../../components/Text'
+import { SearchBar } from '../../components/Input'
 
 export default function Search() {
   return (
     <Layout fullwidth>
-      <ScreenTitle>Search</ScreenTitle>
+      <SearchBar
+        placeholder="Search"
+      />
     </Layout>
   )
 }
