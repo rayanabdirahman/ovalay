@@ -16,7 +16,7 @@ const tabBarOptions = {
   style: { backgroundColor: theme.colour.white }
 }
 
-// over ride to show modal screens
+// override to show modal screens
 const placeholderScreen = () => <DefaultView style={{ flex: 1, backgroundColor: 'blue' }} />
 
 // Bottom tab navigation for authorised users
