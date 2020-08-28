@@ -8,14 +8,6 @@
 //   }
 // }
 
-export const user = {
-  _id: 1,
-  createdAt: "2020-02-12T04:41:58.971Z",
-  name: "Joanny Kessler",
-  email: "Eloisa_Rath53@hotmail.com",
-  image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
-}
-
 export const product = {
   data: {
     _id: 1,
@@ -80,4 +72,23 @@ export const orders = [
       { _id: '8', image: 'https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}
     ]
   },
+]
+
+export const users = [
+  {
+    _id: '1',
+    createdAt: "2020-02-12T04:41:58.971Z",
+    name: "Joanny Kessler",
+    username: "joanny",
+    email: "Eloisa_Rath53@hotmail.com",
+    image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
+  },
+  {
+    _id: '2',
+    createdAt: "2020-02-12T04:41:58.971Z",
+    name: "Jamie Greenwood",
+    username: "jamie",
+    email: "Eloisa_Rath53@hotmail.com",
+    image: "https://s3.amazonaws.com/uifaces/faces/twitter/justinrgraham/128.jpg"
+  }
 ]

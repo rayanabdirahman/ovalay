@@ -19,7 +19,7 @@ export const SearchBar = (props: Props) => {
   // didkeyboardShow state used to hide or show cancel butotn
   const [ didkeyboardShow, setKeyboadState ] = useState<boolean>(false)
   return (
-    <DefaultView style={{ flexDirection: "row", alignItems: "center" }}>
+    <DefaultView style={{ flexDirection: "row", alignItems: "center", marginBottom: 32 }}>
       <StyledSearchInput
         onFocus={ () => setKeyboadState(true) }
         onBlur={ () => setKeyboadState(false) }

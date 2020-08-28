@@ -1,5 +1,4 @@
 import React from 'react'
-import { ScreenTitle } from '../../components/Text'
 import { Layout } from '../../components/Layout'
 import { FlatList } from 'react-native'
 import { orders } from '../../temp/data'
