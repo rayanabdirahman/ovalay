@@ -9,7 +9,6 @@ export default function Feed() {
   const renderItem = ({ item }: any) => <Card data={item} />
   return (
     <Layout fullwidth>
-      <ScreenTitle>Feed</ScreenTitle>
       <FlatList 
         data={orders}
         renderItem={renderItem}
