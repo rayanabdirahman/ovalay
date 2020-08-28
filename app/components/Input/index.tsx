@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/native'
-import { TextInput  as DefaultTextInput, View as DefaultView, Keyboard } from 'react-native'
-import { theme } from '../Theme'
-import { Button, Text } from 'native-base'
+import { TextInput  as DefaultTextInput, View as DefaultView, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { Text } from '../Text'
 
 type Props = DefaultTextInput['props'] & DefaultView['props']
 
@@ -15,23 +15,25 @@ const StyledSearchInput = styled.TextInput<Props>`
 `
 
 export const SearchBar = (props: Props) => {
+  const navigation = useNavigation()
   // didkeyboardShow state used to hide or show cancel butotn
   const [ didkeyboardShow, setKeyboadState ] = useState<boolean>(false)
   return (
-    <DefaultView style={{ flexDirection: "row" }}>
+    <DefaultView style={{ flexDirection: "row", alignItems: "center" }}>
       { console.log('keyboard:  ', didkeyboardShow) }
       <StyledSearchInput
         onFocus={ () => setKeyboadState(true) }
         onBlur={ () => setKeyboadState(false) }
+        autoFocus
         {...props} />
- 
+  
       {
         didkeyboardShow && 
-        <Button
-          onPress={ () => Keyboard.dismiss() }
-          transparent>
-          <Text style={{ color: theme.colour.black, fontSize: 14 }} >Cancel</Text>
-        </Button>
+        <TouchableOpacity
+          onPress={ () => navigation.goBack() }
+          style={{ marginLeft: 8 }}>
+          <Text>Cancel</Text>
+        </TouchableOpacity>
       }
     </DefaultView>
   )

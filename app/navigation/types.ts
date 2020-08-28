@@ -4,7 +4,8 @@ export enum RootNavigationScreenName {
   MODAL = 'Modal',
   FEED = 'Feed',
   SEARCH = 'Search',
-  PROFILE = 'Profile'
+  PROFILE = 'Profile',
+  SEARCH_MODAL = 'SearchModal'
 }
 
 // screen names must match param list object keys
@@ -24,4 +25,5 @@ export type RootStackParamList = {
   Feed: undefined
   Search: undefined
   Profile: undefined
+  SearchModal: undefined
 }

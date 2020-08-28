@@ -5,9 +5,7 @@ import { SearchBar } from '../../components/Input'
 export default function Search() {
   return (
     <Layout fullwidth>
-      <SearchBar
-        placeholder="Search"
-      />
+      <SearchBar placeholder="Search" />
     </Layout>
   )
 }

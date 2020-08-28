@@ -7,6 +7,7 @@ import Search from '../screens/app/Search'
 import Profile from '../screens/app/Profile'
 import { RootStackParamList, RootNavigationScreenName } from './types'
 import { theme } from '../components/Theme'
+import { View as DefaultView  } from 'react-native'
 
 const tabBarOptions = {
   activeTintColor: theme.colour.black,
@@ -14,23 +15,34 @@ const tabBarOptions = {
   style: { backgroundColor: theme.colour.white }
 }
 
+// over ride to show modal screens
+const placeholderScreen = () => <DefaultView style={{ flex: 1, backgroundColor: 'blue' }} />
+
 // Bottom tab navigation for authorised users
 const BottomTab = createBottomTabNavigator<RootStackParamList>()
 function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName={'Feed'} tabBarOptions={tabBarOptions}>
+    <BottomTab.Navigator initialRouteName={RootNavigationScreenName.FEED} tabBarOptions={tabBarOptions}>
       <BottomTab.Screen name={RootNavigationScreenName.FEED}
         component={Feed}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} /> 
         }} 
       />
+
       <BottomTab.Screen name={RootNavigationScreenName.SEARCH}
-        component={Search}
+        component={placeholderScreen}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
-        }} 
+        }}
+        listeners={({ navigation }) => ({
+          tabPress: event => {
+            event.preventDefault()
+            navigation.navigate(RootNavigationScreenName.SEARCH_MODAL)
+          }
+        })}
       />
+
       <BottomTab.Screen name={RootNavigationScreenName.PROFILE}
         component={Profile}
         options={{ 
@@ -45,8 +57,9 @@ function BottomTabNavigator() {
 const RootStack = createStackNavigator<RootStackParamList>()
 export default function RootNavigator() {
   return (
-    <RootStack.Navigator screenOptions={{ headerShown: false }}>
+    <RootStack.Navigator screenOptions={{  headerShown: false, animationEnabled: false }} mode="modal">
       <RootStack.Screen name={RootNavigationScreenName.ROOT} component={BottomTabNavigator} />
+      <RootStack.Screen name={RootNavigationScreenName.SEARCH_MODAL} component={Search} />
     </RootStack.Navigator>
   )
 }
