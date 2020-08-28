@@ -16,7 +16,8 @@ const StyledSearchInput = styled.TextInput<Props>`
 
 export const SearchBar = (props: Props) => {
   const navigation = useNavigation()
-  // didkeyboardShow state used to hide or show cancel butotn
+  // didkeyboardShow state used to hide or show cancel button
+  // TODO: remove if state to hide cancel button is not needed
   const [ didkeyboardShow, setKeyboadState ] = useState<boolean>(false)
   return (
     <DefaultView style={{ flexDirection: "row", alignItems: "center", marginBottom: 32 }}>
@@ -25,15 +26,12 @@ export const SearchBar = (props: Props) => {
         onBlur={ () => setKeyboadState(false) }
         autoFocus
         {...props} />
-  
-      {
-        didkeyboardShow && 
-        <TouchableOpacity
-          onPress={ () => navigation.goBack() }
-          style={{ marginLeft: 8 }}>
-          <Text>Cancel</Text>
-        </TouchableOpacity>
-      }
+
+      <TouchableOpacity
+        onPress={ () => navigation.goBack() }
+        style={{ marginLeft: 8 }}>
+        <Text>Cancel</Text>
+      </TouchableOpacity>
     </DefaultView>
   )
 }
