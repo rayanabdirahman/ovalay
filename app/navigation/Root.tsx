@@ -12,6 +12,7 @@ import { View as DefaultView  } from 'react-native'
 const tabBarOptions = {
   activeTintColor: theme.colour.black,
   inactiveTintColor: theme.colour.lightgrey,
+  showLabel: false,
   style: { backgroundColor: theme.colour.white }
 }
 

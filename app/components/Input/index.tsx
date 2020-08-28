@@ -20,7 +20,6 @@ export const SearchBar = (props: Props) => {
   const [ didkeyboardShow, setKeyboadState ] = useState<boolean>(false)
   return (
     <DefaultView style={{ flexDirection: "row", alignItems: "center" }}>
-      { console.log('keyboard:  ', didkeyboardShow) }
       <StyledSearchInput
         onFocus={ () => setKeyboadState(true) }
         onBlur={ () => setKeyboadState(false) }
