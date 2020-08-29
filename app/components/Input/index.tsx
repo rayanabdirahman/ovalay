@@ -7,10 +7,10 @@ import { Text } from '../Text'
 type Props = DefaultTextInput['props'] & DefaultView['props']
 
 const StyledSearchInput = styled.TextInput<Props>`
-  border: 1px solid ${ ({ theme }) => theme.colour.lightgrey };
+  border: 1px solid #f2f2f2;
   padding: 12px 16px;
   border-radius: 8px;
-  background-color: ${ ({ theme }) => theme.colour.lightgrey };
+  background-color: #f2f2f2;
   flex: 1;
 `
 

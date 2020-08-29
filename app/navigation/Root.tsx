@@ -17,7 +17,7 @@ const tabBarOptions = {
 }
 
 // override to show modal screens
-const placeholderScreen = () => <DefaultView style={{ flex: 1, backgroundColor: 'blue' }} />
+const PlaceHolderScreen = () => <DefaultView style={{ flex: 1, backgroundColor: 'blue' }} />
 
 // Bottom tab navigation for authorised users
 const BottomTab = createBottomTabNavigator<RootStackParamList>()
@@ -32,7 +32,7 @@ function BottomTabNavigator() {
       />
 
       <BottomTab.Screen name={RootNavigationScreenName.SEARCH}
-        component={placeholderScreen}
+        component={PlaceHolderScreen}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
         }}
