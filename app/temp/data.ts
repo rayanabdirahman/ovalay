@@ -40,7 +40,7 @@ export const seller = {
 export const orders = [
   {
     _id: '000',
-    user: { _id: 1, name: "Joanny Kessler", image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" },
+    user: { _id: 1, name: "Joanny Kessler", username: "joanny", image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" },
     product: [
       { _id: '9', image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2743&q=80'},
       { _id: '10', image: 'https://images.unsplash.com/photo-1579338559194-a162d19bf842?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}
@@ -48,7 +48,7 @@ export const orders = [
   },
   {
     _id: '001',
-    user: { _id: 1, name: "Jamie Greenwood", image: "https://s3.amazonaws.com/uifaces/faces/twitter/justinrgraham/128.jpg" },
+    user: { _id: 1, name: "Jamie Greenwood", username: "jamie", image: "https://s3.amazonaws.com/uifaces/faces/twitter/justinrgraham/128.jpg" },
     product: [
       { _id: '1', image: 'https://images.unsplash.com/photo-1512374382149-233c42b6a83b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=975&q=80'},
       { _id: '2', image: 'https://images.unsplash.com/photo-1515555230216-82228b88ea98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'},
@@ -59,7 +59,7 @@ export const orders = [
   },
   {
     _id: '002',
-    user: { _id: 1, name: "John Brown", image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=73a9df4b7bd1b330db1e903e08575ec1" },
+    user: { _id: 1, name: "John Brown", username: "john",image: "https://images.unsplash.com/photo-1463453091185-61582044d556?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=73a9df4b7bd1b330db1e903e08575ec1" },
     product: [
       { _id: '6', image: 'https://images.unsplash.com/photo-1578116922645-3976907a7671?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60'},
       { _id: '7', image: 'https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}
@@ -67,7 +67,7 @@ export const orders = [
   },
   {
     _id: '003',
-    user: { _id: 1, name: "Jane Brown", image: "https://randomuser.me/api/portraits/women/17.jpg" },
+    user: { _id: 1, name: "Jane Brown", username: "jane", image: "https://randomuser.me/api/portraits/women/17.jpg" },
     product: [
       { _id: '8', image: 'https://images.unsplash.com/photo-1597248881519-db089d3744a5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}
     ]

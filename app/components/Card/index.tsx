@@ -24,7 +24,7 @@ export const Card = ({ data }: any) => {
           small 
           source={{uri: data.user.image}}
           name={data.user.name}
-          subtitle={`Bought ${ data.product.length } items`} />
+          subtitle={`@${data.user.username} bought ${ data.product.length < 2 ? "an" : data.product.length } ${ data.product.length < 2 ? "item" : "items" }`} />
 
         <DefaultView style={{ alignItems: "center" }}>
           <Text light>2 mins</Text>
