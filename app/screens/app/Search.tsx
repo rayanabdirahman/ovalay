@@ -1,23 +1,17 @@
 import React from 'react'
-import { View as DefaultView, FlatList } from 'react-native'
-import { Thumbnail } from 'native-base'
+import { FlatList } from 'react-native'
 import { Layout } from '../../components/Layout'
 import { SearchBar } from '../../components/Input'
-import { Text } from '../../components/Text'
+import { Thumbnail } from '../../components/Thumbnail'
 import { users } from '../../temp/data'
 
 export default function Search() {
-  const renderItem = ({ item }: any) => {
-    return (
-      <DefaultView style={{ flexDirection: "row", alignItems: "center", marginBottom: 24 }}>
-        <Thumbnail source={{ uri: item.image}} />
-        <DefaultView style={{ marginLeft: 8 }}>
-          <Text bold>{item.name}</Text>
-          <Text light>@{item.username}</Text>
-        </DefaultView>
-      </DefaultView>
-    )
-  }
+  const renderItem = ({ item }: any) => (
+    <Thumbnail 
+      source={{ uri: item.image}}
+      name={item.name}
+      subtitle={`@${item.username}`} />
+  )
 
   return (
     <Layout fullwidth>
