@@ -1,12 +1,13 @@
 import React from 'react'
 import { View as DefaultView, TouchableOpacity, FlatList } from 'react-native'
-import { Thumbnail } from 'native-base'
+// import { Thumbnail } from 'native-base'
 import { AntDesign } from '@expo/vector-icons'
 import { Layout } from '../../components/Layout'
 import { Text } from '../../components/Text'
 import { user } from '../../temp/data'
 import { theme } from '../../components/Theme'
 import { Button } from '../../components/Button'
+import { Thumbnail } from '../../components/Thumbnail'
 
 const list = [
   {
@@ -38,11 +39,12 @@ export default function Profile() {
   return (
     <Layout fullwidth>
       <DefaultView style={{ marginBottom: 48 }}>
-        <TouchableOpacity
-          onPress={() => alert('profile')}
-          style={{ marginBottom: 32 }}>        
-          <Thumbnail small source={{ uri: user.image}} />
-        </TouchableOpacity>
+        <Thumbnail
+          small
+          style={{ marginBottom: 32 }}
+          source={{ uri: user.image}}
+          name={user.name}
+          subtitle={`@${user.username}`} />
 
         <FlatList
           data={list}
