@@ -1,19 +1,25 @@
 import React from 'react'
-import { View as DefaultView, FlatList } from 'react-native'
+import { View as DefaultView, FlatList, TouchableOpacity } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
 import { Text } from '../../components/Text'
 import { Image } from '../../components/Image'
 import { Thumbnail } from '../../components/Thumbnail'
+import { RootNavigationScreenName } from '../../navigation/types'
 
 type Props = DefaultView['props']
 
 export const Card = ({ data }: any) => {
+  const navigation = useNavigation()
+
   const renderItem = ({ item }: any) => (
-    <Image 
-      small={(data.product.length > 2) ? true : false}
-      large={(data.product.length < 2) ? true : false}
-      source={{ uri: item.image}}
-      resizeMode="cover"
-    />
+    <TouchableOpacity onPress={() => navigation.navigate(RootNavigationScreenName.PRODUCT)}>
+      <Image 
+        small={(data.product.length > 2) ? true : false}
+        large={(data.product.length < 2) ? true : false}
+        source={{ uri: item.image}}
+        resizeMode="cover"
+      />
+    </TouchableOpacity>
   )
 
   return (

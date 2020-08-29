@@ -15,7 +15,5 @@ const BaseImage = styled.Image<Props>`
 `
 
 export const Image: React.FunctionComponent<Props> = (props: Props) => (
-  <TouchableOpacity onPress={() => alert('product')}>
-    <BaseImage {...props} resizeMode="cover" />
-  </TouchableOpacity>
+  <BaseImage {...props} resizeMode="cover" />
 )
