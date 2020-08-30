@@ -26,9 +26,10 @@ export const product = {
   }
 }
 
-export const seller = {
+const seller = {
   _id: 999,
   name: "JD Sport",
+  username: "JDSport",
   bio: "Where trainers are made to be worn",
   location: "London, UK",
   image: {
@@ -42,7 +43,16 @@ export const orders = [
     _id: '000',
     user: { _id: 1, name: "Joanny Kessler", username: "joanny", image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ" },
     product: [
-      { _id: '9', image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2743&q=80'},
+      { 
+        _id: '9',
+        category: "vans",
+        name: "Vans Old Skool",
+        brand: "Van",
+        type: "Sneakers",
+        description: "Ab eum pariatur quod laborum illum ea. Numquam et quo. Cum voluptate consequuntur molestiae et ut debitis.",
+        image: 'https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2743&q=80',
+        seller: seller
+      },
       { _id: '10', image: 'https://images.unsplash.com/photo-1579338559194-a162d19bf842?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60'}
     ]
   },

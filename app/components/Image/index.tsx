@@ -5,6 +5,7 @@ import styled from 'styled-components/native'
 export type Props = DefaultImage['props'] & {
   small?: boolean
   large?: boolean
+  radius?: boolean
 }
 
 const BaseImage = styled.Image<Props>`
@@ -14,6 +15,12 @@ const BaseImage = styled.Image<Props>`
   border-radius: 8px;
 `
 
-export const Image: React.FunctionComponent<Props> = (props: Props) => (
-  <BaseImage {...props} resizeMode="cover" />
+export const Image: React.FunctionComponent<Props> = (props: Props, radius = true) => (
+  <BaseImage {...props} radius={radius} resizeMode="cover" />
 )
+
+export const ProductImage = styled(BaseImage)`
+  width: 100%;
+  border-radius: 0;
+  height: 350px;
+`

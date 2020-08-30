@@ -4,6 +4,7 @@ import { View as DefaultView } from 'react-native'
 
 type Props = DefaultView['props'] & {
   fullwidth?: boolean
+  withNoContainer?: boolean
 }
 
 const BaseContainer = styled.View<Props>`
@@ -12,7 +13,7 @@ const BaseContainer = styled.View<Props>`
   background-color: ${ ({ theme }) => theme.colour.white };
 `
 
-const ContentContainer = styled.View<Props>`
+export const ContentContainer = styled.View<Props>`
   padding: 32px 20px 0;
   margin-top: 32px;
   height: 100%;
@@ -20,8 +21,9 @@ const ContentContainer = styled.View<Props>`
 
 export const Layout = (props: Props) => (
   <BaseContainer {...props}>
-    <ContentContainer>
-      { props.children }
-    </ContentContainer>
+    { props.withNoContainer ? 
+      props.children : 
+      <ContentContainer>{ props.children }</ContentContainer>
+    }
   </BaseContainer>
 )

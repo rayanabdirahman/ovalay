@@ -12,7 +12,7 @@ export const Card = ({ data }: any) => {
   const navigation = useNavigation()
 
   const renderItem = ({ item }: any) => (
-    <TouchableOpacity onPress={() => navigation.navigate(RootNavigationScreenName.PRODUCT)}>
+    <TouchableOpacity onPress={() => navigation.navigate(RootNavigationScreenName.PRODUCT, { _id: item._id })}>
       <Image 
         small={(data.product.length > 2) ? true : false}
         large={(data.product.length < 2) ? true : false}
