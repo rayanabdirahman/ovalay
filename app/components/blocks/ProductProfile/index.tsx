@@ -3,7 +3,7 @@ import { View as DefaultView } from 'react-native'
 import { AntDesign } from '@expo/vector-icons'
 import { Thumbnail } from '../../Thumbnail'
 import { ProductImage } from '../../Image'
-import { Text } from '../../Text'
+import { Text, ScreenTitle } from '../../Text'
 import { theme } from '../../Theme'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
@@ -22,11 +22,20 @@ export const ProductProfile = ({ product }: any) => (
     <ProductImage  large source={{ uri: product?.image}}/>
 
     <TouchableOpacity onPress={() => alert("Liked")} style={{ margin: 8, marginTop: 16 }}>
-      <AntDesign style={{ marginRight: 16 }} name="hearto" size={32} color={theme.colour.black}/>
+      <AntDesign style={{ marginRight: 16 }} name="hearto" size={24} color={theme.colour.black}/>
     </TouchableOpacity>
 
+    <DefaultView style={{ margin: 8, marginTop: 0, flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+      <DefaultView>
+        <Text bold>{product.brand}</Text>
+        <Text>{product.name}</Text>
+      </DefaultView>
+      <DefaultView>
+        <ScreenTitle>£{product.price}</ScreenTitle>
+      </DefaultView>
+    </DefaultView>
+
     <DefaultView style={{ margin: 8, marginTop: 0 }}>
-      <Text bold>{product.seller.username}</Text>
       <Text>{product.description}</Text>
     </DefaultView>
   </React.Fragment>
