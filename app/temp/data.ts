@@ -112,3 +112,13 @@ export const user = {
   email: "Eloisa_Rath53@hotmail.com",
   image: "https://images.unsplash.com/photo-1511485977113-f34c92461ad9?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&ixid=eyJhcHBfaWQiOjE3Nzg0fQ"
 }
+
+type User = {
+  _id: string
+  name: string
+  username: string
+  email: string
+  password: string
+  avatar: string
+  role: ['seller', 'buyer']
+}
