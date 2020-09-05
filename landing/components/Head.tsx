@@ -6,6 +6,7 @@ const Head: React.FunctionComponent = () => (
     <title>Mainstreet — The social commerce marketplace for sneakers</title>
     <meta name="title" content="Mainstreet — The social commerce marketplace for sneakers" />
     <meta name="description" content="An online marketplace designed to connect shoppers with their favourite physical sneaker stores" />
+    <link rel="shortcut icon" href="/favicon.svg" />
 
     {/* Open Graph / Facebook */}
     <meta property="og:type" content="website" />
