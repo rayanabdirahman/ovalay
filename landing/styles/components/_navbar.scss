@@ -32,14 +32,14 @@
 }
 
 .navbar-nav {
-  @media only screen and (max-width: $grid-breakpoint-md) {
-    display: none;
-  }
+  display: none;
 
-  display: flex;
-  align-items: center;
-  list-style: none;
-  position: relative;
+  @media only screen and (min-width: $grid-breakpoint-md) {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    position: relative;
+  }
 }
 
 .navbar-nav-item {
