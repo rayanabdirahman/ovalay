@@ -1,11 +1,9 @@
-import Head from '../components/Head'
-import styles from '../styles/Home.module.css'
+import { Layout } from '../components/Layout'
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Head/>
-      <img src="/logo.svg" />
-    </div>
+    <Layout>
+      <h1>Hello world</h1>
+    </Layout>
   )
 }
