@@ -5,13 +5,13 @@ const Navbar: React.FunctionComponent = () => (
     <nav className="navbar">
       <Link href="/">
         <a className="navbar-brand">
-          <img src="/logo.svg" />
+          <img src="/logo.svg" alt="Mainstreet logo"/>
         </a>
       </Link>
 
       <div className="navbar-collapse">
         <button className="navbar-toggle">
-          <img src="/icons/menu.svg" alt=""/>
+          <img src="/icons/menu.svg" alt="menu icon"/>
         </button>
         
         <ul className="navbar-nav">

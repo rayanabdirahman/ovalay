@@ -11,7 +11,8 @@ const Hero: React.FunctionComponent = () => (
             <h1>Shop your favourite sneaker stores online</h1>
             <p>We're bringing the physical sneaker stores you love to one place.</p>
             <form action="">
-              <input className="input" type="email" placeholder="Email address"/>
+              <label className="waitlist-label" htmlFor="email">Add your email to join our waitlist</label>
+              <input id="email" className="input" type="email" placeholder="Email address"/>
               <button className="btn btn-primary">Join waitlist</button>
             </form>
           </div>
@@ -20,7 +21,7 @@ const Hero: React.FunctionComponent = () => (
         <div className="hero-right-content">
           <div className="hero-image">
             <img 
-              src="https://images.unsplash.com/photo-1517737276944-c011f949dfc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+              src="/images/sneakers-lights.jpg"
               alt="Sneaker World Neon light"/>
           </div>
         </div>
