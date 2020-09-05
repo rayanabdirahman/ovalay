@@ -1,12 +1,10 @@
-import Layout from '../components/Layout'
+import { Layout } from '../components/Layout'
 import { Hero } from '../components/Hero'
-// import { SellingPoints } from '../components/SellingPoints'
 
-const IndexPage = () => (
-  <Layout title="Mainstreet | The online mall for trainers">
-    <Hero />
-    {/* <SellingPoints /> */}
-  </Layout>
-)
-
-export default IndexPage
+export default function Home() {
+  return (
+    <Layout>
+      <Hero />
+    </Layout>
+  )
+}

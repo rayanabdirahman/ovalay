@@ -1,15 +1,11 @@
-// bootstrap
-@import '~bootstrap-css-only/css/bootstrap.min.css';
-
-// google font: roboto
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap');
-
 // base
-@import 'variables';
-@import 'base';
+@import 'base/variables';
+@import 'base/grid';
+@import 'base/global';
 
-// component
+// components
+@import 'components/alert';
 @import 'components/navbar';
 @import 'components/hero';
+@import 'components/button';
 @import 'components/form';
-@import 'components/footer';

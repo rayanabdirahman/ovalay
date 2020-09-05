@@ -1,26 +1,34 @@
-export const Navbar: React.FunctionComponent = () => (
-  <div className="navbar navbar-expand-lg">
-    <div className="container">
-      <a className="navbar-brand" href="#">mainstreet</a>
-      {/* <div className="collapse navbar-collapse" id="navbarNav">
+import Link from 'next/link'
+
+const Navbar: React.FunctionComponent = () => (
+  <div className="page-container">
+    <nav className="navbar">
+      <Link href="/">
+        <a className="navbar-brand">
+          <img src="/logo.svg" />
+        </a>
+      </Link>
+
+      <div className="navbar-collapse">
+        <button className="navbar-toggle">
+          <img src="/icons/menu.svg" alt=""/>
+        </button>
+        
         <ul className="navbar-nav">
-          <li className="nav-item">
-            <Link  href="#">
-              <a className="nav-link">Store owners</a>
+          <li className="navbar-nav-item">
+            <Link href="">
+              <a  className="navbar-item">Contact us</a>
             </Link>
           </li>
-          <li className="nav-item">
-            <Link  href="#">
-              <a className="nav-link">Contact us</a>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link  href="#">
-              <a className="nav-link">Join waitlist</a>
+          <li className="navbar-nav-item">
+            <Link href="">
+              <a className="navbar-item">Join waitlist</a>
             </Link>
           </li>
         </ul>
-      </div> */}
-    </div>
+      </div>
+    </nav>
   </div>
 )
+
+export { Navbar }
