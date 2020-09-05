@@ -1,11 +1,12 @@
 import Head from './Head'
-import styles from '../styles/Home.module.css'
+import { Alert } from './Alert'
 
 const Layout: React.FunctionComponent = ({ children }) => (
-  <div className={styles.container}>
+  <div>
     <Head/>
 
     <main>
+      <Alert type="warning" message="We’re still in development" />
       { children }
     </main>
   </div>
