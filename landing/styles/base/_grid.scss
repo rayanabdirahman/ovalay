@@ -1,0 +1,12 @@
+.page-container {
+  padding: 0 1rem;
+  width: 100%;
+
+  @media (min-width: $grid-breakpoint-md) {
+    padding: 0 3rem; // 48px
+  }
+
+  @media (min-width: $grid-breakpoint-lg) {
+    padding: 0 3.75rem; // 60px
+  }
+}
