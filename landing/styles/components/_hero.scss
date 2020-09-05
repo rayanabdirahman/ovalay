@@ -1,0 +1,89 @@
+.hero {
+  // background-color: red;
+  margin-top: 0;
+  position: relative;
+
+  h1 {
+    font-size: 2rem; // 32px
+    font-weight: $font-weight--bold;
+  }
+}
+
+.hero-left-content {
+  position: absolute;
+  top: 0;
+  transform: translate(0, 20%);
+  z-index: 999;
+}
+
+.hero-right-content {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+
+
+
+.hero-form {
+  padding: 1.5rem 1.5rem 1.5rem 0.75rem; // 24px 12px
+  min-width: 300px;
+  max-width: 400px;
+  height: auto;
+  background-color: $colour-white;
+  border-radius: 0.5rem; // 8px
+
+  h1 {
+    font-size: 2.5rem; // 40px
+  }
+
+  p {
+    font-size: 1.125rem; // 18px
+    margin-bottom: 1.5rem; // 24px
+  }
+}
+
+.input {
+  padding: 1.25rem 2rem; // 20px 32px
+  border-radius: 0.25rem; // 4px
+  border: 1px solid $colour-grey;
+  width: 100%;
+  margin-bottom: 24px;
+}
+
+.btn {
+  padding: 1.25rem 2rem; // 20px 32px
+  font-size: 1rem;
+  border: 0;
+  border: 1px solid $colour-grey;
+  border-radius: 0.25rem; // 4px
+  width: 100%;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background-color: $colour-blue;
+  border-color: $colour-blue;
+  color: $colour-white;
+
+  &:hover {
+    background-color: #00c;
+    border-color: #00c;
+  }
+}
+
+
+.hero-image {
+  display: block;
+  min-width: 250px;
+  max-width: 1000px;
+  height: auto;
+
+  img {
+    width: 100%;
+    border-radius: 0.5rem; // 8px
+  }
+}
+
+
+

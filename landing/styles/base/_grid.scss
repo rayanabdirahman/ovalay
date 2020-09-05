@@ -8,5 +8,8 @@
 
   @media (min-width: $grid-breakpoint-lg) {
     padding: 0 3.75rem; // 60px
+    margin: 0 auto;
+    min-width: 1024px;
+    max-width: 1440px;
   }
 }
