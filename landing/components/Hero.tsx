@@ -11,7 +11,8 @@ const Hero: React.FunctionComponent = () => (
             <h1>Shop your favourite sneaker stores online</h1>
             <p>We're bringing the physical sneaker stores you love to one place.</p>
             <form action="">
-              <input className="input" type="email" placeholder="Email address"/>
+              <label className="waitlist-label" htmlFor="email">Add your email to join our waitlist</label>
+              <input id="email" className="input" type="email" placeholder="Email address"/>
               <button className="btn btn-primary">Join waitlist</button>
             </form>
           </div>
