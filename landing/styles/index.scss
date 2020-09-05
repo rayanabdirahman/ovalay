@@ -1,5 +1,7 @@
-@import 'variables';
-@import 'global';
+// base
+@import 'base/variables';
+@import 'base/grid';
+@import 'base/global';
 
 // components
 @import 'components/alert'
