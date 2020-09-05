@@ -5,35 +5,10 @@
   h1 {
     font-size: 2rem; // 32px
     font-weight: $font-weight--bold;
-  }
-}
 
-.hero-left-content {
-  position: absolute;
-  top: 0;
-  transform: translate(0, 20%);
-  z-index: 999;
-}
-
-.hero-right-content {
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
-
-
-
-.hero-form {
-  padding: 1.5rem 1.5rem 1.5rem 0.75rem; // 24px 12px
-  min-width: 300px;
-  max-width: 400px;
-  height: auto;
-  background-color: $colour-white;
-  border-radius: 0.5rem; // 8px
-
-  h1 {
-    font-size: 2.5rem; // 40px
+    @media only screen and (min-width: $grid-breakpoint-md) {
+      font-size: 2.5rem; // 40px
+    }
   }
 
   p {
@@ -42,17 +17,68 @@
   }
 }
 
-.hero-image {
-  display: block;
-  min-width: 250px;
-  max-width: 1000px;
-  height: auto;
-
-  img {
-    width: 100%;
-    border-radius: 0.5rem; // 8px
+.hero-mobile-content {
+  @media only screen and (min-width: $grid-breakpoint-md) {
+    display: none;
   }
 }
 
+.hero-content {
+  display: flex;
+  flex-direction: column-reverse;
+  position: relative;
 
+  @media only screen and (min-width: $grid-breakpoint-lg) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
 
+  .hero-left-content {
+    position: relative;
+    background-color: $colour-white;
+
+    @media only screen and (min-width: $grid-breakpoint-md) {
+      min-width: 300px;
+      max-width: 400px;
+      padding: 1.5rem 1.5rem 1.5rem 0.75rem; // 24px 12px
+      border-radius: 0.5rem; // 8px
+      position: absolute;
+      top: 0;
+      transform: translate(0, 20%);
+      z-index: 999;
+    }
+  }
+
+  .hero-form { 
+    @media only screen and (min-width: $grid-breakpoint-md) {
+      background-color: $colour-white;
+    }
+
+    h1 {
+      display: none;
+      @media only screen and (min-width: $grid-breakpoint-md) {
+        display: block;
+      }
+    }
+  }
+
+  .hero-right-content {
+    @media only screen and (min-width: $grid-breakpoint-md) {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+
+    .hero-image {
+      display: block;
+      min-width: 250px;
+      max-width: 1000px;
+      height: auto;
+    
+      img {
+        width: 100%;
+        border-radius: 0.5rem; // 8px
+      }
+    }    
+  }
+}
