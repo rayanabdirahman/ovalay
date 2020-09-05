@@ -1,5 +1,4 @@
 .hero {
-  // background-color: red;
   margin-top: 0;
   position: relative;
 
@@ -42,36 +41,6 @@
     margin-bottom: 1.5rem; // 24px
   }
 }
-
-.input {
-  padding: 1.25rem 2rem; // 20px 32px
-  border-radius: 0.25rem; // 4px
-  border: 1px solid $colour-grey;
-  width: 100%;
-  margin-bottom: 24px;
-}
-
-.btn {
-  padding: 1.25rem 2rem; // 20px 32px
-  font-size: 1rem;
-  border: 0;
-  border: 1px solid $colour-grey;
-  border-radius: 0.25rem; // 4px
-  width: 100%;
-  cursor: pointer;
-}
-
-.btn-primary {
-  background-color: $colour-blue;
-  border-color: $colour-blue;
-  color: $colour-white;
-
-  &:hover {
-    background-color: #00c;
-    border-color: #00c;
-  }
-}
-
 
 .hero-image {
   display: block;

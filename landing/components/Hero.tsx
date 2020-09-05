@@ -19,7 +19,9 @@ const Hero: React.FunctionComponent = () => (
 
       <div className="hero-right-content">
         <div className="hero-image">
-          <img src="https://images.unsplash.com/photo-1517737276944-c011f949dfc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" alt="Sneaker World Neon light"/>
+          <img 
+            src="https://images.unsplash.com/photo-1517737276944-c011f949dfc3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80"
+            alt="Sneaker World Neon light"/>
         </div>
       </div>
     </div>
