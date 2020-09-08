@@ -20,7 +20,21 @@ const Head: React.FunctionComponent = () => (
     <meta property="twitter:url" content="https://www.trymainstreet.com/" />
     <meta property="twitter:title" content="Mainstreet | The online shopping mall" />
     <meta property="twitter:description" content="Shop the high street stores you love from one place. " />
-    <meta property="twitter:image" content="" />  
+    <meta property="twitter:image" content="" />
+
+    {/* Global site tag (gtag.js) - Google Analytics */}
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177530827-1" />
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+    
+          gtag('config', 'UA-177530827-1');
+        `
+      }}
+    />
   </DefaultHead>
 )
 
