@@ -2,21 +2,6 @@ import { default as DefaultHead } from 'next/head'
 
 const Head: React.FunctionComponent = () => (
   <DefaultHead>
-    {/* Global site tag (gtag.js) - Google Analytics */}
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-177530827-1"></script>
-    <script
-      dangerouslySetInnerHTML={{
-        __html: `
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-    
-          gtag('config', 'UA-177530827-1');
-        `
-      }}
-    />
-    {/* Global site tag (gtag.js) - Google Analytics */}
-  
     {/* Primary Meta Tags */}
     <title>Mainstreet | The online shopping mall</title>
     <meta name="title" content="Mainstreet | The online shopping mall" />
