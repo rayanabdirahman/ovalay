@@ -1,4 +1,3 @@
-# npm
 node_modules/**/*
 .expo/*
 npm-debug.*
@@ -9,9 +8,6 @@ npm-debug.*
 *.mobileprovision
 *.orig.*
 web-build/
-
-# VS Code settings
-.vscode
 
 # macOS
 .DS_Store

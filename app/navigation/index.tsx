@@ -1,21 +1,15 @@
 import React from 'react'
-import { NavigationContainer, DarkTheme, DefaultTheme } from '@react-navigation/native'
-import { ColorSchemeName } from 'react-native'
-import AuthenticationNavigator from './AuthenticationNavigator'
-import RootNavigator from './RootNavigator'
+import { NavigationContainer } from '@react-navigation/native'
+import AuthenticationNavigator from './Authentication'
+import RootNavigator from './Root'
 
-type NavigationContainerParamsList = {
-  colorScheme?: ColorSchemeName
+type NavigationContainerParams = {
   isUserAuthenticated: boolean
 }
 
-// Navigation container to determin which navigation screens to show
-export default function Navigation({
-  colorScheme,
-  isUserAuthenticated
-}: NavigationContainerParamsList) {
+export default function Navigation({ isUserAuthenticated }: NavigationContainerParams) {
   return (
-    <NavigationContainer theme={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
+    <NavigationContainer>
       {isUserAuthenticated ? <RootNavigator /> : <AuthenticationNavigator />}
     </NavigationContainer>
   )

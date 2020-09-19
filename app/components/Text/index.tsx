@@ -1,24 +1,24 @@
 import styled from 'styled-components/native'
 import { Text as DefaultText } from 'react-native'
 
-export type TextProps = DefaultText['props'] & {
-  h1?: boolean
-  h2?: boolean
+type Props = DefaultText['props'] & {
   light?: boolean
-  bold?: boolean
 }
 
-export const Text = styled.Text<TextProps>`
-  font-size: ${ props => props.h1 ? '24px' : '16px' };
-  color: ${ props => props.light ? props.theme.colour.grey : props.theme.colour.black };
-  font-weight: ${ props => (props.h1 || props.h2 || props.bold) ? 'bold' : 'normal' };
-  margin-bottom: ${ props => props.h1 ? '32px' : '8px' };
+const BaseText = styled.Text<Props>`
+  font-size: 16px;
+  font-weight: 400;
+  color: ${ ({ theme }) => theme.colour.black };
 `
 
-export const CardHeaderText = styled(Text)`
+export const ScreenTitle = styled(BaseText)`
+  font-size: 24px;
+  margin-bottom: 32px;
+  font-weight: 700;
+`
+export const Text = styled(BaseText)`
+  font-size: 16px;
   margin-bottom: 4px;
-`
-
-export const SmallText = styled(Text)`
-  font-size: 15px;
+  font-weight: ${ ({ bold }) => bold ? 700 : 400 };
+  color: ${ ({ light, theme }) => light ? theme.colour.lightgrey : theme.colour.black };
 `
