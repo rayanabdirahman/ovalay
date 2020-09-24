@@ -3,10 +3,12 @@ import { NavigationContainer, DarkTheme, DefaultTheme, NavigationContainerRef } 
 import { ColorSchemeName } from 'react-native'
 import { useDispatch } from 'react-redux'
 import RootNavigator from './RootNavigator'
+import AuthNavigator from './AuthNavigator'
 import { setCurrentPath } from '../store/actions/navigation'
 
 type NavigationContainerParamsList = {
   colorScheme?: ColorSchemeName
+  isUserSignedIn: boolean
 }
 
 /**
@@ -14,7 +16,7 @@ type NavigationContainerParamsList = {
  * Also handles screen tracking
  * @param { ColorSchemeName } colorScheme - toggles between dark and light mode
  */
-const Navigation = ({ colorScheme }: NavigationContainerParamsList) => {
+const Navigation = ({ colorScheme, isUserSignedIn }: NavigationContainerParamsList) => {
   const navigationRef = React.useRef<NavigationContainerRef | any>()
   const routeNameRef = React.useRef<string>()
   const dispatch = useDispatch()
@@ -35,8 +37,15 @@ const Navigation = ({ colorScheme }: NavigationContainerParamsList) => {
 
         // Save the current route name for later comparision
         routeNameRef.current = currentRouteName;
-      }}>        
-      <RootNavigator />
+      }}>
+      
+      {/*
+      * Check if user is authenticated
+      * Show authentication screens if false
+      * Show Root screen if true
+      */}
+      { isUserSignedIn ?  <RootNavigator /> : <AuthNavigator /> }
+     
     </NavigationContainer>
   )
 }

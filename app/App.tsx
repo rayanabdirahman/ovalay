@@ -10,7 +10,7 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
-      <Navigation  />
+      <Navigation isUserSignedIn={false}  />
     </SafeAreaProvider>
   )
 }
