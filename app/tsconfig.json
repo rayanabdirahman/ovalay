@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "includes": ["styled-components.d.ts"],
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
     "lib": ["dom", "esnext"],

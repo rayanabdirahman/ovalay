@@ -3,12 +3,13 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator } from '@react-navigation/stack'
 import { AntDesign, Feather } from '@expo/vector-icons'
 import { View as DefaultView, Button  } from 'react-native'
+import { theme } from '../components/Theme'
 
 // set bottom tab navigatior options
 const tabBarOptions = {
-  activeTintColor: '#2b292d',
+  activeTintColor: theme.colour.black,
   inactiveTintColor: '#BFC5D2',
-  style: { backgroundColor: '#fff' }
+  style: { backgroundColor: theme.colour.white }
 }
 
 const PlaceHolderScreen = ({ navigation }: any) => (
