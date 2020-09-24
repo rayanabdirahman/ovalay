@@ -1,4 +1,4 @@
-import { theme } from './Theme'
+import { theme } from './components/Theme'
 
 // extend default styled component theme to accept strong typed properties
 type Theme = typeof theme
