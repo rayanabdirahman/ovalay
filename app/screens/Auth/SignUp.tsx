@@ -1,14 +1,23 @@
 import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
-import { View as DefaultView, Button, Text } from 'react-native'
+import { View as DefaultView } from 'react-native'
 import { AuthScreenName, AuthStackParamList } from '../../navigation/types'
+import { Layout, Text, Button, Link } from '../../components'
 
 const SignUp = ({ navigation }: StackScreenProps<AuthStackParamList, AuthScreenName.SIGN_UP>) => (
-  <DefaultView style={{ flex: 1, backgroundColor: 'white', justifyContent: "center" }}>
-    <Text>SignUp</Text>
-    <Button title="Create an account" onPress={() => alert('Account created')} />
-    <Button title="Sign in" onPress={() => navigation.navigate(AuthScreenName.SIGN_IN)} />
-  </DefaultView>
+  <Layout title="Sign up">
+    <DefaultView style={{ marginBottom: 24 }}>
+      <Text>Create an account so you can shop your favourite stores from one place</Text>
+    </DefaultView>
+
+    <DefaultView>
+      <Button large title="Create an account" onPress={() => alert('Account created')} />
+      <DefaultView style={{ display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "center" }}>
+        <Text>Already have an account?</Text>
+        <Link title="Sign in" onPress={() => navigation.navigate(AuthScreenName.SIGN_IN)} />
+      </DefaultView>
+    </DefaultView>
+  </Layout>
 )
 
 export { SignUp }
