@@ -4,8 +4,15 @@ type ColourProps = {
   grey: string
 }
 
+type FontProps = {
+  regular: string
+  bold: string
+  black: string
+}
+
 type ThemeProps = {
-  colour: ColourProps
+  colour: ColourProps,
+  font: FontProps
 }
 
 export const theme: ThemeProps = {
@@ -13,5 +20,10 @@ export const theme: ThemeProps = {
     black: '#020311',
     white: '#FFF',
     grey: '#E5E5E5'
+  },
+  font: {
+    regular: 'Inter_400Regular',
+    bold: 'Inter_600SemiBold',
+    black: 'Inter_900Black'
   }
 }

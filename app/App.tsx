@@ -19,6 +19,7 @@ function App() {
 }
 
 export default () => {
+  // load custom google font: Inter
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_600SemiBold,
