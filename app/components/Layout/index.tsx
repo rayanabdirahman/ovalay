@@ -16,7 +16,7 @@ const ScreenContainer = styled.View<LayoutProps>`
 
 export const Layout = (props: LayoutProps) => (
   <ScreenContainer {...props}>
-    <Text title>{ props.title }</Text>
+    { props.title && <Text title>{ props.title }</Text> }
     { props.children }
   </ScreenContainer>
 )

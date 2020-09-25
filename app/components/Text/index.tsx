@@ -3,12 +3,13 @@ import styled from 'styled-components/native'
 import { Text as DefaultText } from 'react-native'
 
 type TextProps = DefaultText['props'] & {
-  title?: boolean
+  title?: boolean,
+  bold?: boolean
 }
 
 export const Text = styled.Text<TextProps>`
   font-size: ${({ title }) => title ? '32px' : '16px'};
-  font-family: ${({ theme, title }) => title ? theme.font.black : theme.font.regular};
+  font-family: ${({ theme, title, bold }) => title ? theme.font.black : (bold ? theme.font.bold : theme.font.regular)};
   color: ${({ theme }) => theme.colour.black};
-  margin-bottom: ${({ theme, title }) => title ? '16px' : 0};
+  margin-bottom: ${({ theme, title }) => title ? '16px' : '16px'};
 `
