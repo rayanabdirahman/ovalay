@@ -4,6 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { AntDesign, Feather } from '@expo/vector-icons'
 import { View as DefaultView, Button  } from 'react-native'
 import { theme } from '../components/Theme'
+import { RootStackParamList, RootScreenName } from './types'
 
 // set bottom tab navigatior options
 const tabBarOptions = {
@@ -18,29 +19,29 @@ const PlaceHolderScreen = ({ navigation }: any) => (
   </DefaultView>
 )
 
-const BottomTab = createBottomTabNavigator()
+const BottomTab = createBottomTabNavigator<RootStackParamList>()
 export function BottomTabNavigator() {
   return (
-    <BottomTab.Navigator initialRouteName="Feed" tabBarOptions={tabBarOptions}>
-      <BottomTab.Screen name="Feed"
+    <BottomTab.Navigator initialRouteName={RootScreenName.FEED} tabBarOptions={tabBarOptions}>
+      <BottomTab.Screen name={RootScreenName.FEED}
         component={PlaceHolderScreen}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="earth" size={24} color={color} /> 
         }} 
       />
-      <BottomTab.Screen name="Search"
+      <BottomTab.Screen name={RootScreenName.SEARCH}
         component={PlaceHolderScreen}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
         }} 
       />
-      <BottomTab.Screen name="Cart"
+      <BottomTab.Screen name={RootScreenName.CART}
         component={PlaceHolderScreen}
         options={{ 
           tabBarIcon: ({ color }) => <Feather name="shopping-bag" size={24} color={color} /> 
         }} 
       />
-      <BottomTab.Screen name="Profile"
+      <BottomTab.Screen name={RootScreenName.PROFILE}
         component={PlaceHolderScreen}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="user" size={24} color={color} /> 
@@ -50,11 +51,11 @@ export function BottomTabNavigator() {
   )
 }
 
-const Stack = createStackNavigator()
+const Stack = createStackNavigator<RootStackParamList>()
 export default function RootNavigator() {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+      <Stack.Screen name={RootScreenName.ROOT} component={BottomTabNavigator} />
     </Stack.Navigator>
   )
 }
