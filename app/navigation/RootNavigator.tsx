@@ -5,6 +5,18 @@ import { AntDesign, Feather } from '@expo/vector-icons'
 import { View as DefaultView, Button  } from 'react-native'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
+import { Cart, Feed, Profile, Search } from '../screens'
+
+// set root navigatior header options
+const rootScreenOptions = {
+  headerShown: true,
+  title: " ",
+  headerStyle: {
+    elevation: 0,
+    shadowOpacity: 0,
+    borderBottomWidth: 0, 
+  }
+}
 
 // set bottom tab navigatior options
 const tabBarOptions = {
@@ -24,25 +36,25 @@ export function BottomTabNavigator() {
   return (
     <BottomTab.Navigator initialRouteName={RootScreenName.FEED} tabBarOptions={tabBarOptions}>
       <BottomTab.Screen name={RootScreenName.FEED}
-        component={PlaceHolderScreen}
+        component={Feed}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="earth" size={24} color={color} /> 
         }} 
       />
       <BottomTab.Screen name={RootScreenName.SEARCH}
-        component={PlaceHolderScreen}
+        component={Search}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
         }} 
       />
       <BottomTab.Screen name={RootScreenName.CART}
-        component={PlaceHolderScreen}
+        component={Cart}
         options={{ 
           tabBarIcon: ({ color }) => <Feather name="shopping-bag" size={24} color={color} /> 
         }} 
       />
       <BottomTab.Screen name={RootScreenName.PROFILE}
-        component={PlaceHolderScreen}
+        component={Profile}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="user" size={24} color={color} /> 
         }} 
@@ -54,7 +66,7 @@ export function BottomTabNavigator() {
 const Stack = createStackNavigator<RootStackParamList>()
 export default function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
+    <Stack.Navigator screenOptions={rootScreenOptions}>
       <Stack.Screen name={RootScreenName.ROOT} component={BottomTabNavigator} />
     </Stack.Navigator>
   )
