@@ -5,7 +5,7 @@ import { NavigationActionType } from '../actions/types'
 const initialState: NavigationState = {
   currentLocation: null,
   referrer: null,
-  isLoggedIn: false,
+  isSignedIn: false,
   hasRendered: false,
 }
 

@@ -1,6 +1,6 @@
 export type NavigationState = {
   currentLocation: string | null
   referrer: string | null
-  isLoggedIn: boolean
+  isSignedIn: boolean
   hasRendered: boolean
 }
