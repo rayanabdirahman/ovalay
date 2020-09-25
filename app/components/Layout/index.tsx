@@ -8,7 +8,7 @@ type LayoutProps = DefaultView['props'] & {
 }
 
 const ScreenContainer = styled.View<LayoutProps>`
-  padding: 64px 10px 0;
+  padding: 24px 10px 0;
   background-color: ${({ theme }) => theme.colour.white};
   height: 100%;
   position: relative;

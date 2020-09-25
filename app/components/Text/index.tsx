@@ -9,5 +9,6 @@ type TextProps = DefaultText['props'] & {
 export const Text = styled.Text<TextProps>`
   font-size: ${({ title }) => title ? '32px' : '16px'};
   font-family: ${({ theme, title }) => title ? theme.font.black : theme.font.regular};
-  color: ${({ theme }) => theme.colour.black };
+  color: ${({ theme }) => theme.colour.black};
+  margin-bottom: ${({ theme, title }) => title ? '16px' : 0};
 `
