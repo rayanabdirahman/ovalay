@@ -25,12 +25,6 @@ const tabBarOptions = {
   style: { backgroundColor: theme.colour.white }
 }
 
-const PlaceHolderScreen = ({ navigation }: any) => (
-  <DefaultView style={{ flex: 1, backgroundColor: 'white', justifyContent: "center" }}>
-    <Button title="Login" onPress={() => navigation.navigate('Profile')} />
-  </DefaultView>
-)
-
 const BottomTab = createBottomTabNavigator<RootStackParamList>()
 export function BottomTabNavigator() {
   return (
