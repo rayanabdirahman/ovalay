@@ -9,6 +9,7 @@ type Props = {
   avatar: string
   name: string
   username: string
+  bio?: string
 }
 
 const Container = styled.View`
@@ -16,6 +17,7 @@ const Container = styled.View`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 16px;
 `
 
 const UserContainer = styled.View`
@@ -24,7 +26,8 @@ const UserContainer = styled.View`
   flex: .5;
 `
 
-const ProfileHeader = ({ avatar, name, username }: Props) => (
+const ProfileHeader = ({ avatar, name, username, bio }: Props) => (
+  <>  
   <Container>
     <UserContainer>
       <Thumbnail style={{ marginRight: 8 }} source={{ uri: avatar }} />
@@ -37,6 +40,8 @@ const ProfileHeader = ({ avatar, name, username }: Props) => (
       <Button title="Following" onPress={() => alert('Following')} />
     </DefaultView>
   </Container>
+  <Text>{ bio }</Text>
+  </>
 )
 
 export { ProfileHeader }

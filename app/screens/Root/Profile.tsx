@@ -4,7 +4,7 @@ import { Dimensions, ImageBackground, View as DefaultView, Image } from 'react-n
 import { AntDesign } from '@expo/vector-icons'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
 import { theme } from '../../components/Theme'
-import { Layout, Text, Input, Thumbnail, ProfileHeader } from '../../components'
+import { Layout, Text, Input, Thumbnail, ProfileHeader, ProfileSwitch } from '../../components'
 import { Row } from 'native-base'
 
 const images = [
@@ -22,7 +22,13 @@ const { width } = Dimensions.get('window')
 const Profile = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.PROFILE>) => {
   return (
     <Layout>
-      <ProfileHeader avatar={images[0]} name="Jane Brown" username="@Janebrown20" />
+      <ProfileHeader
+        avatar={images[0]}
+        name="Jane Brown"
+        username="@Janebrown20"
+        bio= "Atque ratione saepe reiciendis omnis omnis esse. Aut quia porro quam et. Qui odio veritatis et adipisci."
+        />
+      <ProfileSwitch />
     </Layout>
   )
 }
