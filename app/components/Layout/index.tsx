@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { View as DefaultView } from 'react-native'
-import { Text } from '../Text'
+import { Text } from '../atoms/Text'
 
 type LayoutProps = DefaultView['props'] & {
   title?: string

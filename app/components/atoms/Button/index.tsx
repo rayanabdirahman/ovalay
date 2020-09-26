@@ -9,7 +9,7 @@ type ButtonProps = DefaultButton['props'] & {
 
 const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
   background-color: ${({ theme }) => theme.colour.black};
-  padding: ${({ large }) => large ? '20px 0' : '16px 0'};
+  padding: ${({ large }) => large ? '20px 0' : '8px 0'};
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -20,6 +20,7 @@ const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
 const ButtonText = styled(Text)`
   font-family: ${({ theme }) => theme.font.bold };
   color: ${({ theme }) => theme.colour.white };
+  margin: 0;
 `
 
 export const Button = (props: ButtonProps) => (

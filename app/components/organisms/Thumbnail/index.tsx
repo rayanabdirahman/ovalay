@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components/native'
 import { View as DefaultView } from 'react-native'
 import { Thumbnail as DefaultThumbnail } from 'native-base'
-import { Text } from '../Text'
+import { Text } from '../../atoms/Text'
 
 type ThumbnailProps = DefaultThumbnail['props'] & {
   large?: boolean
