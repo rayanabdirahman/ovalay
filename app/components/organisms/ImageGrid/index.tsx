@@ -11,7 +11,7 @@ const { width } = Dimensions.get('window');
 const ImageContainer = styled.TouchableOpacity`
   width: ${ props => (width-20)/4 }px; /** minus 20px layout padding from width */
   height: ${ props => (width-20)/4 }px; /** minus 20px layout padding from width */
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 `
 
 const Image = styled.Image`
@@ -24,7 +24,7 @@ const ImageGrid = ({ images }: Props) => {
     return (
       <ImageContainer
         onPress={() => alert(`Image: ${item._id} clicked`)}
-        style={[index % 4 !==0 ? {paddingLeft: 4} : {paddingLeft: 0}]}>
+        style={[index % 4 !==0 ? {paddingLeft: 2} : {paddingLeft: 0}]}>
         <Image source={{ uri: item.image }} />
       </ImageContainer>
     )
