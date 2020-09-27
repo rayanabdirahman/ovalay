@@ -2,7 +2,7 @@ import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import { View as DefaultView } from 'react-native'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
-import { Layout, Text, Input, Thumbnail } from '../../components'
+import { Layout, Text, Input, Thumbnail, UserProfile } from '../../components'
 
 const Search = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.SEARCH>) => (
   <Layout>
@@ -16,9 +16,21 @@ const Search = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenN
 
     <DefaultView>
       <Text bold>Stores</Text>
-      <Thumbnail title="Footlocker" subHeading="@footlocker" source={{ uri: "https://dummyimage.com/150x150/c4c4c4/c4c4c4" }} />
-      <Thumbnail title="Nike" subHeading="@nike" source={{ uri: "https://dummyimage.com/150x150/c4c4c4/c4c4c4" }} />
-      <Thumbnail title="JD Sport" subHeading="@jdsport" source={{ uri: "https://dummyimage.com/150x150/c4c4c4/c4c4c4" }} />
+      <UserProfile
+        avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
+        username="Footlocker"
+        info="@footlocker"
+        />
+      <UserProfile
+        avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
+        username="Nike"
+        info="@nike"
+        />
+      <UserProfile
+        avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
+        username="JD Sport"
+        info="@jdsport"
+        />
     </DefaultView>
   </Layout>
 )

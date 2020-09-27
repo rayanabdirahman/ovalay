@@ -46,7 +46,6 @@ const images = [
   },
 ]
 
-const { width } = Dimensions.get('window')
 const Profile = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.PROFILE>) => {
   return (
     <>
@@ -54,7 +53,7 @@ const Profile = ({ navigation }: StackScreenProps<RootStackParamList, RootScreen
       <ProfileHeader
         avatar={images[0].image}
         name="Jane Brown"
-        username="@Janebrown20"
+        username="Janebrown20"
         bio= "Atque ratione saepe reiciendis omnis omnis esse. Aut quia porro quam et. Qui odio veritatis et adipisci."
         />
       <ProfileSwitch />

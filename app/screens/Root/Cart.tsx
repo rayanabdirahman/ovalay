@@ -86,12 +86,6 @@ const cartItems : Data[] = [
   },
 ]
 
-// const data: Data[] = [
-//   {
-
-//   }
-// ]
-
 const Cart = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.CART>) => (
   <Layout>
     <CartItem data={cartItems} />
