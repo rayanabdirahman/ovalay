@@ -4,7 +4,7 @@ import { Dimensions, ImageBackground, View as DefaultView, Image } from 'react-n
 import { AntDesign } from '@expo/vector-icons'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
 import { theme } from '../../components/Theme'
-import { Layout, Text, Input, Thumbnail, ProfileHeader, ProfileSwitch, ImageGrid } from '../../components'
+import { Layout, Text, Input, ProfileHeader, ProfileSwitch, ImageGrid } from '../../components'
 import { Row } from 'native-base'
 
 const images = [

@@ -2,7 +2,7 @@ import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import { View as DefaultView } from 'react-native'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
-import { Layout, Text, Input, Thumbnail, UserProfile } from '../../components'
+import { Layout, Text, Input, Thumbnail } from '../../components'
 
 const Search = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.SEARCH>) => (
   <Layout>
@@ -16,17 +16,17 @@ const Search = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenN
 
     <DefaultView>
       <Text bold>Stores</Text>
-      <UserProfile
+      <Thumbnail
         avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
         username="Footlocker"
         info="@footlocker"
         />
-      <UserProfile
+      <Thumbnail
         avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
         username="Nike"
         info="@nike"
         />
-      <UserProfile
+      <Thumbnail
         avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
         username="JD Sport"
         info="@jdsport"

@@ -3,7 +3,7 @@ import { View as DefaultView, FlatList } from 'react-native'
 import { Image } from '../../atoms/Image'
 import { Button } from '../../atoms/Button'
 import { Data } from '../../../types'
-import { UserProfile } from '../UserProfile'
+import { Thumbnail } from '../Thumbnail'
 
 type Props = {
   data: Data
@@ -20,7 +20,7 @@ export const CardItem = ({ data }: Props) => {
   
   return (
     <DefaultView style={{ marginBottom: 32 }}>
-      <UserProfile
+      <Thumbnail
         avatar={ data.store.avatar }
         username={ data.store.username }
         info={`${data.products.length} items in basket`}
