@@ -2,7 +2,7 @@ import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import { View as DefaultView } from 'react-native'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
-import { Layout, Text, Button, Link, Input, CartItem } from '../../components'
+import { Layout, Text, Button, Link, Input, CartItems } from '../../components'
 import { Data } from '../../types'
 
 const cartItems : Data[] = [
@@ -88,7 +88,7 @@ const cartItems : Data[] = [
 
 const Cart = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.CART>) => (
   <Layout>
-    <CartItem data={cartItems} />
+    <CartItems data={cartItems} />
   </Layout>
 )
 

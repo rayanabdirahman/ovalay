@@ -7,7 +7,7 @@ type Props = {
   data: Data[]
 }
 
-const CartItem: React.FunctionComponent<Props>= ({ data }) => {
+const CartItems: React.FunctionComponent<Props>= ({ data }) => {
   const renderItem = ({item}: any) => <CardItem data={item} />
   return (
     <>  
@@ -24,4 +24,4 @@ const CartItem: React.FunctionComponent<Props>= ({ data }) => {
   )
 }
 
-export { CartItem }
+export { CartItems }
