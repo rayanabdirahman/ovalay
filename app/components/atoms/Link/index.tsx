@@ -18,6 +18,7 @@ const LinkContainer = styled.TouchableOpacity<LinkProps>`
 const LinkText = styled(Text)`
   font-family: ${({ theme }) => theme.font.bold};
   color: ${({ theme }) => theme.colour.black};
+  margin-bottom: 0;
 `
 
 export const Link = (props: LinkProps) => (

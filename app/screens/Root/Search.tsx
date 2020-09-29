@@ -17,6 +17,7 @@ const Search = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenN
     <DefaultView>
       <Text bold>Stores</Text>
       <Thumbnail
+        onPress={() => navigation.push(RootScreenName.STORE)}
         avatar="https://dummyimage.com/150x150/c4c4c4/c4c4c4"
         username="Footlocker"
         info="@footlocker"

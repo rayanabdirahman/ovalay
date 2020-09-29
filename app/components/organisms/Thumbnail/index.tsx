@@ -5,7 +5,7 @@ import styled from 'styled-components/native'
 import { Text } from '../../atoms/Text'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 
-type Props = {
+type Props = TouchableOpacity['props'] & {
   avatar: string
   username: string
   info: string
@@ -21,7 +21,7 @@ const UserContainer = styled.View`
 export const Thumbnail = (props: Props) => {
   return (
     <TouchableOpacity {...props }
-      onPress={() => alert('User profile ')}
+      // onPress={() => alert('User profile ')}
       style={{ flexDirection: "row", alignItems: "flex-start", justifyContent: "space-between" }}>
       <UserContainer>
         <DefaultThumbnail style={{ marginRight: 8 }} source={{ uri: props.avatar }} />
