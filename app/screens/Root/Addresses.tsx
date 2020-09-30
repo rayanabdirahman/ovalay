@@ -6,7 +6,7 @@ import { Layout, Text, Button, Link, Input, ProfileHeader, ImageGrid, Thumbnail,
 
 const Addresses = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.ADDRESSES>) => (
   <Layout title="Addresses">
-    <Link title="Add a new Address" onPress={() => navigation.navigate(RootScreenName.ADDRESSES)} />
+    <Link title="Add a new Address" onPress={() => navigation.navigate(RootScreenName.ADD_ADDRESS)} />
   </Layout>
 )
 

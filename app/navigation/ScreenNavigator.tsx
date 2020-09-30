@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { AntDesign } from '@expo/vector-icons'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { Addresses, Cart, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
+import { AddAddress, Addresses, Cart, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -26,12 +26,22 @@ export function ProductNavigator () {
   )
 }
 
+const AddressStack = createStackNavigator<RootStackParamList>()
+export function AddressNavigator () {
+  return (
+    <AddressStack.Navigator>
+      <AddressStack.Screen name={RootScreenName.ADDRESSES} component={Addresses}/>
+      <AddressStack.Screen name={RootScreenName.ADD_ADDRESS} component={AddAddress}/>
+    </AddressStack.Navigator>
+  )
+}
+
 const SettingsStack = createStackNavigator<RootStackParamList>()
 export function SettingsNavigator () {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen name={RootScreenName.SETTINGS} component={Settings}/>
-      <SettingsStack.Screen name={RootScreenName.ADDRESSES} component={Addresses}/>
+      <SettingsStack.Screen name={RootScreenName.ADDRESSES} component={AddressNavigator}/>
     </SettingsStack.Navigator>
   )
 }
