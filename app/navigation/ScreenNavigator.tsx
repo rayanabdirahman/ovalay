@@ -2,7 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { Cart, Feed, Product, Profile, Search, SearchResult, Store } from '../screens'
+import { Cart, Feed, Product, Profile, Reviews, Search, SearchResult, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -19,6 +19,7 @@ export function ProductNavigator () {
   return (
     <ProductStack.Navigator>
       <ProductStack.Screen name={RootScreenName.PRODUCT} component={Product}/>
+      <ProductStack.Screen name={RootScreenName.REVIEW} component={Reviews}/>
     </ProductStack.Navigator>
   )
 }

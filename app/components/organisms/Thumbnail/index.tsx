@@ -8,7 +8,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler'
 type Props = TouchableOpacity['props'] & {
   avatar: string
   username: string
-  info: string
+  info?: string
   text?: string
 }
 
