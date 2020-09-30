@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/native'
 import { Dimensions, FlatList } from 'react-native'
+import { useNavigation } from '@react-navigation/native';
+import { RootScreenName } from '../../../navigation/types';
 
 type Props = {
   images: any[]
@@ -20,10 +22,13 @@ const Image = styled.Image`
 `
 
 const ImageGrid = ({ images }: Props) => {
+  const navigation = useNavigation();
   const renderItem = ({ item, index }: any) => {
     return (
       <ImageContainer
-        onPress={() => alert(`Image: ${item._id} clicked`)}
+        onPress={() => navigation.navigate(RootScreenName.PRODUCT, {
+          productId: item._id
+        })}
         style={[index % 4 !==0 ? {paddingLeft: 2} : {paddingLeft: 0}]}>
         <Image source={{ uri: item.image }} />
       </ImageContainer>

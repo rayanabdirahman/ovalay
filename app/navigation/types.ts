@@ -18,6 +18,7 @@ export type RootStackParamList = {
   Cart: undefined
   Profile: undefined
   Store: undefined
+  Product: undefined
 }
 
 export enum RootScreenName {
@@ -27,5 +28,6 @@ export enum RootScreenName {
   SEARCH_RESULT = 'SearchResult',
   CART = 'Cart',
   PROFILE = 'Profile',
-  STORE = 'Store'
+  STORE = 'Store',
+  PRODUCT = 'Product'
 }

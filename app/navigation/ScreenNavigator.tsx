@@ -2,7 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { Cart, Feed, Profile, Search, SearchResult, Store } from '../screens'
+import { Cart, Feed, Product, Profile, Search, SearchResult, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -13,6 +13,17 @@ const options = {
   headerStyle: { shadowOpacity: 0 },
 }
 
+// Navigation for child screens
+const ProductStack = createStackNavigator<RootStackParamList>()
+export function ProductNavigator () {
+  return (
+    <ProductStack.Navigator>
+      <ProductStack.Screen name={RootScreenName.PRODUCT} component={Product}/>
+    </ProductStack.Navigator>
+  )
+}
+
+// Navigation for top level screens
 const FeedStack = createStackNavigator<RootStackParamList>()
 export function FeedNavigator () {
   return (
@@ -47,6 +58,7 @@ export function ProfileNavigator () {
   return (
     <ProfileStack.Navigator screenOptions={options}>
       <ProfileStack.Screen name={RootScreenName.PROFILE} component={Profile}/>
+      <ProfileStack.Screen name={RootScreenName.PRODUCT} component={ProductNavigator}/>
     </ProfileStack.Navigator>
   )
 }
