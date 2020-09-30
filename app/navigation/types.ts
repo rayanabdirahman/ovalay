@@ -14,6 +14,7 @@ export type RootStackParamList = {
   Root: undefined
   Feed: undefined
   Search: undefined
+  SearchResult: undefined
   Cart: undefined
   Profile: undefined
   Store: undefined
@@ -23,6 +24,7 @@ export enum RootScreenName {
   ROOT = 'Root',
   FEED = 'Feed',
   SEARCH = 'Search',
+  SEARCH_RESULT = 'SearchResult',
   CART = 'Cart',
   PROFILE = 'Profile',
   STORE = 'Store'

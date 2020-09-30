@@ -2,7 +2,7 @@ import React from 'react'
 import { createStackNavigator } from '@react-navigation/stack'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { Cart, Feed, Profile, Search, Store } from '../screens'
+import { Cart, Feed, Profile, Search, SearchResult, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -27,6 +27,7 @@ export function SearchNavigator () {
   return (
     <SearchStack.Navigator screenOptions={options}>
       <SearchStack.Screen name={RootScreenName.SEARCH} component={Search}/>
+      <SearchStack.Screen name={RootScreenName.SEARCH_RESULT} component={SearchResult}/>
       <SearchStack.Screen name={RootScreenName.STORE} component={Store}/>
     </SearchStack.Navigator>
   )
