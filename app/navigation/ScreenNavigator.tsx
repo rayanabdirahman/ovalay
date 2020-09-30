@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { AntDesign } from '@expo/vector-icons'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { Cart, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
+import { Addresses, Cart, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -31,6 +31,7 @@ export function SettingsNavigator () {
   return (
     <SettingsStack.Navigator>
       <SettingsStack.Screen name={RootScreenName.SETTINGS} component={Settings}/>
+      <SettingsStack.Screen name={RootScreenName.ADDRESSES} component={Addresses}/>
     </SettingsStack.Navigator>
   )
 }

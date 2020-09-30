@@ -4,10 +4,10 @@ import { View as DefaultView } from 'react-native'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
 import { Layout, Text, Button, Link, Input, ProfileHeader, ImageGrid, Thumbnail, Review } from '../../components'
 
-const Settings = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.SETTINGS>) => (
-  <Layout title="Settings">
-    <Link title="Addresses" onPress={() => navigation.navigate(RootScreenName.ADDRESSES)} />
+const Addresses = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.ADDRESSES>) => (
+  <Layout title="Addresses">
+    <Link title="Add a new Address" onPress={() => navigation.navigate(RootScreenName.ADDRESSES)} />
   </Layout>
 )
 
-export { Settings }
+export { Addresses }
