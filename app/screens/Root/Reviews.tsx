@@ -4,7 +4,7 @@ import { View as DefaultView } from 'react-native'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
 import { Layout, Text, Button, Link, Input, ProfileHeader, ImageGrid, Thumbnail, Review } from '../../components'
 
-const Reviews = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.REVIEW>) => (
+const Reviews = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.REVIEWS>) => (
   <Layout title="Reviews">
     <Review username="Janebrown20" comment="Loving my new trainers" />
     <Review username="Joedow12" comment="Loving my new trainers 🔥" />

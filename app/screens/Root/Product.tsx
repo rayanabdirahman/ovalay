@@ -6,7 +6,7 @@ import { Layout, Text, Button, Link, Input, ProfileHeader, ImageGrid } from '../
 
 const Product = ({ navigation }: StackScreenProps<RootStackParamList, RootScreenName.PRODUCT>) => (
   <Layout title="Product">
-    <Button title="Review" onPress={() => navigation.navigate(RootScreenName.REVIEW)} />
+    <Button title="Review" onPress={() => navigation.navigate(RootScreenName.REVIEWS)} />
   </Layout>
 )
 
