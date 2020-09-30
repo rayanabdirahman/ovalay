@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { AntDesign } from '@expo/vector-icons'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { AddAddress, Addresses, Cart, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
+import { AddAddress, Addresses, Cart, Checkout, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -72,6 +72,7 @@ export function CartNavigator () {
   return (
     <CartStack.Navigator screenOptions={options}>
       <CartStack.Screen name={RootScreenName.CART} component={Cart}/>
+      <CartStack.Screen name={RootScreenName.CHECKOUT} component={Checkout}/>
     </CartStack.Navigator>
   )
 }
