@@ -41,7 +41,7 @@ const Checkout = ({ navigation }: StackScreenProps<RootStackParamList, RootScree
         <SelectedAddress />
 
         <DefaultView style={{ display: "flex", alignSelf: "flex-end" }}>
-          <Link title="Change Address" onPress={() => navigation.navigate(RootScreenName.ADD_ADDRESS)} />
+          <Link title="Change Address" onPress={() => navigation.navigate(RootScreenName.ADDRESSES)} />
         </DefaultView>
       </DefaultView>
 

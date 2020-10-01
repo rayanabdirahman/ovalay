@@ -63,6 +63,7 @@ export function SearchNavigator () {
       <SearchStack.Screen name={RootScreenName.SEARCH} component={Search}/>
       <SearchStack.Screen name={RootScreenName.SEARCH_RESULT} component={SearchResult}/>
       <SearchStack.Screen name={RootScreenName.STORE} component={Store}/>
+      <SearchStack.Screen name={RootScreenName.PRODUCT} component={ProductNavigator}/>
     </SearchStack.Navigator>
   )
 }
@@ -73,6 +74,7 @@ export function CartNavigator () {
     <CartStack.Navigator screenOptions={options}>
       <CartStack.Screen name={RootScreenName.CART} component={Cart}/>
       <CartStack.Screen name={RootScreenName.CHECKOUT} component={Checkout}/>
+      <CartStack.Screen name={RootScreenName.ADDRESSES} component={AddressNavigator}/>
     </CartStack.Navigator>
   )
 }
