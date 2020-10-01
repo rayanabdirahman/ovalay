@@ -2,7 +2,7 @@ import React from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import { View as DefaultView } from 'react-native'
 import { RootScreenName, RootStackParamList } from '../../navigation/types'
-import { Layout, Text, Button, Link, Input, ProfileHeader, ImageGrid, Thumbnail, Review, CheckoutItem } from '../../components'
+import { Layout, Text, Button, Link, Input, ProfileHeader, ImageGrid, Thumbnail, Review, CheckoutItem, SelectedAddress } from '../../components'
 import { ScrollView } from 'react-native-gesture-handler'
 
 const items = [
@@ -35,9 +35,21 @@ const Checkout = ({ navigation }: StackScreenProps<RootStackParamList, RootScree
         <CheckoutItem data={items[0]} />
         <CheckoutItem data={items[0]} />
       </DefaultView>
-      <Text bold>Address</Text>
-      <Text bold>Payment</Text>
+
+      <DefaultView style={{ marginBottom: 24 }}>
+        <Text bold>Address</Text>
+        <SelectedAddress />
+
+        <DefaultView style={{ display: "flex", alignSelf: "flex-end" }}>
+          <Link title="Change Address" onPress={() => navigation.navigate(RootScreenName.ADD_ADDRESS)} />
+        </DefaultView>
+      </DefaultView>
+
+      <DefaultView style={{ marginBottom: 24 }}>
+        <Text bold>Payment</Text>
+      </DefaultView>
     </ScrollView>
+    <Button large title="Pay now" onPress={() => alert('User signed in')} />
   </Layout>
 )
 
