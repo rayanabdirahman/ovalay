@@ -4,3 +4,10 @@ export type NavigationState = {
   isSignedIn: boolean
   hasRendered: boolean
 }
+
+export type SessionState = {
+  token: string | null,
+  isAuthenticated: boolean,
+  loading: boolean,
+  user: { _id: string } | null
+}
