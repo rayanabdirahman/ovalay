@@ -5,3 +5,11 @@ export interface SignUpModel {
   password: string
   role?: string
 }
+
+export interface JwtUserPayload {
+  _id: string | object
+}
+
+export interface JwtPayload {
+  user: JwtUserPayload
+}

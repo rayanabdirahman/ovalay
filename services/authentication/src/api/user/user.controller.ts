@@ -7,6 +7,7 @@ import UserValidator from './user.validator'
 import { UserService } from '../../service/user.service'
 import logger from '../../utilities/logger'
 import ApiResponse from '../../utilities/api-response'
+import { ResponseHeaderEnum } from '../../domain/enums'
 
 @injectable()
 export default class UserController implements RegistrableController {
@@ -33,9 +34,12 @@ export default class UserController implements RegistrableController {
         return ApiResponse.error(res, message)
       }
 
-      const user = await this.userService.signUp(model)
- 
-      return ApiResponse.success(res,  { user })
+      const token = await this.userService.signUp(model)
+
+      // store token in authorisation header
+      res.header(ResponseHeaderEnum.AUTHORIZATION, `Bearer ${token}`)
+
+      return ApiResponse.success(res,  { token })
 
     } catch (error) {
       const { message } = error
