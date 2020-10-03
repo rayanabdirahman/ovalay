@@ -2,8 +2,6 @@ FROM node:alpine
 
 WORKDIR /app
 
-EXPOSE 3000
-
 # copy dependencies
 COPY package.json .
 

@@ -11,7 +11,7 @@ export default async (): Promise<express.Application> => (
       app.use(express.urlencoded({ extended: false }))
 
       // test api route
-      app.get('/api/user/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
+      app.get('/api/users/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
         return res.json({ 'Mainstreet Authentication API': 'Version 1' })
       })
 
