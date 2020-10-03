@@ -9,7 +9,7 @@ const AuthGuard = async (req: Request, res: Response, next: NextFunction) => {
     // check if Authorization header has been defined
     const { authorization } = req.headers
     if (!authorization) {
-      throw new Error('Authorisation denied. Please login')
+      throw new Error('Authorisation denied. Please sign in')
     }
 
     // extract jwt from Authorization header by removing Bearer text (format: Bearer token)

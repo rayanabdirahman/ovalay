@@ -6,6 +6,11 @@ export interface SignUpModel {
   role?: string
 }
 
+export interface SignInModel {
+  email: string
+  password: string
+}
+
 export interface JwtUserPayload {
   _id: string | object
 }

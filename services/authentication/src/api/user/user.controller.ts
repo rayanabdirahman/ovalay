@@ -2,7 +2,7 @@ import express from 'express'
 import { RegistrableController } from '../registrable.controller'
 import { injectable, inject } from 'inversify'
 import TYPES from '../../types'
-import { JwtUserPayload, SignUpModel } from '../../domain/interfaces'
+import { JwtUserPayload, SignInModel, SignUpModel } from '../../domain/interfaces'
 import UserValidator from './user.validator'
 import { UserService } from '../../service/user.service'
 import logger from '../../utilities/logger'
@@ -20,6 +20,7 @@ export default class UserController implements RegistrableController {
 
   registerRoutes(app: express.Application): void {
     app.post('/api/user/signup', this.signUp)
+    app.post('/api/user/signin', this.signIn)
     app.get('/api/user/authorise', AuthGuard, this.authorise)
   }
 
@@ -46,6 +47,34 @@ export default class UserController implements RegistrableController {
     } catch (error) {
       const { message } = error
       logger.error(`[UserController: signup] - Unable to signup user: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
+  signIn = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const model: SignInModel = {
+        ...req.body
+      }
+
+      // validate request body
+      const validity = UserValidator.signIn(model)
+      if (validity.error) {
+        const { message } = validity.error
+        return ApiResponse.error(res, message)
+      }
+
+      // generate JWT token
+      const token = await this.userService.signIn(model)
+
+      // store token in authorisation header
+      res.header(ResponseHeaderEnum.AUTHORIZATION, `Bearer ${token}`)
+
+      return ApiResponse.success(res,  { token })
+
+    } catch (error) {
+      const { message } = error
+      logger.error(`[UserController: signIn] - Unable to sign in user: ${message}`)
       return ApiResponse.error(res, message)
     }
   }
