@@ -11,7 +11,12 @@ interface IJwtHelper {
 const JwtHelper: IJwtHelper = {
   async sign(user: UserDocument): Promise<string> {
     const payload: JwtPayload = {
-      user: { _id: user._id }
+      user: { 
+        _id: user._id,
+        username: user.username,
+        name: user.name,
+        email: user.email,
+      }
     }
 
     return await jwt.sign(payload, `${process.env.JWT_SECRET}`, {expiresIn: `300000000000000000000`})

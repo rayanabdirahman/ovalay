@@ -13,6 +13,9 @@ export interface SignInModel {
 
 export interface JwtUserPayload {
   _id: string | object
+  username: string
+  name: string
+  email: string
 }
 
 export interface JwtPayload {
