@@ -4,6 +4,7 @@ import AsyncStorage from '@react-native-community/async-storage'
 import { AuthenticationActionType } from './types'
 import { SignUpModel, ApiSuccessResponse } from '../../domain/interfaces'
 import Authentication from '../../api/authentication'
+import { setIsUserSignedIn } from './navigation'
 
 // TODO: Move into env file
 const LOCALSTORAGE_AUTHORIZATION_TOKEN = 'Authorization-Token'
@@ -28,8 +29,14 @@ export const authoriseUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyAct
     const token = await AsyncStorage.getItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
     const response: ApiSuccessResponse = await Authentication.authorise(token)
     dispatch({ type: AuthenticationActionType.AUTHORISE_USER, payload: { ...response, token } })
+
+    // update isUserSignedIn navigation state
+    dispatch(setIsUserSignedIn(true))
   } catch (error) {
     dispatch({ type: AuthenticationActionType.AUTHORISE_ERROR })
+
+    // update isUserSignedIn navigation state
+    dispatch(setIsUserSignedIn(false))
     console.log('AUTHORISE ERROR: ', error)
   }
 }

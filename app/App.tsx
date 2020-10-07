@@ -11,7 +11,7 @@ import { store, State } from './store'
 import { authoriseUser } from './store/actions/authentication'
 
 function App () {
-  const { session } = useSelector<State, State>(state => state)
+  const { navigation } = useSelector<State, State>(state => state)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -22,7 +22,7 @@ function App () {
   return (
     <SafeAreaProvider>
       <StatusBar style="auto" />
-      <Navigation isUserSignedIn={session.isAuthenticated}  />
+      <Navigation isUserSignedIn={navigation.isUserSignedIn}  />
     </SafeAreaProvider>
   )
 }

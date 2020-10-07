@@ -2,12 +2,13 @@ import axios from 'axios'
 import buildClient from '../utilities/axios-helper'
 import { SignUpModel, ApiSuccessResponse, SignInModel } from '../domain/interfaces'
 
+// TODO: use .env file
 export enum Api {
   /**
    * LOCAL DEV ENV: use ngrok for to tunnel
    * FORMATE: ngrok http -host-header=[custom domain] 80
    */
-  DEV_BASE_URL = 'http://f226a2574e3c.ngrok.io/api',
+  DEV_BASE_URL = 'http://c5c2d981ae2a.ngrok.io/api',
   AUTHENTICATION_URL = 'user'
 }
 

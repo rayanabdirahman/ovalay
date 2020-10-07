@@ -4,6 +4,7 @@ export enum ActionType {
 
 export enum NavigationActionType {
   SET_CURRENT_PATH = 'SET_CURRENT_PATH',
+  SET_IS_USER_SIGNED_IN = 'SET_IS_USER_SIGNED_IN'
 }
 
 export enum AuthenticationActionType {

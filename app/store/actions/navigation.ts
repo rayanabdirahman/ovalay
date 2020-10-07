@@ -12,3 +12,15 @@ export const setCurrentPath  = (referrer: string | undefined, currentLocation: s
     meta: { type: ActionType.NAVIGATION }
   }
 }
+
+/**
+ * Check if user has been authenticated
+ * @param { boolean } isUserSignedIn - toggles user authentication state
+ */
+export const setIsUserSignedIn  = (isUserSignedIn: boolean) => {
+  return {
+    type: NavigationActionType.SET_IS_USER_SIGNED_IN,
+    payload: { isUserSignedIn },
+    meta: { type: ActionType.NAVIGATION }
+  }
+}
