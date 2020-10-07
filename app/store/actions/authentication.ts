@@ -37,6 +37,24 @@ export const signInUser = (model: SignInModel) => async (dispatch: ThunkDispatch
   }
 }
 
+export const signOutUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+  try {
+    const response = await Authentication.signOut()
+    // remove user token from local storage
+    await AsyncStorage.removeItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
+    dispatch({ type: AuthenticationActionType.SIGN_OUT_SUCCESS, payload: response })
+
+    // update isUserSignedIn navigation state
+    dispatch(setIsUserSignedIn(false))
+  } catch (error) {
+    dispatch({ type: AuthenticationActionType.SIGN_OUT_FAIL })
+
+    // update isUserSignedIn navigation state
+    dispatch(setIsUserSignedIn(true))
+    console.log('SIGNOUT ERROR: ', error)
+  }
+}
+
 export const authoriseUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<any> => {
   try {
     // get user token from local storage

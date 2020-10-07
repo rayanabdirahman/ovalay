@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { Button as DefaultButton } from 'react-native'
+import { Button as DefaultButton, TouchableOpacity as DefaultTouchableOpacity } from 'react-native'
 import { Text } from '../Text'
 
-type LinkProps = DefaultButton['props'] & {
+type LinkProps = DefaultButton['props'] & DefaultTouchableOpacity['props'] & {
   block?: boolean
 }
 

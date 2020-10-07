@@ -21,13 +21,13 @@ export default (state = initialState, action: AnyAction) => {
       const { token } = action.payload.data
       return { ...state, token, isAuthenticated: true, loading: false }
     }
-    case AuthenticationActionType.LOGOUT_SUCCESS: {
+    case AuthenticationActionType.SIGN_OUT_SUCCESS: {
       return { ...state, token: null, isAuthenticated: false, loading: false, user: null }
     }
     case AuthenticationActionType.AUTHORISE_ERROR,
         AuthenticationActionType.SIGN_UP_FAIL,
         AuthenticationActionType.SIGN_IN_FAIL,
-        AuthenticationActionType.LOGOUT_FAIL: {
+        AuthenticationActionType.SIGN_OUT_FAIL: {
       return { ...state, token: null, isAuthenticated: false, loading: false }
     }
     default: {
