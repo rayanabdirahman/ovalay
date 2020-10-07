@@ -17,7 +17,7 @@ export default (state = initialState, action: AnyAction) => {
       return { ...state, token, isAuthenticated: true, loading: false, user }
     }
     case AuthenticationActionType.SIGN_UP_SUCCESS,
-        AuthenticationActionType.LOGIN_SUCCESS: {
+        AuthenticationActionType.SIGN_IN_SUCCESS: {
       const { token } = action.payload.data
       return { ...state, token, isAuthenticated: true, loading: false }
     }
@@ -26,7 +26,7 @@ export default (state = initialState, action: AnyAction) => {
     }
     case AuthenticationActionType.AUTHORISE_ERROR,
         AuthenticationActionType.SIGN_UP_FAIL,
-        AuthenticationActionType.LOGIN_FAIL,
+        AuthenticationActionType.SIGN_IN_FAIL,
         AuthenticationActionType.LOGOUT_FAIL: {
       return { ...state, token: null, isAuthenticated: false, loading: false }
     }

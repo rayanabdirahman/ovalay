@@ -2,7 +2,7 @@ import { ThunkDispatch } from 'redux-thunk'
 import { AnyAction } from 'redux'
 import AsyncStorage from '@react-native-community/async-storage'
 import { AuthenticationActionType } from './types'
-import { SignUpModel, ApiSuccessResponse } from '../../domain/interfaces'
+import { SignUpModel, ApiSuccessResponse, SignInModel } from '../../domain/interfaces'
 import Authentication from '../../api/authentication'
 import { setIsUserSignedIn } from './navigation'
 
@@ -20,6 +20,20 @@ export const signUpUser = (model: SignUpModel) => async (dispatch: ThunkDispatch
   } catch (error) {
     dispatch({ type: AuthenticationActionType.SIGN_UP_FAIL })
     console.log('SIGNUP ERROR: ', error)
+  }
+}
+
+export const signInUser = (model: SignInModel) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+  try {
+    const response: ApiSuccessResponse = await Authentication.signIn(model)
+    // store user token in local storage
+    await AsyncStorage.setItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`, response.data.token)
+    dispatch({ type: AuthenticationActionType.SIGN_IN_SUCCESS, payload: response })
+    // get user details 
+    dispatch(authoriseUser())
+  } catch(error) {
+    dispatch({ type: AuthenticationActionType.SIGN_IN_FAIL })
+    console.log('SIGNIN ERROR: ', error)
   }
 }
 
