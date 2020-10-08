@@ -8,7 +8,7 @@ export enum Api {
    * LOCAL DEV ENV: use ngrok for to tunnel
    * FORMATE: ngrok http -host-header=[custom domain] 80
    */
-  DEV_BASE_URL = 'http://c5c2d981ae2a.ngrok.io/api',
+  DEV_BASE_URL = 'http://a362684b1f36.ngrok.io/api',
   AUTHENTICATION_URL = 'user'
 }
 
