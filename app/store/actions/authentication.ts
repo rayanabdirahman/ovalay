@@ -6,14 +6,11 @@ import { SignUpModel, ApiSuccessResponse, SignInModel } from '../../domain/inter
 import Authentication from '../../api/authentication'
 import { setIsUserSignedIn } from './navigation'
 
-// TODO: Move into env file
-const LOCALSTORAGE_AUTHORIZATION_TOKEN = 'Authorization-Token'
-
 export const signUpUser = (model: SignUpModel) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
   try {
     const response: ApiSuccessResponse = await Authentication.signUp(model)
     // store user token in local storage
-    await AsyncStorage.setItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`, response.data.token)
+    await AsyncStorage.setItem(`${process.env.LOCALSTORAGE_AUTHORIZATION_TOKEN}`, response.data.token)
     dispatch({ type: AuthenticationActionType.SIGN_UP_SUCCESS, payload: response })
     // get user details 
     dispatch(authoriseUser())
@@ -27,7 +24,7 @@ export const signInUser = (model: SignInModel) => async (dispatch: ThunkDispatch
   try {
     const response: ApiSuccessResponse = await Authentication.signIn(model)
     // store user token in local storage
-    await AsyncStorage.setItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`, response.data.token)
+    await AsyncStorage.setItem(`${process.env.LOCALSTORAGE_AUTHORIZATION_TOKEN}`, response.data.token)
     dispatch({ type: AuthenticationActionType.SIGN_IN_SUCCESS, payload: response })
     // get user details 
     dispatch(authoriseUser())
@@ -41,7 +38,7 @@ export const signOutUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyActio
   try {
     const response = await Authentication.signOut()
     // remove user token from local storage
-    await AsyncStorage.removeItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
+    await AsyncStorage.removeItem(`${process.env.LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
     dispatch({ type: AuthenticationActionType.SIGN_OUT_SUCCESS, payload: response })
 
     // update isUserSignedIn navigation state
@@ -58,7 +55,7 @@ export const signOutUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyActio
 export const authoriseUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<any> => {
   try {
     // get user token from local storage
-    const token = await AsyncStorage.getItem(`${LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
+    const token = await AsyncStorage.getItem(`${process.env.LOCALSTORAGE_AUTHORIZATION_TOKEN}`)
     const response: ApiSuccessResponse = await Authentication.authorise(token)
     dispatch({ type: AuthenticationActionType.AUTHORISE_USER, payload: { ...response, token } })
 
