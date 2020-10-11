@@ -1,3 +1,5 @@
+import { UserRolesEnum } from "./enums";
+
 export interface SignUpModel {
   username: string
   name: string
@@ -16,6 +18,7 @@ export interface JwtUserPayload {
   username: string
   name: string
   email: string
+  role: UserRolesEnum
 }
 
 export interface JwtPayload {

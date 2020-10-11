@@ -16,6 +16,7 @@ const JwtHelper: IJwtHelper = {
         username: user.username,
         name: user.name,
         email: user.email,
+        role: user.role
       }
     }
 
