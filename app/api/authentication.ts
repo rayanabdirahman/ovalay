@@ -1,8 +1,9 @@
 import axios from 'axios'
 import buildClient from '../utilities/axios-helper'
 import { SignUpModel, ApiSuccessResponse, SignInModel } from '../domain/interfaces'
+import config from '../config'
 
-const API_BASE_URL = `${process.env.DEV_API_URL }/user`
+const API_BASE_URL = `${config.API_URL}/user`
 
 type Authentication = {
   signUp(model: SignUpModel): Promise<ApiSuccessResponse>
