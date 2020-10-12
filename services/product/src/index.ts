@@ -1,5 +1,5 @@
 import bootstrapApp from './app'
-// import connectToDbClient from './database/db_client'
+import connectToDbClient from './database/db_client'
 import logger from './utilities/logger'
 
 const runApp = async () => {
@@ -7,7 +7,7 @@ const runApp = async () => {
     const PORT = process.env.PORT || 3000
 
     // connect to database
-    // await connectToDbClient()
+    await connectToDbClient()
 
     const app = await bootstrapApp()
   
