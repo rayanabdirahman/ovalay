@@ -1,7 +1,7 @@
 import express from 'express'
-import { RegistrableController } from './api/registrable.controller'
-import container from './inversify.config'
-import TYPES from './types'
+// import { RegistrableController } from './api/registrable.controller'
+// import container from './inversify.config'
+// import TYPES from './types'
 import logger from './utilities/logger'
 
 export default async (): Promise<express.Application> => (
@@ -14,12 +14,12 @@ export default async (): Promise<express.Application> => (
       app.use(express.urlencoded({ extended: false }))
 
       // register api routes
-      const controllers: RegistrableController[] = container.getAll<RegistrableController>(TYPES.Controller)
-      controllers.forEach(controller => controller.registerRoutes(app))
+      // const controllers: RegistrableController[] = container.getAll<RegistrableController>(TYPES.Controller)
+      // controllers.forEach(controller => controller.registerRoutes(app))
       
       // test api route
-      app.get('/api/user/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
-        return res.json({ 'Mainstreet Authentication API': 'Version 1' })
+      app.get('/api/product/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
+        return res.json({ 'Mainstreet Product API': 'Version 1' })
       })
 
       resolve(app)
