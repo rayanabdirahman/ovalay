@@ -1,9 +1,11 @@
+import { UserRolesEnum } from "./enums"
+
 export interface SignUpModel {
   username: string
   name: string
   email: string
   password: string
-  role?: string
+  role?: UserRolesEnum
 }
 
 export interface SignInModel {

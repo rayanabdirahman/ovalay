@@ -1,7 +1,9 @@
+import { UserRolesEnum } from "../domain/enums"
+
 export type AuthStackParamList = {
   Landing: undefined
   SignIn: undefined
-  SignUp: undefined
+  SignUp: undefined | { userRole?: UserRolesEnum }
 }
 
 export enum AuthScreenName {

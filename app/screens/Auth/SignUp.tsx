@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { StackScreenProps } from '@react-navigation/stack'
 import { View as DefaultView } from 'react-native'
 import { AuthScreenName, AuthStackParamList } from '../../navigation/types'
@@ -6,15 +6,22 @@ import { Layout, Text, Button, Link, Input } from '../../components'
 import { SignUpModel } from '../../domain/interfaces'
 import { signUpUser } from '../../store/actions/authentication'
 import { useDispatch } from 'react-redux'
+import { UserRolesEnum } from '../../domain/enums'
 
-const SignUp = ({ navigation }: StackScreenProps<AuthStackParamList, AuthScreenName.SIGN_UP>) => {
+const SignUp = ({ navigation, route }: StackScreenProps<AuthStackParamList, AuthScreenName.SIGN_UP>) => {
   const dispatch = useDispatch()
   const [state, setState] = useState<SignUpModel>({
     name: '',
     username: '',
     email: '',
     password: '',
+    role: UserRolesEnum.BUYER
   })
+
+  useEffect(() => {
+    // set user role on screen load
+    setState({ ...state, role: route.params?.userRole })
+  }, [])
 
   return (
     <Layout title="Sign up">
