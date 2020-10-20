@@ -9,6 +9,7 @@ export interface ProductService {
   createOne(model: CreateProductModel): Promise<ProductDocument>
   findOne(_id: string): Promise<ProductDocument | null>
   findAll(): Promise<ProductDocument[] | null>
+  updateOne(_id: string, model: CreateProductModel): Promise<ProductDocument | null>
 }
 
 @injectable()
@@ -44,6 +45,21 @@ export class ProductServiceImpl implements ProductService {
       return await this.productRepository.findAll()
     } catch(error) {
       logger.error(`[ProductService: findAll]: Unable to find products: ${error}`)
+      throw error
+    }
+  }
+
+  async updateOne(_id: string, model: CreateProductModel): Promise<ProductDocument | null> { 
+    try {
+      // check if user owns product before updating
+      const product = await this.productRepository.findById(_id)
+      if (product?.sellerId !== model.sellerId) {
+        throw new Error('You are not authorised to update this product')
+      }
+
+      return await this.productRepository.updateOne(_id, model)
+    } catch(error) {
+      logger.error(`[ProductService: updateOne]: Unable to update product: ${error}`)
       throw error
     }
   }

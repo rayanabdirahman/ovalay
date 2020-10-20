@@ -19,7 +19,7 @@ export default class UserController implements RegistrableController {
 
   registerRoutes(app: express.Application): void {
     app.post('/api/product', AuthGuard, this.createOne)
-    app.put('/api/product/:_id', this.updateOne)
+    app.put('/api/product/:_id', AuthGuard, this.updateOne)
     app.get('/api/product/list', this.findAll)
     app.get('/api/product/:_id', this.findOne)
   }
@@ -44,12 +44,36 @@ export default class UserController implements RegistrableController {
 
     } catch (error) {
       const { message } = error
-      logger.error(`[ProductController: createOne] - Unable to create product: ${message}`)
+      logger.error(`[ProductController: createOne] - Failed to create product: ${message}`)
       return ApiResponse.error(res, message)
     }
   }
 
-  updateOne = async (req: express.Request, res: express.Response): Promise<void> => {}
+  updateOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const { _id } = req.params
+
+      const model: CreateProductModel = {
+        ...req.body,
+        sellerId: req.user?._id
+      }
+
+      // validate request body
+      const validity = ProductValidator.createOne(model)
+      if (validity.error) {
+        const { message } = validity.error
+        return ApiResponse.error(res, message)
+      }
+
+      const product = await this.productService.updateOne(_id, model)
+
+      return ApiResponse.success(res,  { product })
+    } catch (error) {
+      const { message } = error
+      logger.error(`[ProductController: updateOne] - Failed to update product: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
 
   findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
