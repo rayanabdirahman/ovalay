@@ -20,8 +20,8 @@ export default class UserController implements RegistrableController {
   registerRoutes(app: express.Application): void {
     app.post('/api/product', AuthGuard, this.createOne)
     app.put('/api/product/:_id', this.updateOne)
-    app.get('/api/product/:_id', this.findOne)
     app.get('/api/product/list', this.findAll)
+    app.get('/api/product/:_id', this.findOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -51,6 +51,17 @@ export default class UserController implements RegistrableController {
 
   updateOne = async (req: express.Request, res: express.Response): Promise<void> => {}
 
+  findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const products = await this.productService.findAll()
+      return ApiResponse.success(res,  { products })
+    } catch (error) {
+      const { message } = error
+      logger.error(`[ProductController: findAll] - Unable to find products: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
   findOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
       const { _id } = req.params
@@ -62,6 +73,4 @@ export default class UserController implements RegistrableController {
       return ApiResponse.error(res, message)
     }
   }
-
-  findAll = async (req: express.Request, res: express.Response): Promise<void> => {}
 }

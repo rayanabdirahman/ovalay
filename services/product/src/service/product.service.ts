@@ -8,6 +8,7 @@ import logger from '../utilities/logger'
 export interface ProductService {
   createOne(model: CreateProductModel): Promise<ProductDocument>
   findOne(_id: string): Promise<ProductDocument | null>
+  findAll(): Promise<ProductDocument[] | null>
 }
 
 @injectable()
@@ -34,6 +35,15 @@ export class ProductServiceImpl implements ProductService {
       return product
     } catch(error) {
       logger.error(`[ProductService: findOne]: Unable to find product: ${error}`)
+      throw error
+    }
+  }
+
+  async findAll(): Promise<ProductDocument[] | null> { 
+    try {
+      return await this.productRepository.findAll()
+    } catch(error) {
+      logger.error(`[ProductService: findAll]: Unable to find products: ${error}`)
       throw error
     }
   }
