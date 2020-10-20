@@ -50,6 +50,18 @@ export default class UserController implements RegistrableController {
   }
 
   updateOne = async (req: express.Request, res: express.Response): Promise<void> => {}
-  findOne = async (req: express.Request, res: express.Response): Promise<void> => {}
+
+  findOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
+    try {
+      const { _id } = req.params
+      const product = await this.productService.findOne(_id)
+      return ApiResponse.success(res,  { product })
+    } catch (error) {
+      const { message } = error
+      logger.error(`[ProductController: findOne] - Unable to find product: ${message}`)
+      return ApiResponse.error(res, message)
+    }
+  }
+
   findAll = async (req: express.Request, res: express.Response): Promise<void> => {}
 }
