@@ -1,6 +1,11 @@
 import { OrderStatusEnum } from '../packages/mainstreet-nats';
 import { UserRolesEnum } from './enums';
 
+export interface CreateProductModel {
+  name: string
+  price: string
+}
+
 export interface CreateOrderModel {
   productId: string
   userId: string

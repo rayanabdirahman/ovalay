@@ -5,14 +5,6 @@ export interface ProductDocument extends mongoose.Document {
   _id: mongoose.Types.ObjectId
   name: string
   price: string
-  color: string
-  type: string
-  brand: string
-  description: string
-  image: string[]
-  availableStockQuantity: number
-  sellerId: string
-  createdAt: Date
 }
 
 export interface OrderDocument extends mongoose.Document {
