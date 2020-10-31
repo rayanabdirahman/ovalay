@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order
+  template:
+    metadata:
+      labels:
+        app: order
+    spec:
+      containers:
+      - name: order
+        image: rayanma/order
+        env:
+          - name: MONGO_URI
+            value: "mongodb://order-mongo-service:27017/orders"
+          - name: NATS_CLUSTER_ID
+            value: "mainstreet"
+          - name: NATS_URL
+            value: "http://nats-service:4222"
+          - name: NATS_CLIENT_ID
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+        resources:
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: order-service
+spec:
+  selector:
+    app: order
+  ports:
+  - name: order
+    protocol: TCP
+    port: 3000
+    targetPort: 3000
