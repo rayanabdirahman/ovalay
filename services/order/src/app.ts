@@ -1,7 +1,7 @@
 import express from 'express'
-// import { RegistrableController } from './api/registrable.controller'
-// import container from './inversify.config'
-// import TYPES from './types'
+import { RegistrableController } from './api/registrable.controller'
+import container from './inversify.config'
+import TYPES from './types'
 import logger from './utilities/logger'
 
 export default async (): Promise<express.Application> => (
@@ -10,19 +10,19 @@ export default async (): Promise<express.Application> => (
       const app = express()
 
       // check if env variables have been set
-      // if (!process.env.MONGO_URI) throw new Error('MONGO_URI must be defined')
+      if (!process.env.MONGO_URI) throw new Error('MONGO_URI must be defined')
 
       // set middleware
       app.use(express.json())
       app.use(express.urlencoded({ extended: false }))
 
       // register api routes
-      // const controllers: RegistrableController[] = container.getAll<RegistrableController>(TYPES.Controller)
-      // controllers.forEach(controller => controller.registerRoutes(app))
+      const controllers: RegistrableController[] = container.getAll<RegistrableController>(TYPES.Controller)
+      controllers.forEach(controller => controller.registerRoutes(app))
 
       // test api route
-      app.get('/api/product/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
-        return res.json({ 'Mainstreet Product API': 'Version 1' })
+      app.get('/api/order/', async (req: express.Request, res: express.Response): Promise<express.Response> => {
+        return res.json({ 'Mainstreet Order API': 'Version 1' })
       })
 
       resolve(app)
