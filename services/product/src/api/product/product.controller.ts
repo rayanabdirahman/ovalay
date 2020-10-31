@@ -8,6 +8,8 @@ import { ProductService } from '../../service/product.service'
 import logger from '../../utilities/logger'
 import ApiResponse from '../../utilities/api-response'
 import AuthGuard from '../../middleware/auth-guard'
+import { ProductCreatedPublisher } from '../../event/publisher/product-created'
+import { natsClient } from '../../event/nats-client'
 
 @injectable()
 export default class UserController implements RegistrableController {
@@ -39,6 +41,14 @@ export default class UserController implements RegistrableController {
       }
 
       const product = await this.productService.createOne(model)
+
+      // publish nats event for created product
+      new ProductCreatedPublisher(natsClient.client).publish({
+        id: JSON.stringify(product._id),
+        name: product.name,
+        price: product.price,
+        sellerId: product.sellerId
+      })
 
       return ApiResponse.success(res,  { product })
 
