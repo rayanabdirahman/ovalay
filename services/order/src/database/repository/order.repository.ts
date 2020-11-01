@@ -6,7 +6,7 @@ import { CreateOrderModel } from '../../domain/interfaces'
 export interface OrderRepository {
   createOne(model: CreateOrderModel): Promise<OrderDocument>
   findById(_id: string): Promise<OrderDocument | null>
-  findAll(): Promise<OrderDocument[] | null>
+  findAll(userId: string): Promise<OrderDocument[] | null>
 }
 
 @injectable()
@@ -20,7 +20,7 @@ export class OrderRepositoryImpl implements OrderRepository {
     return await Order.findById(_id).select('-__v')
   }
 
-  async findAll(): Promise<OrderDocument[] | null> {
-    return await Order.find({}).select('-__v')
+  async findAll(userId: string): Promise<OrderDocument[] | null> {
+    return await Order.find({ userId }).select('-__v')
   }
 }

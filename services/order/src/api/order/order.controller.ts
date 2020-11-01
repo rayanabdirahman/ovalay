@@ -4,7 +4,7 @@ import { injectable, inject } from 'inversify'
 import TYPES from '../../types'
 import { CreateOrderModel } from '../../domain/interfaces'
 import OrderValidator from './order.validator'
-// import { ProductService } from '../../service/product.service'
+import {OrderService } from '../../service/order.service'
 import logger from '../../utilities/logger'
 import ApiResponse from '../../utilities/api-response'
 import AuthGuard from '../../middleware/auth-guard'
@@ -13,15 +13,15 @@ import AuthGuard from '../../middleware/auth-guard'
 
 @injectable()
 export default class OrderController implements RegistrableController {
-  // private productService: ProductService
+  private orderService: OrderService
 
-  // constructor(@inject(TYPES.ProductService) productService: ProductService) {
-  //   this.productService = productService
-  // }
+  constructor(@inject(TYPES.OrderService) orderService:OrderService) {
+    this.orderService = orderService
+  }
 
   registerRoutes(app: express.Application): void {
     app.post('/api/order', AuthGuard, this.createOne)
-    app.get('/api/order/list', this.findAll)
+    app.get('/api/order/list', AuthGuard, this.findAll)
     app.get('/api/order/:_id', this.findOne)
   }
 
@@ -32,24 +32,16 @@ export default class OrderController implements RegistrableController {
         userId: req.user?._id
       }
 
-      // // validate request body
-      // const validity = ProductValidator.createOne(model)
-      // if (validity.error) {
-      //   const { message } = validity.error
-      //   return ApiResponse.error(res, message)
-      // }
+      // validate request body
+      const validity = OrderValidator.createOne(model)
+      if (validity.error) {
+        const { message } = validity.error
+        return ApiResponse.error(res, message)
+      }
 
-      // const product = await this.productService.createOne(model)
+      const order = await this.orderService.createOne(model)
 
-      // // publish nats event for created product
-      // new ProductCreatedPublisher(natsClient.client).publish({
-      //   id: JSON.stringify(product._id),
-      //   name: product.name,
-      //   price: product.price,
-      //   sellerId: product.sellerId
-      // })
-
-      return ApiResponse.success(res,  { hello: "create one" })
+      return ApiResponse.success(res,  { order })
 
     } catch (error) {
       const { message } = error
@@ -60,8 +52,10 @@ export default class OrderController implements RegistrableController {
 
   findAll = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
-      // const products = await this.productService.findAll()
-      return ApiResponse.success(res,  { hello: "find all" })
+      // find all orders for specific user
+      const userId = req.user?._id as string
+      const orders = await this.orderService.findAll(userId)
+      return ApiResponse.success(res,  { orders })
     } catch (error) {
       const { message } = error
       logger.error(`[OrderController: findAll] - Unable to find orders: ${message}`)
@@ -72,7 +66,7 @@ export default class OrderController implements RegistrableController {
   findOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
       // const { _id } = req.params
-      // const product = await this.productService.findOne(_id)
+      // const order = await this.orderService.findOne(_id)
       return ApiResponse.success(res,  { hello: "find one" })
     } catch (error) {
       const { message } = error
