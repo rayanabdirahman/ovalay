@@ -17,7 +17,7 @@ export interface NatsProductUpdatedEvent {
     _id: string | mongoose.Types.ObjectId
     name: string
     price: string
-    userId: string
+    sellerId: string
   }
 }
 
@@ -29,7 +29,9 @@ export interface NatsOrderCreatedEvent {
     userId: string
     product: {
       _id: string | mongoose.Types.ObjectId
+      name: string
       price: string
+      sellerId: string
     }
   }
 }
