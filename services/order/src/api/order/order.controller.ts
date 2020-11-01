@@ -8,8 +8,8 @@ import {OrderService } from '../../service/order.service'
 import logger from '../../utilities/logger'
 import ApiResponse from '../../utilities/api-response'
 import AuthGuard from '../../middleware/auth-guard'
-// import { ProductCreatedPublisher } from '../../event/publisher/product-created'
-// import { natsClient } from '../../event/nats-client'
+import { OrderCreatedPublisher } from '../../event/publisher/order-created'
+import { natsClient } from '../../event/nats-client'
 
 @injectable()
 export default class OrderController implements RegistrableController {
@@ -40,6 +40,17 @@ export default class OrderController implements RegistrableController {
       }
 
       const order = await this.orderService.createOne(model)
+
+      // publish nats event for created order
+      new OrderCreatedPublisher(natsClient.client).publish({
+        id: JSON.stringify(order._id),
+        status: order.status,
+        userId: order.userId,
+        product: {
+          id:  JSON.stringify(order.product._id),
+          price: order.product.price
+        }
+      })
 
       return ApiResponse.success(res,  { order })
 
