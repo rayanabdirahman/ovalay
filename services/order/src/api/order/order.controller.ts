@@ -43,11 +43,11 @@ export default class OrderController implements RegistrableController {
 
       // publish nats event for created order
       new OrderCreatedPublisher(natsClient.client).publish({
-        id: JSON.stringify(order._id),
+        _id: order._id,
         status: order.status,
         userId: order.userId,
         product: {
-          id:  JSON.stringify(order.product._id),
+          _id: order.product._id,
           price: order.product.price
         }
       })

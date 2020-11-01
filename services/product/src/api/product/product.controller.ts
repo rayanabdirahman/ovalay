@@ -44,7 +44,7 @@ export default class ProductController implements RegistrableController {
 
       // publish nats event for created product
       new ProductCreatedPublisher(natsClient.client).publish({
-        id: JSON.stringify(product._id),
+        _id: product._id,
         name: product.name,
         price: product.price,
         sellerId: product.sellerId
