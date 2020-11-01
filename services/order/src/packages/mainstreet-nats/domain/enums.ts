@@ -1,6 +1,7 @@
 export enum NatsEventSubjectEnum {
   PRODUCT_CREATED = 'product:created',
-  PRODUCT_UPDATED = 'product:updated'
+  PRODUCT_UPDATED = 'product:updated',
+  ORDER_CREATED = 'order:created',
 }
 
 export enum OrderStatusEnum {

@@ -1,4 +1,4 @@
-import { NatsEventSubjectEnum } from './enums'
+import { NatsEventSubjectEnum, OrderStatusEnum } from './enums'
 
 export interface NatsProductCreatedEvent {
   subject: NatsEventSubjectEnum.PRODUCT_CREATED
@@ -15,7 +15,20 @@ export interface NatsProductUpdatedEvent {
   data: {
     id: string
     title: string
-    price: number
+    price: string
     userId: string
+  }
+}
+
+export interface NatsOrderCreatedEvent {
+  subject: NatsEventSubjectEnum.ORDER_CREATED
+  data: {
+    id: string
+    status: OrderStatusEnum
+    userId: string
+    product: {
+      id: string
+      price: string
+    }
   }
 }
