@@ -12,7 +12,7 @@ import { ProductCreatedPublisher } from '../../event/publisher/product-created'
 import { natsClient } from '../../event/nats-client'
 
 @injectable()
-export default class UserController implements RegistrableController {
+export default class ProductController implements RegistrableController {
   private productService: ProductService
 
   constructor(@inject(TYPES.ProductService) productService: ProductService) {
