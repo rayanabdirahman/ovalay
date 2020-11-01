@@ -3,7 +3,7 @@ import { NatsEventSubjectEnum, OrderStatusEnum } from './enums'
 export interface NatsProductCreatedEvent {
   subject: NatsEventSubjectEnum.PRODUCT_CREATED
   data: {
-    id: string
+    _id: string
     name: string
     price: string
     sellerId: string
@@ -13,7 +13,7 @@ export interface NatsProductCreatedEvent {
 export interface NatsProductUpdatedEvent {
   subject: NatsEventSubjectEnum.PRODUCT_UPDATED
   data: {
-    id: string
+    _id: string
     title: string
     price: string
     userId: string
@@ -23,11 +23,11 @@ export interface NatsProductUpdatedEvent {
 export interface NatsOrderCreatedEvent {
   subject: NatsEventSubjectEnum.ORDER_CREATED
   data: {
-    id: string
+    _id: string
     status: OrderStatusEnum
     userId: string
     product: {
-      id: string
+      _id: string
       price: string
     }
   }
