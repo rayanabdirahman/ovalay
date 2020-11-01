@@ -48,7 +48,9 @@ export default class OrderController implements RegistrableController {
         userId: order.userId,
         product: {
           _id: order.product._id,
-          price: order.product.price
+          name: order.product.name,
+          price: order.product.price,
+          sellerId: order.product.sellerId
         }
       })
 

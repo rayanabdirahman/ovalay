@@ -4,10 +4,11 @@ import { UserRolesEnum } from './enums';
 export interface CreateProductModel {
   name: string
   price: string
+  sellerId: string
 }
 
 export interface CreateOrderModel {
-  productId: string
+  product: string // stores product id
   userId: string
   status: OrderStatusEnum
 }

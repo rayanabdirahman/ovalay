@@ -1,5 +1,7 @@
 import bootstrapApp from './app'
 import connectToDbClient from './database/db_client'
+import { ProductCreatedListener } from './event/listener/product-created'
+import { ProductUpdatedListener } from './event/listener/product-updated'
 import { natsClient } from './event/nats-client'
 import logger from './utilities/logger'
 
@@ -23,6 +25,10 @@ const runApp = async () => {
     })
     process.on('SIGINT', () => natsClient.client)
     process.on('SIGTERM', () => natsClient.client)
+
+    // listen for NATS event
+    new ProductCreatedListener(natsClient.client).listen()
+    new ProductUpdatedListener(natsClient.client).listen()
 
     const app = await bootstrapApp()
   

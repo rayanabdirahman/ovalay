@@ -5,6 +5,7 @@ export interface ProductDocument extends mongoose.Document {
   _id: mongoose.Types.ObjectId
   name: string
   price: string
+  sellerId: string
 }
 
 export interface OrderDocument extends mongoose.Document {
