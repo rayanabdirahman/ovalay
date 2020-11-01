@@ -22,7 +22,7 @@ export default class OrderController implements RegistrableController {
   registerRoutes(app: express.Application): void {
     app.post('/api/order', AuthGuard, this.createOne)
     app.get('/api/order/list', AuthGuard, this.findAll)
-    app.get('/api/order/:_id', this.findOne)
+    app.get('/api/order/:_id', AuthGuard, this.findOne)
   }
 
   createOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
@@ -65,9 +65,9 @@ export default class OrderController implements RegistrableController {
 
   findOne = async (req: express.Request, res: express.Response): Promise<express.Response> => {
     try {
-      // const { _id } = req.params
-      // const order = await this.orderService.findOne(_id)
-      return ApiResponse.success(res,  { hello: "find one" })
+      const { _id } = req.params
+      const order = await this.orderService.findOne(_id)
+      return ApiResponse.success(res,  { order })
     } catch (error) {
       const { message } = error
       logger.error(`[OrderController: findOne] - Unable to find order: ${message}`)

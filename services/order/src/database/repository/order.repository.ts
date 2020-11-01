@@ -17,10 +17,10 @@ export class OrderRepositoryImpl implements OrderRepository {
   }
 
   async findById(_id: string): Promise<OrderDocument | null> {
-    return await Order.findById(_id).select('-__v')
+    return await Order.findById(_id).select('-__v').populate('product')
   }
 
   async findAll(userId: string): Promise<OrderDocument[] | null> {
-    return await Order.find({ userId }).select('-__v')
+    return await Order.find({ userId }).select('-__v').populate('product')
   }
 }

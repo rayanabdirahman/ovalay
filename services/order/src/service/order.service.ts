@@ -31,7 +31,7 @@ export class OrderServiceImpl implements OrderService {
   async createOne(model: CreateOrderModel): Promise<OrderDocument> {
     try {
       // check if product is available in database
-      if (await this.isProductAvailable(model.productId)) {
+      if (!await this.isProductAvailable(model.productId)) {
         throw new Error('This product is not available for order')
       }
 
