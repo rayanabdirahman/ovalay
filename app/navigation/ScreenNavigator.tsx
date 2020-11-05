@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 import { AntDesign } from '@expo/vector-icons'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { AddAddress, Addresses, Cart, Checkout, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
+import { AddAddress, AddProduct, Addresses, Cart, Checkout, Feed, Product, Profile, Reviews, Search, SearchResult, Settings, Store } from '../screens'
 
 // set stack navigator options
 const options = {
@@ -53,6 +53,15 @@ export function FeedNavigator () {
     <FeedStack.Navigator screenOptions={options}>
       <FeedStack.Screen name={RootScreenName.FEED} component={Feed}/>
     </FeedStack.Navigator>
+  )
+}
+
+const AddProductStack = createStackNavigator<RootStackParamList>()
+export function AddProductNavigator () {
+  return (
+    <AddProductStack.Navigator screenOptions={options}>
+      <AddProductStack.Screen name={RootScreenName.ADD_PRODUCT} component={AddProduct}/>
+    </AddProductStack.Navigator>
   )
 }
 

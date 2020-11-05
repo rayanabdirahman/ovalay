@@ -3,13 +3,14 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { AntDesign, Feather } from '@expo/vector-icons'
 import { theme } from '../components/Theme'
 import { RootStackParamList, RootScreenName } from './types'
-import { CartNavigator, FeedNavigator, ProfileNavigator, SearchNavigator } from './ScreenNavigator'
+import { AddProductNavigator, CartNavigator, FeedNavigator, ProfileNavigator, SearchNavigator } from './ScreenNavigator'
 
 // set bottom tab navigator options
 const tabBarOptions = {
   activeTintColor: theme.colour.black,
   inactiveTintColor: '#BFC5D2',
-  style: { backgroundColor: theme.colour.white }
+  style: { backgroundColor: theme.colour.white },
+  showLabel: false
 }
 
 const BottomTab = createBottomTabNavigator<RootStackParamList>()
@@ -26,6 +27,14 @@ export default function BottomTabNavigator() {
         component={SearchNavigator}
         options={{ 
           tabBarIcon: ({ color }) => <AntDesign name="search1" size={24} color={color} /> 
+        }} 
+      />
+      { 
+      }
+      <BottomTab.Screen name={RootScreenName.ADD_PRODUCT}
+        component={AddProductNavigator}
+        options={{ 
+          tabBarIcon: ({ color }) => <AntDesign name="plussquareo" size={24} color={color} /> 
         }} 
       />
       <BottomTab.Screen name={RootScreenName.CART}

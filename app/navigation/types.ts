@@ -26,6 +26,7 @@ export type RootStackParamList = {
   Settings: undefined
   Addresses: undefined
   AddAddress: undefined
+  AddProduct: undefined
 }
 
 export enum RootScreenName {
@@ -41,5 +42,6 @@ export enum RootScreenName {
   REVIEWS = 'Reviews',
   SETTINGS = 'Settings',
   ADDRESSES = 'Addresses',
-  ADD_ADDRESS = 'AddAddress'
+  ADD_ADDRESS = 'AddAddress',
+  ADD_PRODUCT = 'AddProduct'
 }
