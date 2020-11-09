@@ -27,6 +27,7 @@ export type RootStackParamList = {
   Addresses: undefined
   AddAddress: undefined
   AddProduct: undefined
+  ModalPlaceholder: undefined
 }
 
 export enum RootScreenName {
@@ -43,5 +44,6 @@ export enum RootScreenName {
   SETTINGS = 'Settings',
   ADDRESSES = 'Addresses',
   ADD_ADDRESS = 'AddAddress',
-  ADD_PRODUCT = 'AddProduct'
+  ADD_PRODUCT = 'AddProduct',
+  MODAL_PLACEHOLDER = 'ModalPlaceholder',
 }
