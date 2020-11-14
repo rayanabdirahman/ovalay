@@ -4,19 +4,20 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context'
 import { Text } from 'react-native'
 
 import useCachedResources from './hooks/useCachedResources'
+import useColorScheme from './hooks/useColorScheme'
+import Navigation from './navigation'
 
 export default function App() {
   const isLoadingComplete = useCachedResources()
+  const colorScheme = useColorScheme()
 
   if (!isLoadingComplete) {
     return null
   } else {
     return (
       <SafeAreaProvider>
-        <SafeAreaView>
-          <Text>Open up App.tsx to start working on your app!</Text>
-          <StatusBar style="dark" />
-        </SafeAreaView>
+        <Navigation colorScheme={colorScheme} />
+        <StatusBar style="dark"/>
       </SafeAreaProvider>
     )
   }
