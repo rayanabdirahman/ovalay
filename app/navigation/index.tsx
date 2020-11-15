@@ -4,6 +4,8 @@ import * as React from 'react'
 import { ColorSchemeName } from 'react-native';
 
 import BottomTabNavigator from './BottomTabNavigator';
+import ShareScreen from '../screens/ShareScreen'
+import { RootStackParamList, RootStackRouteName } from './types';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -15,12 +17,17 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
   );
 }
 
-const Stack = createStackNavigator();
+const Stack = createStackNavigator<RootStackParamList>();
 
 function RootNavigator() {
   return (
-    <Stack.Navigator screenOptions={{ headerShown: false }}>
-      <Stack.Screen name="Root" component={BottomTabNavigator} />
+    <Stack.Navigator mode="modal" screenOptions={{ animationEnabled: false, headerShown: false }}>
+      <Stack.Screen name={RootStackRouteName.ROOT} component={BottomTabNavigator} />
+      <Stack.Screen
+        name={RootStackRouteName.SHARE_MODAL}
+        options={{ animationEnabled: true }}
+        component={ShareScreen}
+      />
     </Stack.Navigator>
   );
 }

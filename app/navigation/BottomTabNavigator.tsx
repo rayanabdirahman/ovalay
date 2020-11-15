@@ -1,16 +1,26 @@
 import { AntDesign, Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
-import { createStackNavigator } from '@react-navigation/stack'
+import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
+import { View, Text, Button } from 'react-native'
 import * as React from 'react'
 
 // import Colors from '../constants/Colors'
-import useColorScheme from '../hooks/useColorScheme'
 import CartScreen from '../screens/CartScreen'
 import FeedScreen from '../screens/FeedScreen'
-import ShareScreen from '../screens/ShareScreen'
 import ProfileScreen from '../screens/ProfileScreen'
 import SearchScreen from '../screens/SearchScreen'
-import { BottomTabParamList, BottomTabRouteName, FeedParamList, FeedTabRouteName, SearchParamList, SearchTabRouteName } from './types'
+import {
+  BottomTabParamList,
+  BottomTabRouteName,
+  FeedParamList,
+  FeedTabRouteName,
+  RootStackParamList,
+  RootStackRouteName,
+  SearchParamList,
+  SearchTabRouteName,
+  ShareParamList,
+  ShareTabRouteName
+} from './types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -42,10 +52,16 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name={BottomTabRouteName.SHARE}
-        component={ShareScreen}
+        component={ShareNavigator}
         options={{
           tabBarIcon: ({ color }: { color: string }) => <TabBarIcon name="plussquareo" color={color} />,
         }}
+        listeners={({ navigation }: StackScreenProps<any>) => ({
+          tabPress: event => {
+            event.preventDefault()
+            navigation.navigate(RootStackRouteName.SHARE_MODAL)
+          }
+        })}
       />
       <BottomTab.Screen
         name={BottomTabRouteName.CART}
@@ -144,4 +160,30 @@ function SearchNavigator() {
       />
     </SearchStack.Navigator>
   )
+}
+
+const ShareStack = createStackNavigator<ShareParamList>()
+
+function ShareNavigator() {
+  return (
+    <ShareStack.Navigator>
+      <ShareStack.Screen
+        name={ShareTabRouteName.SHARE_SCREEN}
+        component={PlaceHolderModalScreen}
+        options={{ headerShown: false }}
+      />
+    </ShareStack.Navigator>
+  )
+}
+
+
+// placeholder modal screen
+// TODO: Find a better solution to open modal screens from bottom tab navigator
+function PlaceHolderModalScreen({ navigation }: StackScreenProps<any>) {
+  return (
+    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', backgroundColor: "blue" }}>
+      <Text>This is a placeholder modal!</Text>
+      <Button onPress={() => navigation.goBack()} title="Dismiss" />
+    </View>
+  );
 }
