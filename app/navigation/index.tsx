@@ -25,7 +25,15 @@ function RootNavigator() {
       <Stack.Screen name={RootStackRouteName.ROOT} component={BottomTabNavigator} />
       <Stack.Screen
         name={RootStackRouteName.SHARE_MODAL}
-        options={{ animationEnabled: true }}
+        options={{ 
+          animationEnabled: true,
+          headerShown: true,
+          title: '',
+          headerStyle: { 
+            shadowOpacity: 0
+          },
+          headerBackTitle: ' '
+        }}
         component={ShareScreen}
       />
     </Stack.Navigator>
