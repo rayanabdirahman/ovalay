@@ -4,7 +4,7 @@ import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
 import { View, Text, Button } from 'react-native'
 import * as React from 'react'
 
-// import Colors from '../constants/Colors'
+import { theme } from '../components/Theme'
 import CartScreen from '../screens/CartScreen'
 import FeedScreen from '../screens/FeedScreen'
 import ProfileScreen from '../screens/ProfileScreen'
@@ -14,7 +14,6 @@ import {
   BottomTabRouteName,
   FeedParamList,
   FeedTabRouteName,
-  RootStackParamList,
   RootStackRouteName,
   SearchParamList,
   SearchTabRouteName,
@@ -32,7 +31,7 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName={BottomTabRouteName.FEED}
       tabBarOptions={{ 
-        activeTintColor: '#020311',
+        activeTintColor: theme.colour.black,
         inactiveTintColor: '#BFC5D2',
         showLabel: false
       }}>
@@ -84,7 +83,7 @@ export default function BottomTabNavigator() {
     <BottomTab.Navigator
       initialRouteName={BottomTabRouteName.FEED}
       tabBarOptions={{ 
-        activeTintColor: '#020311',
+        activeTintColor: theme.colour.black,
         inactiveTintColor: '#BFC5D2',
         showLabel: false
       }}>
