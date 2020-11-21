@@ -1,40 +1,44 @@
+import { AntDesign } from '@expo/vector-icons'
 import * as DefaultImagePicker from 'expo-image-picker'
-import { Platform, Text, TouchableOpacity } from 'react-native'
+import { Image, TouchableOpacity as DefaultTouchableOpacity } from 'react-native'
+import styled from 'styled-components/native'
 import * as React from 'react'
 
-export default function ImagePicker(props: any) {
-  const [image, setImage] = React.useState(null)
-  React.useEffect(() => {
-    (async () => {
-      if (Platform.OS !== 'web') {
-        const { status } = await DefaultImagePicker.requestCameraRollPermissionsAsync();
-        if (status !== 'granted') {
-          alert('Sorry, we need camera roll permissions to make this work!');
-        }
-      }
-    })()
-  }, [])
+type Props = DefaultTouchableOpacity['props'] & {
+  selectedImage(image: string): void
+}
 
+const ImagePickerStyles = styled.TouchableOpacity<Props>`
+  width: 120px;
+  height: 120px;
+  background-color: ${({ theme }) => theme.colour.grey };
+  justify-content: center;
+  align-items: center;
+`
+
+export default function ImagePicker(props: Props) {
+  const [image, setImage] = React.useState<string>('')
   const pickImage = async () => {
-    let result = await DefaultImagePicker.launchImageLibraryAsync({
+    const result = await DefaultImagePicker.launchImageLibraryAsync({
       mediaTypes: DefaultImagePicker.MediaTypeOptions.All,
       allowsEditing: true,
       aspect: [4, 3],
       quality: 1,
-    });
+    })
 
-    console.log(result);
-
+    // set selected image uri to image state
     if (!result.cancelled) {
       setImage(result.uri);
+      // call selectedImage prop to pass image data to parent component
+      props.selectedImage(result.uri)
     }
-
-    props.onSelectedImage(image)
   }
 
   return (
-    <TouchableOpacity onPress={pickImage}>
-      <Text>Pick an image from camera roll</Text>
-    </TouchableOpacity>
+    <ImagePickerStyles {...props} onPress={pickImage}>
+      { image ? <Image source={{ uri: image }} style={{ width: '100%', height: '100%' }} /> : 
+        <AntDesign name="plus" size={32} color={'#BFC5D2'} />
+      }
+    </ImagePickerStyles>
   )
 }
