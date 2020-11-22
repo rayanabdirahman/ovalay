@@ -10,7 +10,7 @@ const Caption = styled.TextInput<CaptionProps>`
   border-width: 1px;
   border-color: ${({ theme }) => theme.colour.grey};
   margin-bottom: 16px;
-  max-height: 100px;
+  height: 100px;
 `
 
 export default Caption

@@ -11,7 +11,7 @@ type Props = DefaultView['props'] & {
 
 const Style = styled.View<Props>`
   flex-direction: row;
-  flex: 1;
+  margin-bottom: 8px;
 `
 
 export default function ImageCaption(props: Props) {

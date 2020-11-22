@@ -4,6 +4,8 @@ import * as React from 'react'
 
 import Layout from '../components/Layouts'
 import ImageCaption from '../components/organisms/ImageCaption'
+import { Input } from '../components/atoms/Input'
+import { ScrollView } from 'react-native-gesture-handler'
 
 type CreateProduct = {
   name: string
@@ -33,7 +35,7 @@ export default function ShareScreen() {
 
   React.useEffect(() => {
     navigation.setOptions({
-      headerRight: () => <Button title="Post" onPress={() => alert('This is a button!')} />
+      headerRight: () => <Button title="Add product" onPress={() => alert('This is a button!')} />
     })
   }, [])
 
@@ -44,6 +46,14 @@ export default function ShareScreen() {
   return (
     <Layout>
       <ImageCaption selectedImage={handleImageSelection} />
+      <ScrollView>
+        <Input placeholder="name" />
+        <Input placeholder="description" />
+        <Input placeholder="price" />
+        <Input placeholder="colour" />
+        <Input placeholder="sizes" />
+        <Input placeholder="stock quantity" />
+      </ScrollView>
     </Layout>
   )
 }
