@@ -9,8 +9,7 @@ type Props = DefaultTouchableOpacity['props'] & {
 }
 
 const ImagePickerStyles = styled.TouchableOpacity<Props>`
-  width: 120px;
-  height: 120px;
+  height: 100px;
   background-color: ${({ theme }) => theme.colour.grey };
   justify-content: center;
   align-items: center;

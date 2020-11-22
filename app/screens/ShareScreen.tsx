@@ -1,35 +1,49 @@
-import { Button, Platform, Text, Image } from 'react-native'
+import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
-import * as DefaultImagePicker from 'expo-image-picker'
 import * as React from 'react'
 
 import Layout from '../components/Layouts'
-import ImagePicker from '../components/atoms/ImagePicker'
+import ImageCaption from '../components/organisms/ImageCaption'
+
+type CreateProduct = {
+  name: string
+  price: string
+  color: string
+  type: string
+  brand: string
+  description: string
+  image: string
+  sellerId: string
+  availableStockQuantity: number
+}
 
 export default function ShareScreen() {
-  const [image, setImage] = React.useState(null)
   const navigation = useNavigation()
+  const [state, setState] = React.useState<CreateProduct>({
+    name: "",
+    price: "",
+    color: "",
+    type: "",
+    brand: "",
+    description: "",
+    image: "",
+    sellerId: "",
+    availableStockQuantity: 0
+  })
 
   React.useEffect(() => {
     navigation.setOptions({
-      headerRight: () => (
-        <Button
-          onPress={() => alert('This is a button!')}
-          title="Post"
-        />
-      )
+      headerRight: () => <Button title="Post" onPress={() => alert('This is a button!')} />
     })
   }, [])
 
-  const handleImageSelection = async (image) => {
+  const handleImageSelection = async (image: string) => {
     console.log('PARENT: ', image);
-    setImage(image);
   }
 
   return (
     <Layout>
-      <ImagePicker onSelectedImage={handleImageSelection} />
-      {image && <Image source={{ uri: image }} style={{ width: 200, height: 200 }} />}
+      <ImageCaption selectedImage={handleImageSelection} />
     </Layout>
   )
 }
