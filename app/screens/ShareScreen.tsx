@@ -2,6 +2,7 @@ import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import * as React from 'react'
 
+import { theme } from '../components/Theme'
 import Layout from '../components/Layouts'
 import ImageCaption from '../components/organisms/ImageCaption'
 import { Input } from '../components/atoms/Input'
@@ -35,7 +36,13 @@ export default function ShareScreen() {
 
   React.useEffect(() => {
     navigation.setOptions({
-      headerRight: () => <Button title="Add product" onPress={() => alert('This is a button!')} />
+      headerRight: () => (
+        <Button
+          color={theme.colour.black}
+          title="Add product" 
+          onPress={() => alert('This is a button!')}
+        />
+      )
     })
   }, [])
 

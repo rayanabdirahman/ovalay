@@ -1,11 +1,12 @@
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
 import * as React from 'react'
-import { ColorSchemeName } from 'react-native';
+import { ColorSchemeName } from 'react-native'
 
-import BottomTabNavigator from './BottomTabNavigator';
+import { theme } from '../components/Theme'
+import BottomTabNavigator from './BottomTabNavigator'
 import ShareScreen from '../screens/ShareScreen'
-import { RootStackParamList, RootStackRouteName } from './types';
+import { RootStackParamList, RootStackRouteName } from './types'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -14,14 +15,19 @@ export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeNa
       theme={colorScheme === 'dark' ? DefaultTheme : DefaultTheme}>
       <RootNavigator />
     </NavigationContainer>
-  );
+  )
 }
 
-const Stack = createStackNavigator<RootStackParamList>();
+const Stack = createStackNavigator<RootStackParamList>()
 
 function RootNavigator() {
   return (
-    <Stack.Navigator mode="modal" screenOptions={{ animationEnabled: false, headerShown: false }}>
+    <Stack.Navigator mode="modal"
+      screenOptions={{
+        animationEnabled: false,
+        headerShown: false,
+        headerTintColor: theme.colour.black 
+      }}>
       <Stack.Screen name={RootStackRouteName.ROOT} component={BottomTabNavigator} />
       <Stack.Screen
         name={RootStackRouteName.SHARE_MODAL}
@@ -37,5 +43,5 @@ function RootNavigator() {
         component={ShareScreen}
       />
     </Stack.Navigator>
-  );
+  )
 }
