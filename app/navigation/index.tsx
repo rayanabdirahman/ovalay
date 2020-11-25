@@ -1,18 +1,38 @@
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native'
+import { NavigationContainer, DefaultTheme, NavigationContainerRef } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
-import * as React from 'react'
+import { useDispatch } from 'react-redux'
 import { ColorSchemeName } from 'react-native'
+import * as React from 'react'
 
 import { theme } from '../components/Theme'
 import BottomTabNavigator from './BottomTabNavigator'
 import CreateScreen from '../screens/CreateScreen'
 import { RootStackParamList, RootStackRouteName } from './types'
+import { setCurrentPath } from '../store/actions/navigation'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
+  const navigationRef = React.useRef<NavigationContainerRef | any>()
+  const routeNameRef = React.useRef<string>()
+  const dispatch = useDispatch()
+
   return (
     <NavigationContainer
       // TODO: update when theme switching fucntionality is added
-      theme={colorScheme === 'dark' ? DefaultTheme : DefaultTheme}>
+      theme={colorScheme === 'dark' ? DefaultTheme : DefaultTheme}
+      ref={navigationRef}
+      onReady={() => routeNameRef.current = navigationRef.current.getCurrentRoute().name}
+      onStateChange={() => {
+        // functionality for screen tracking
+        const previousRouteName = routeNameRef.current
+        const currentRouteName = navigationRef.current.getCurrentRoute().name
+
+        if (previousRouteName !== currentRouteName) {
+          dispatch(setCurrentPath(previousRouteName, currentRouteName))
+        }
+
+        // Save the current route name for later comparision
+        return routeNameRef.current = currentRouteName;
+      }}>
       <RootNavigator />
     </NavigationContainer>
   )
