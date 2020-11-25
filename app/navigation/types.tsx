@@ -1,13 +1,13 @@
 export type RootStackParamList = {
   Root: undefined
-  ShareModal: undefined
+  CreateModal: undefined
   NotFound: undefined
 }
 
 export type BottomTabParamList = {
   Feed: undefined;
   Search: undefined;
-  Share?: undefined
+  Create?: undefined
   Cart: undefined
   Profile: undefined
 }
@@ -20,20 +20,20 @@ export type SearchParamList = {
   SearchScreen: undefined
 }
 
-export type ShareParamList = {
-  ShareScreen: undefined
+export type CreateParamList = {
+  CreateScreen: undefined
 }
 
 // Route names
 export enum RootStackRouteName {
   ROOT = 'Root',
-  SHARE_MODAL = 'ShareModal'
+  CREATE_MODAL = 'CreateModal'
 }
 
 export enum BottomTabRouteName {
   FEED = 'Feed',
   SEARCH = 'Search',
-  SHARE = 'Share',
+  CREATE = 'Create',
   CART = 'Cart',
   PROFILE = 'Profile'
 }
@@ -46,6 +46,6 @@ export enum SearchTabRouteName {
   SEARCH_SCREEN = 'SearchScreen',
 }
 
-export enum ShareTabRouteName {
-  SHARE_SCREEN = 'ShareScreen',
+export enum CreateTabRouteName {
+  CREATE_SCREEN = 'CreateScreen',
 }

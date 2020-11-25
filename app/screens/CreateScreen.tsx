@@ -20,7 +20,7 @@ type CreateProduct = {
   availableStockQuantity: number
 }
 
-export default function ShareScreen() {
+export default function CreateScreen() {
   const navigation = useNavigation()
   const [state, setState] = React.useState<CreateProduct>({
     name: "",
@@ -36,10 +36,11 @@ export default function ShareScreen() {
 
   React.useEffect(() => {
     navigation.setOptions({
+      title: 'New product',
       headerRight: () => (
         <Button
           color={theme.colour.black}
-          title="Add product" 
+          title="share" 
           onPress={() => alert('This is a button!')}
         />
       )
@@ -48,17 +49,18 @@ export default function ShareScreen() {
 
   const handleImageSelection = async (image: string) => {
     console.log('PARENT: ', image);
-  }
+  }  
 
   return (
     <Layout>
       <ImageCaption selectedImage={handleImageSelection} />
       <ScrollView>
         <Input placeholder="name" />
-        <Input placeholder="description" />
         <Input placeholder="price" />
         <Input placeholder="colour" />
-        <Input placeholder="sizes" />
+        <Input placeholder="types" />
+        <Input placeholder="brand" />
+        <Input placeholder="description" />
         <Input placeholder="stock quantity" />
       </ScrollView>
     </Layout>

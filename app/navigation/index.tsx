@@ -5,7 +5,7 @@ import { ColorSchemeName } from 'react-native'
 
 import { theme } from '../components/Theme'
 import BottomTabNavigator from './BottomTabNavigator'
-import ShareScreen from '../screens/ShareScreen'
+import CreateScreen from '../screens/CreateScreen'
 import { RootStackParamList, RootStackRouteName } from './types'
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
@@ -30,7 +30,7 @@ function RootNavigator() {
       }}>
       <Stack.Screen name={RootStackRouteName.ROOT} component={BottomTabNavigator} />
       <Stack.Screen
-        name={RootStackRouteName.SHARE_MODAL}
+        name={RootStackRouteName.CREATE_MODAL}
         options={{ 
           animationEnabled: true,
           headerShown: true,
@@ -40,7 +40,7 @@ function RootNavigator() {
           },
           headerBackTitle: ' '
         }}
-        component={ShareScreen}
+        component={CreateScreen}
       />
     </Stack.Navigator>
   )

@@ -17,8 +17,8 @@ import {
   RootStackRouteName,
   SearchParamList,
   SearchTabRouteName,
-  ShareParamList,
-  ShareTabRouteName
+  CreateParamList,
+  CreateTabRouteName
 } from './types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
@@ -50,15 +50,15 @@ export default function BottomTabNavigator() {
         }}
       />
       <BottomTab.Screen
-        name={BottomTabRouteName.SHARE}
-        component={ShareNavigator}
+        name={BottomTabRouteName.CREATE}
+        component={CreateNavigator}
         options={{
           tabBarIcon: ({ color }: { color: string }) => <TabBarIcon name="plussquareo" color={color} />,
         }}
         listeners={({ navigation }: StackScreenProps<any>) => ({
           tabPress: event => {
             event.preventDefault()
-            navigation.navigate(RootStackRouteName.SHARE_MODAL)
+            navigation.navigate(RootStackRouteName.CREATE_MODAL)
           }
         })}
       />
@@ -161,17 +161,17 @@ function SearchNavigator() {
   )
 }
 
-const ShareStack = createStackNavigator<ShareParamList>()
+const CreateStack = createStackNavigator<CreateParamList>()
 
-function ShareNavigator() {
+function CreateNavigator() {
   return (
-    <ShareStack.Navigator>
-      <ShareStack.Screen
-        name={ShareTabRouteName.SHARE_SCREEN}
+    <CreateStack.Navigator>
+      <CreateStack.Screen
+        name={CreateTabRouteName.CREATE_SCREEN}
         component={PlaceHolderModalScreen}
         options={{ headerShown: false }}
       />
-    </ShareStack.Navigator>
+    </CreateStack.Navigator>
   )
 }
 
