@@ -23,8 +23,8 @@ export default function ProfileScreen() {
     <Layout>
       <Text>Profile Screen- product num: {product.products.length}</Text>
       {
-        product.products.map(product => (
-          <View style={{ marginBottom: 20 }}>
+        product.products.map((product, index) => (
+          <View key={`product--${index}`} style={{ marginBottom: 20 }}>
             <Text>{JSON.stringify(product)}</Text>
           </View>
         ))

@@ -34,7 +34,7 @@ export default function CreateScreen() {
         <Button
           color={theme.colour.black}
           title="share" 
-          onPress={() => dispatch(createProduct({ ...state }))}
+          onPress={() => dispatch(createProduct({ ...state }, navigation))}
         />
       )
     })
