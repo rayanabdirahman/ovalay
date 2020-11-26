@@ -27,3 +27,13 @@ export const getProducts = () => async (dispatch: ThunkDispatch<{}, {}, AnyActio
     console.log('GET PRODUCTS ERROR: ', error)
   }
 }
+
+export const getProduct = (_id: string) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+  try {
+    const response: ApiSuccessResponse = await ProductApi.findOne(_id)
+    dispatch({ type: ProductActionType.GET_PRODUCT, payload: response })
+  } catch (error) {
+    dispatch({ type: ProductActionType.GET_PRODUCT_ERROR, payload: error })
+    console.log('GET PRODUCTS ERROR: ', error)
+  }
+}

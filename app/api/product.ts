@@ -11,7 +11,7 @@ type Product = {
   createOne(model: CreateProductModel): Promise<ApiSuccessResponse>
   // updateOne(model: CreateProductModel): Promise<ApiSuccessResponse>
   findAll(): Promise<ApiSuccessResponse>
-  // findOne(id: string): Promise<ApiSuccessResponse>
+  findOne(_id: string): Promise<ApiSuccessResponse>
 }
 
 const ProductApi: Product = {
@@ -35,6 +35,18 @@ const ProductApi: Product = {
   async findAll(): Promise<ApiSuccessResponse> {
     try {
       const response  = await buildClient(token).get(`${API_BASE_URL}/list`)
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data.error : error.request
+    }
+  },
+  /**
+   * Find a single product
+   * @get /api/product/:_id
+   */
+  async findOne(_id: string): Promise<ApiSuccessResponse> {
+    try {
+      const response  = await buildClient(token).get(`${API_BASE_URL}/${_id}`)
       return response.data
     } catch (error) {
       throw error.response ? error.response.data.error : error.request

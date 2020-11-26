@@ -20,7 +20,7 @@ export default (state = initialState, action: AnyAction) => {
     }
     case ProductActionType.GET_PRODUCT: {
       const { product } = action.payload.data
-      return { ...state, product }
+      return { ...state, product, error: null }
     }
     case ProductActionType.CREATE_PRODUCT_ERROR: {
       return { ...state, error: action.payload }
