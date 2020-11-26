@@ -13,3 +13,13 @@ export const createProduct = (model: CreateProductModel) => async (dispatch: Thu
     console.log('CREATE PRODUCT ERROR: ', error)
   }
 }
+
+export const getProducts = () => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+  try {
+    const response: ApiSuccessResponse = await ProductApi.findAll()
+    dispatch({ type: ProductActionType.GET_PRODUCTS, payload: response })
+  } catch (error) {
+    dispatch({ type: ProductActionType.GET_PRODUCTS_ERROR, payload: error })
+    console.log('GET PRODUCTS ERROR: ', error)
+  }
+}

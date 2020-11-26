@@ -10,7 +10,7 @@ const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVmYmU5
 type Product = {
   createOne(model: CreateProductModel): Promise<ApiSuccessResponse>
   // updateOne(model: CreateProductModel): Promise<ApiSuccessResponse>
-  // findAll(model: CreateProductModel): Promise<ApiSuccessResponse>
+  findAll(): Promise<ApiSuccessResponse>
   // findOne(id: string): Promise<ApiSuccessResponse>
 }
 
@@ -23,7 +23,18 @@ const ProductApi: Product = {
   async createOne(model: CreateProductModel): Promise<ApiSuccessResponse> {
     try {
       const response  = await buildClient(token).post(`${API_BASE_URL}/`, model)
-      console.log('prod: ', response)
+      return response.data
+    } catch (error) {
+      throw error.response ? error.response.data.error : error.request
+    }
+  },
+  /**
+   * Find all products
+   * @get /api/product/list
+   */
+  async findAll(): Promise<ApiSuccessResponse> {
+    try {
+      const response  = await buildClient(token).get(`${API_BASE_URL}/list`)
       return response.data
     } catch (error) {
       throw error.response ? error.response.data.error : error.request

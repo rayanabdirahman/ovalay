@@ -12,18 +12,21 @@ export default (state = initialState, action: AnyAction) => {
   switch (action.type) {
     case ProductActionType.CREATE_PRODUCT: {
       const { product } = action.payload.data
-      return { ...state, products: [...state.products, product], product: null }
+      return { ...state, products: [...state.products, product] }
     }
     case ProductActionType.GET_PRODUCTS: {
       const { products } = action.payload.data
-      return { ...state, products, product: null }
+      return { ...state, products, }
     }
     case ProductActionType.GET_PRODUCT: {
       const { product } = action.payload.data
       return { ...state, product }
     }
     case ProductActionType.CREATE_PRODUCT_ERROR: {
-      return { ...state, product: null, error: action.payload }
+      return { ...state, error: action.payload }
+    }
+    case ProductActionType.GET_PRODUCTS_ERROR: {
+      return { ...state, products: [], error: action.payload }
     }
     default: {
       return state
