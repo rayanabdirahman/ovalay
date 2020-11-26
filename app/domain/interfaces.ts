@@ -23,3 +23,16 @@ export type ApiSuccessResponse = {
   code: number
   data: ApiSuccessDataResponse
 }
+
+// product interfaces
+export type CreateProductModel = {
+  name: string
+  price: string
+  color: string
+  type: string
+  brand: string
+  description: string
+  image: string
+  sellerId: string
+  availableStockQuantity: number
+}

@@ -11,3 +11,9 @@ export type SessionState = {
   loading: boolean,
   user: { _id: string } | null
 }
+
+export type ProductState = {
+  products: [],
+  product: null,
+  error: null
+}
