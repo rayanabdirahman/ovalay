@@ -24,6 +24,11 @@ export type CreateParamList = {
   CreateScreen: undefined
 }
 
+export type ProfileParamList = {
+  ProfileScreen: undefined
+  ProductScreen: undefined
+}
+
 // Route names
 export enum RootStackRouteName {
   ROOT = 'Root',
@@ -48,4 +53,9 @@ export enum SearchTabRouteName {
 
 export enum CreateTabRouteName {
   CREATE_SCREEN = 'CreateScreen',
+}
+
+export enum ProfileTabRouteName {
+  PROFILE_SCREEN = 'ProfileScreen',
+  PRODUCT_SCREEN = 'ProductScreen',
 }

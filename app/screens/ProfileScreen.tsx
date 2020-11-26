@@ -1,11 +1,12 @@
 import { useNavigation } from '@react-navigation/native'
-import { Text, View } from 'react-native'
+import { Button, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
 import * as React from 'react'
 
 import Layout from '../components/Layouts'
 import { getProducts } from '../store/actions/product'
 import { State } from '../store'
+import { ProfileTabRouteName } from '../navigation/types'
 
 export default function ProfileScreen() {
   const navigation = useNavigation()
@@ -25,7 +26,9 @@ export default function ProfileScreen() {
       {
         product.products.map((product, index) => (
           <View key={`product--${index}`} style={{ marginBottom: 20 }}>
-            <Text>{JSON.stringify(product)}</Text>
+            <Button
+              onPress={() => navigation.navigate(ProfileTabRouteName.PRODUCT_SCREEN, { productId: product._id })}
+              title={JSON.stringify(product)} />
           </View>
         ))
       }

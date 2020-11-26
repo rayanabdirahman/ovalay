@@ -18,8 +18,11 @@ import {
   SearchParamList,
   SearchTabRouteName,
   CreateParamList,
-  CreateTabRouteName
+  CreateTabRouteName,
+  ProfileTabRouteName,
+  ProfileParamList
 } from './types'
+import ProductScreen from '../screens/ProductScreen'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
@@ -71,7 +74,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name={BottomTabRouteName.PROFILE}
-        component={ProfileScreen}
+        component={ProfileNavigator}
         options={{
           tabBarIcon: ({ color }: { color: string }) => <TabBarIcon name="user" color={color} />,
         }}
@@ -110,7 +113,7 @@ export default function BottomTabNavigator() {
       />
       <BottomTab.Screen
         name={BottomTabRouteName.PROFILE}
-        component={ProfileScreen}
+        component={ProfileNavigator}
         options={{
           tabBarIcon: ({ color }: { color: string }) => <TabBarIcon name="user" color={color} />,
         }}
@@ -175,6 +178,24 @@ function CreateNavigator() {
   )
 }
 
+const ProfileStack = createStackNavigator<ProfileParamList>()
+
+function ProfileNavigator() {
+  return (
+    <ProfileStack.Navigator>
+      <ProfileStack.Screen
+        name={ProfileTabRouteName.PROFILE_SCREEN}
+        component={ProfileScreen}
+        options={{ headerShown: false }}
+      />
+      <ProfileStack.Screen
+        name={ProfileTabRouteName.PRODUCT_SCREEN}
+        component={ProductScreen}
+        options={{ headerShown: true }}
+      />
+    </ProfileStack.Navigator>
+  )
+}
 
 // placeholder modal screen
 // TODO: Find a better solution to open modal screens from bottom tab navigator
