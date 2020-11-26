@@ -1,28 +1,21 @@
 import { Button } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
+import { ScrollView } from 'react-native-gesture-handler'
+import { useDispatch } from 'react-redux'
 import * as React from 'react'
 
 import { theme } from '../components/Theme'
 import Layout from '../components/Layouts'
 import ImageCaption from '../components/organisms/ImageCaption'
 import { Input } from '../components/atoms/Input'
-import { ScrollView } from 'react-native-gesture-handler'
-
-type CreateProduct = {
-  name: string
-  price: string
-  color: string
-  type: string
-  brand: string
-  description: string
-  image: string
-  sellerId: string
-  availableStockQuantity: number
-}
+import { CreateProductModel } from '../domain/interfaces'
+import { BottomTabRouteName } from '../navigation/types'
+import { createProduct } from '../store/actions/product'
 
 export default function CreateScreen() {
   const navigation = useNavigation()
-  const [state, setState] = React.useState<CreateProduct>({
+  const dispatch = useDispatch()
+  const [state, setState] = React.useState<CreateProductModel>({
     name: "",
     price: "",
     color: "",
@@ -41,27 +34,23 @@ export default function CreateScreen() {
         <Button
           color={theme.colour.black}
           title="share" 
-          onPress={() => alert('This is a button!')}
+          onPress={() => dispatch(createProduct({ ...state }))}
         />
       )
     })
-  }, [])
-
-  const handleImageSelection = async (image: string) => {
-    console.log('PARENT: ', image);
-  }  
+  }, [navigation, state])
 
   return (
     <Layout>
-      <ImageCaption selectedImage={handleImageSelection} />
+      <ImageCaption selectedImage={(image: string) => setState({ ...state, image: image })}/>
       <ScrollView>
-        <Input placeholder="name" />
-        <Input placeholder="price" />
-        <Input placeholder="colour" />
-        <Input placeholder="types" />
-        <Input placeholder="brand" />
-        <Input placeholder="description" />
-        <Input placeholder="stock quantity" />
+        <Input placeholder="name" onChangeText={(value: string) => { setState({ ...state, name: value }) }}/>
+        <Input placeholder="price" onChangeText={(value: string) => setState({ ...state, price: value })}/>
+        <Input placeholder="colour" onChangeText={(value: string) => setState({ ...state, color: value })}/>
+        <Input placeholder="types" onChangeText={(value: string) => setState({ ...state, type: value })}/>
+        <Input placeholder="brand" onChangeText={(value: string) => setState({ ...state, brand: value })}/>
+        <Input placeholder="description" onChangeText={(value: string) => setState({ ...state, description: value })}/>
+        <Input keyboardType="numeric" placeholder="stock quantity" onChangeText={(value: number) => setState({ ...state, availableStockQuantity: value })}/>
       </ScrollView>
     </Layout>
   )
