@@ -28,7 +28,7 @@ export const getProducts = () => async (dispatch: ThunkDispatch<{}, {}, AnyActio
   }
 }
 
-export const getProduct = (_id: string) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
+export const getProductById = (_id: string) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
   try {
     const response: ApiSuccessResponse = await ProductApi.findOne(_id)
     dispatch({ type: ProductActionType.GET_PRODUCT, payload: response })

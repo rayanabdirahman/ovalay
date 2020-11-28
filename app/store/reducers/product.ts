@@ -24,10 +24,10 @@ export default (state = initialState, action: AnyAction) => {
       return { ...state, product, error: null, loading: false }
     }
     case ProductActionType.CREATE_PRODUCT_ERROR: {
-      return { ...state, error: action.payload }
+      return { ...state, error: action.payload, loading: false }
     }
     case ProductActionType.GET_PRODUCTS_ERROR: {
-      return { ...state, products: [], error: action.payload }
+      return { ...state, products: [], error: action.payload, loading: false }
     }
     default: {
       return state
