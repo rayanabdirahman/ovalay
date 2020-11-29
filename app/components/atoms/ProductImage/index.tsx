@@ -13,8 +13,7 @@ const ProductImage = ({ source }: Props) => {
       onPress={() => alert('add double tap for like')}>
       <DefaultImage 
         style={{ 
-          borderRadius: 5,
-          aspectRatio: 3/3.5
+          aspectRatio: 3/3
         }}
         source={{ uri: source }} />
     </TouchableOpacity>

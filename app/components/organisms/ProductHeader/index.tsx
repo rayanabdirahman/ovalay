@@ -5,6 +5,7 @@ import * as React from 'react'
 
 import { Thumbnail } from '../../atoms/Thumbnail'
 import { theme } from '../../Theme'
+import { ContentContainer } from '../../Layouts'
 
 type Props = {
   username: string,
@@ -20,15 +21,17 @@ const Container = styled.View<Props>`
 
 export default function ProductHeader({ username, location }: Props) {
   return (
-    <Container>
-      <Thumbnail username={username} info={location} />
-      <TouchableOpacity onPress={() => alert('Edit product')}>
-        <Feather 
-          name="edit"
-          size={20}
-          color={theme.colour.black}
-        />
-      </TouchableOpacity>
-    </Container>
+    <ContentContainer>
+      <Container>
+        <Thumbnail username={username} info={location} />
+        <TouchableOpacity onPress={() => alert('Edit product')}>
+          <Feather 
+            name="edit"
+            size={20}
+            color={theme.colour.black}
+          />
+        </TouchableOpacity>
+      </Container>
+    </ContentContainer>
   )
 }

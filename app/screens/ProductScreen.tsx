@@ -12,6 +12,7 @@ import { ProfileParamList, ProfileTabRouteName } from '../navigation/types'
 import ProductHeader from '../components/organisms/ProductHeader'
 import ProductImage from '../components/atoms/ProductImage'
 import ProductIcons from '../components/organisms/ProductIcons'
+import ProductInfo from '../components/organisms/ProductInfo'
 
 export default function ProductScreen(
   { navigation, route }: StackScreenProps<ProfileParamList, ProfileTabRouteName.PRODUCT_SCREEN>
@@ -22,7 +23,7 @@ export default function ProductScreen(
 
   React.useEffect(() => {
     navigation.setOptions({
-      headerTitle: product.name
+      headerTitle: product === null ? " " : product.name
     })
     // dispatch action to get product
     dispatch(getProductById(productId))
@@ -30,16 +31,17 @@ export default function ProductScreen(
 
   return (product === null) ? 
     <ActivityIndicator size="small" color={theme.colour.black} /> : (
-    <Layout>
+    <Layout fullWidth>
       <ProductHeader username="Footlocker" location="Brent Cross, London" />
-      <ScrollView>      
+      <ScrollView showsVerticalScrollIndicator={false}>      
         <ProductImage source="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80" />
-        <ProductIcons like={false} />
-        <View style={{ marginTop: 50 }}>
-          <Text>Product name: {product.name}</Text>
-          <Text>Product name: {product.brand}</Text>
-          <Text>Product name: {product.color}</Text>
-        </View>
+        <ProductIcons like={true} />
+        <ProductInfo
+          seller="Footlocker"
+          caption="Nike Air Max available now 🔥"
+          description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry."}
+          color={product.color}
+        />
       </ScrollView>
     </Layout>
   )
