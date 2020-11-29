@@ -1,17 +1,19 @@
-import { useNavigation } from '@react-navigation/native'
 import { ActivityIndicator, Button, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
 
 import Layout from '../components/Layouts'
 import { getProducts } from '../store/actions/product'
 import { State } from '../store'
 import { ProductState } from '../store/types'
-import { ProfileTabRouteName } from '../navigation/types'
+import { ProfileParamList, ProfileTabRouteName } from '../navigation/types'
 import { theme } from '../components/Theme'
+import { ProductModel } from '../domain/interfaces'
 
-export default function ProfileScreen() {
-  const navigation = useNavigation()
+export default function ProfileScreen(
+  { navigation }: StackScreenProps<ProfileParamList, ProfileTabRouteName.PROFILE_SCREEN>
+) {
   const dispatch = useDispatch()
   const { products } = useSelector<State, ProductState>(state => state.product)
 
@@ -26,7 +28,7 @@ export default function ProfileScreen() {
     <Layout>
       <Text>Profile Screen- product num: {products.length}</Text>
       {
-        products.map((product, index) => (
+        products.map((product: ProductModel, index: number) => (
           <View key={`product--${index}`} style={{ marginBottom: 20 }}>
             <Button
               onPress={() => navigation.navigate(ProfileTabRouteName.PRODUCT_SCREEN, { productId: product._id })}

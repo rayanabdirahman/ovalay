@@ -25,6 +25,20 @@ export type ApiSuccessResponse = {
 }
 
 // product interfaces
+export type ProductModel = {
+  _id: string
+  name: string
+  price: string
+  color: string
+  type: string
+  brand: string
+  description: string
+  image: string[]
+  availableStockQuantity: number
+  sellerId: string
+  createdAt: Date
+}
+
 export type CreateProductModel = {
   name: string
   price: string

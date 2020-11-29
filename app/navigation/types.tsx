@@ -26,7 +26,7 @@ export type CreateParamList = {
 
 export type ProfileParamList = {
   ProfileScreen: undefined
-  ProductScreen: undefined
+  ProductScreen: { productId: string }
 }
 
 // Route names

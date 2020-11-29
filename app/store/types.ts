@@ -1,3 +1,5 @@
+import { ProductModel } from "../domain/interfaces"
+
 export type NavigationState = {
   currentLocation: string | null
   referrer: string | null
@@ -13,8 +15,8 @@ export type SessionState = {
 }
 
 export type ProductState = {
-  products: [],
-  product: null,
+  products: ProductModel[],
+  product: ProductModel,
   error: null,
   loading: boolean
 }

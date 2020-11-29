@@ -1,6 +1,6 @@
-import { useNavigation, useRoute } from '@react-navigation/native'
 import { ActivityIndicator, Text, View } from 'react-native'
 import { useDispatch, useSelector } from 'react-redux'
+import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
 
 import Layout from '../components/Layouts'
@@ -8,10 +8,11 @@ import { getProductById } from '../store/actions/product'
 import { State } from '../store'
 import { ProductState } from '../store/types'
 import { theme } from '../components/Theme'
+import { ProfileParamList, ProfileTabRouteName } from '../navigation/types'
 
-export default function ProductScreen() {
-  const navigation = useNavigation()
-  const route = useRoute()
+export default function ProductScreen(
+  { navigation, route }: StackScreenProps<ProfileParamList, ProfileTabRouteName.PRODUCT_SCREEN>
+) {
   const dispatch = useDispatch()
   const { productId } = route.params
   const { product } = useSelector<State, ProductState>(state => state.product)
