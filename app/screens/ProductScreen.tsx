@@ -9,6 +9,7 @@ import { State } from '../store'
 import { ProductState } from '../store/types'
 import { theme } from '../components/Theme'
 import { ProfileParamList, ProfileTabRouteName } from '../navigation/types'
+import ProductHeader from '../components/organisms/ProductHeader'
 
 export default function ProductScreen(
   { navigation, route }: StackScreenProps<ProfileParamList, ProfileTabRouteName.PRODUCT_SCREEN>
@@ -26,7 +27,7 @@ export default function ProductScreen(
   return (product === null) ? 
     <ActivityIndicator size="small" color={theme.colour.black} /> : (
     <Layout>
-      <Text>Product Screen - productId: {productId} </Text>
+      <ProductHeader username="Footlocker" location="Brent Cross, London" />
       <View style={{ marginTop: 50 }}>
         <Text>Product name: {product.name}</Text>
         <Text>Product name: {product.brand}</Text>
