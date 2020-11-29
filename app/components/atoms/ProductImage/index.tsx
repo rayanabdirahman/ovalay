@@ -8,7 +8,9 @@ type Props = {
 
 const ProductImage = ({ source }: Props) => {
   return (
-    <TouchableOpacity onPress={() => alert('add double tap for like')}>
+    <TouchableOpacity
+      style={{ marginBottom: 8 }}
+      onPress={() => alert('add double tap for like')}>
       <DefaultImage 
         style={{ 
           borderRadius: 5,
