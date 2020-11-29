@@ -15,6 +15,7 @@ const Container = styled.View<Props>`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 8px;
 `
 
 export default function ProductHeader({ username, location }: Props) {
