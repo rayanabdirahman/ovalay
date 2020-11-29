@@ -134,6 +134,14 @@ function TabBarIcon(props: { name: string, color: string, type?: string }) {
     <AntDesign size={24} style={{ marginBottom: -3 }} {...props} />
 }
 
+// second level header options
+const headerOptions = {
+  headerShown: true,
+  title: '',
+  headerStyle: { },
+  headerBackTitle: " "
+}
+
 // Each tab has its own navigation stack, you can read more about this pattern here:
 // https://reactnavigation.org/docs/tab-based-navigation#a-stack-navigator-for-each-tab
 const FeedStack = createStackNavigator<FeedParamList>()
@@ -182,7 +190,7 @@ const ProfileStack = createStackNavigator<ProfileParamList>()
 
 function ProfileNavigator() {
   return (
-    <ProfileStack.Navigator>
+    <ProfileStack.Navigator screenOptions={{ headerTintColor: theme.colour.black }}>
       <ProfileStack.Screen
         name={ProfileTabRouteName.PROFILE_SCREEN}
         component={ProfileScreen}
@@ -191,7 +199,7 @@ function ProfileNavigator() {
       <ProfileStack.Screen
         name={ProfileTabRouteName.PRODUCT_SCREEN}
         component={ProductScreen}
-        options={{ headerShown: true }}
+        options={headerOptions}
       />
     </ProfileStack.Navigator>
   )

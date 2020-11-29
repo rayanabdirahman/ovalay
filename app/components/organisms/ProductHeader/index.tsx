@@ -27,7 +27,6 @@ export default function ProductHeader({ username, location }: Props) {
           name="edit"
           size={20}
           color={theme.colour.black}
-          style={{ marginBottom: -3 }} 
         />
       </TouchableOpacity>
     </Container>

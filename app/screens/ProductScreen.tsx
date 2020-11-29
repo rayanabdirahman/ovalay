@@ -20,7 +20,9 @@ export default function ProductScreen(
   const { product } = useSelector<State, ProductState>(state => state.product)
 
   React.useEffect(() => {
-    navigation.setOptions({})
+    navigation.setOptions({
+      headerTitle: product.name
+    })
     // dispatch action to get product
     dispatch(getProductById(productId))
   }, [navigation])
