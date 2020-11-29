@@ -1,11 +1,15 @@
-import React from 'react'
 import styled from 'styled-components/native'
 import { Button as DefaultButton } from 'react-native'
+import { Feather } from '@expo/vector-icons'
+import React from 'react'
+
 import { Text } from '../Text'
+import { theme } from '../../Theme'
  
 type ButtonProps = DefaultButton['props'] & {
   large?: boolean
   secondary?: boolean
+  icon?: string
 }
 
 const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
@@ -17,6 +21,8 @@ const ButtonContainer = styled.TouchableOpacity<ButtonProps>`
   justify-content: center;
   border-radius: 4px;
   border: ${({ secondary, theme }) => secondary ? `2px solid ${theme.colour.black}` :  0 };
+  align-items: center;
+  flex-direction: row;
 `
 
 const ButtonText = styled(Text)<{ secondary?: boolean }>`
@@ -27,6 +33,7 @@ const ButtonText = styled(Text)<{ secondary?: boolean }>`
 
 export const Button = (props: ButtonProps) => (
   <ButtonContainer {...props}>
+    {props.icon && <Feather style={{ marginRight: 8 }} name={props.icon} size={20} color={theme.colour.white} />}
     <ButtonText secondary={props.secondary}>{props.title}</ButtonText>
   </ButtonContainer>
 )
