@@ -27,8 +27,7 @@ export default function LandingScreen(
         <TextWithLink
           text="Already have an account?"
           linkTitle="Sign In"
-          navigateTo={() => navigation.navigate(AuthScreenName.SIGN_IN)}
-        />
+          navigateTo={() => navigation.navigate(AuthScreenName.SIGN_IN)}/>
       </DefaultView>
     </Layout>
   )
