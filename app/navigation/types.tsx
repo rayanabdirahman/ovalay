@@ -1,3 +1,11 @@
+import { UserRolesEnum } from "../domain/enums"
+
+export type AuthStackParamList = {
+  Landing: undefined
+  SignIn: undefined
+  SignUp: { userRole?: UserRolesEnum }
+}
+
 export type RootStackParamList = {
   Root: undefined
   CreateModal: undefined
@@ -30,6 +38,12 @@ export type ProfileParamList = {
 }
 
 // Route names
+export enum AuthScreenName {
+  LANDING = 'Landing',
+  SIGN_UP = 'SignUp',
+  SIGN_IN = 'SignIn'
+}
+
 export enum RootStackRouteName {
   ROOT = 'Root',
   CREATE_MODAL = 'CreateModal'
