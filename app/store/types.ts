@@ -1,5 +1,5 @@
 import { UserRolesEnum } from "../domain/enums"
-import { ProductModel } from "../domain/interfaces"
+import { ProductModel, UserModel } from "../domain/interfaces"
 
 export type NavigationState = {
   currentLocation: string | null
@@ -13,7 +13,7 @@ export type SessionState = {
   token: string | null,
   isAuthenticated: boolean,
   loading: boolean,
-  user: { _id: string } | null
+  user: UserModel | null
 }
 
 export type ProductState = {

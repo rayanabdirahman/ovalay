@@ -30,7 +30,7 @@ import { NavigationState } from '../store/types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
-// TODO: Refactor to DRY
+// FIXME: Refactor to DRY
 export default function BottomTabNavigator() {
   const { userRole } = useSelector<State, NavigationState>(state => state.navigation)
 
