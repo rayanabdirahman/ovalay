@@ -1,13 +1,11 @@
 import styled from 'styled-components/native'
-import { TouchableOpacity } from 'react-native'
-import { Feather } from '@expo/vector-icons'
+import { View } from 'react-native'
 import * as React from 'react'
 
-import { Thumbnail } from '../../atoms/Thumbnail'
 import { theme } from '../../Theme'
-import { View } from 'native-base'
 import { Text } from '../../atoms/Text'
 import { ContentContainer } from '../../Layouts'
+import Picker from '../../atoms/Picker'
 
 type Props = {
   seller: string,
@@ -29,11 +27,19 @@ export default function ProductInfo({ seller, caption, description, color }: Pro
           <Text bold style={{ marginRight: 8, marginBottom: 0 }}>{seller}</Text>
           <Text style={{ marginBottom: 0 }}>{caption}</Text>
         </View>
+        <Text>{description}</Text>
         <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text>{description}</Text>
-        </View>
-        <View style={{ flexDirection: "row", alignItems: "center" }}>
-          <Text>Colour: {color}</Text>
+          <Picker
+            style={{ marginRight: 8}}
+            items={[color, "yellow", "white", "red"]}
+            label="colour"
+            onValueChange={() => console.log('Testing')} 
+          />
+          <Picker
+            items={[color, "yellow", "white", "red"]}
+            label="size"
+            onValueChange={() => console.log('Testing')}
+          />
         </View>
       </Container>
     </ContentContainer>

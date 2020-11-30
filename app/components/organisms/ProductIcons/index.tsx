@@ -21,7 +21,7 @@ export default function ProductIcons({ like }: Props) {
       <Container>
         <AntDesign 
           name={ like ? "heart" : "hearto" }
-          size={28}
+          size={24}
           color={ like ? theme.colour.red : theme.colour.black }
           style={{ marginRight: 12 }}
         />
