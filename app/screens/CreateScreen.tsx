@@ -1,7 +1,7 @@
 import { Button } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
-import { ScrollView } from 'react-native-gesture-handler'
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 import { useDispatch } from 'react-redux'
+import { StackScreenProps } from '@react-navigation/stack'
 import * as React from 'react'
 
 import { theme } from '../components/Theme'
@@ -9,11 +9,12 @@ import Layout from '../components/Layouts'
 import ImageCaption from '../components/organisms/ImageCaption'
 import { Input } from '../components/atoms/Input'
 import { CreateProductModel } from '../domain/interfaces'
-import { BottomTabRouteName } from '../navigation/types'
+import { CreateParamList, CreateTabRouteName } from '../navigation/types'
 import { createProduct } from '../store/actions/product'
 
-export default function CreateScreen() {
-  const navigation = useNavigation()
+export default function CreateScreen(
+  { navigation }: StackScreenProps<CreateParamList, CreateTabRouteName.CREATE_SCREEN>
+) {
   const dispatch = useDispatch()
   const [state, setState] = React.useState<CreateProductModel>({
     name: "",
@@ -25,7 +26,7 @@ export default function CreateScreen() {
     image: "",
     sellerId: "",
     availableStockQuantity: 0
-  })
+  }) 
 
   React.useEffect(() => {
     navigation.setOptions({
@@ -43,15 +44,15 @@ export default function CreateScreen() {
   return (
     <Layout>
       <ImageCaption selectedImage={(image: string) => setState({ ...state, image: image })}/>
-      <ScrollView>
+      <KeyboardAwareScrollView>
         <Input placeholder="name" onChangeText={(value: string) => { setState({ ...state, name: value }) }}/>
         <Input placeholder="price" onChangeText={(value: string) => setState({ ...state, price: value })}/>
         <Input placeholder="colour" onChangeText={(value: string) => setState({ ...state, color: value })}/>
         <Input placeholder="types" onChangeText={(value: string) => setState({ ...state, type: value })}/>
         <Input placeholder="brand" onChangeText={(value: string) => setState({ ...state, brand: value })}/>
         <Input placeholder="description" onChangeText={(value: string) => setState({ ...state, description: value })}/>
-        <Input keyboardType="numeric" placeholder="stock quantity" onChangeText={(value: number) => setState({ ...state, availableStockQuantity: value })}/>
-      </ScrollView>
+        <Input placeholder="stock quantity" onChangeText={(value: number) => setState({ ...state, availableStockQuantity: value })}/>
+      </KeyboardAwareScrollView>
     </Layout>
   )
 }
