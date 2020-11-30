@@ -25,7 +25,7 @@ export default function AuthNavigator () {
         name={AuthScreenName.SIGN_UP}
         initialParams={{ userRole: UserRolesEnum.BUYER }}
         component={SignUp}
-        options={{ }}/>
+        options={options}/>
     </AuthenticationStack.Navigator>
   )
 }
