@@ -5,7 +5,8 @@ import config from '../config'
 
 const API_BASE_URL = `${config.API_URL}/product`
 // TODO: remove when authentication screens are enabled
-const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVmYmU5YmYwOWQ3OWU1MDAxODJlZjQ0YiIsInVzZXJuYW1lIjoiam9obiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkB0ZXN0LmNvbSIsInJvbGUiOlsiYnV5ZXIiXX0sImlhdCI6MTYwNjMyNzI4MCwiZXhwIjozMDAwMDAwMDE2MDYzMjczMDB9.rGC0De62nBE8uIvakdCTE3DOjI1qb21HHjIh0b7e3vM'
+// const token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7Il9pZCI6IjVmYmU5YmYwOWQ3OWU1MDAxODJlZjQ0YiIsInVzZXJuYW1lIjoiam9obiIsIm5hbWUiOiJKb2huIERvZSIsImVtYWlsIjoiam9obkB0ZXN0LmNvbSIsInJvbGUiOlsiYnV5ZXIiXX0sImlhdCI6MTYwNjMyNzI4MCwiZXhwIjozMDAwMDAwMDE2MDYzMjczMDB9.rGC0De62nBE8uIvakdCTE3DOjI1qb21HHjIh0b7e3vM'
+const token = ''
 
 type Product = {
   createOne(model: CreateProductModel): Promise<ApiSuccessResponse>

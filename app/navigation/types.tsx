@@ -3,7 +3,7 @@ import { UserRolesEnum } from "../domain/enums"
 export type AuthStackParamList = {
   Landing: undefined
   SignIn: undefined
-  SignUp: { userRole?: UserRolesEnum }
+  SignUp: undefined | { userRole?: UserRolesEnum }
 }
 
 export type RootStackParamList = {
