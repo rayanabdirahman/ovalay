@@ -35,7 +35,7 @@ export default function Picker(props: Props) {
           onValueChange={onValueChange}>
           <DefaultPicker.Item label={props.label} value={`key0--${props.label}`} />
           { props.items.map((item: string, index: number) => (
-            <DefaultPicker.Item label={item} value={`key--${index}`} />
+            <DefaultPicker.Item label={item} value={`key--${index}`} key={`key--${index}`} />
           ))}
         </DefaultPicker>
       </Form>
