@@ -1,5 +1,12 @@
 import { UserRolesEnum } from "./enums"
 
+export interface UserModel {
+  _id: string,
+  email: string,
+  name: string,
+  role: UserRolesEnum[]
+}
+
 export interface SignUpModel {
   username: string
   name: string
@@ -15,7 +22,7 @@ export interface SignInModel {
 
 export type ApiSuccessDataResponse = {
   token: string
-  user: { _id: string }
+  user: UserModel
 }
 
 export type ApiSuccessResponse = {

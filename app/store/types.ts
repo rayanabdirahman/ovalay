@@ -1,9 +1,11 @@
+import { UserRolesEnum } from "../domain/enums"
 import { ProductModel } from "../domain/interfaces"
 
 export type NavigationState = {
   currentLocation: string | null
   referrer: string | null
   isUserSignedIn: boolean
+  userRole: UserRolesEnum[] | null
   hasRendered: boolean
 }
 

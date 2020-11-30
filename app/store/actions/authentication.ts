@@ -4,7 +4,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage'
 import { AuthenticationActionType } from './types'
 import { SignUpModel, ApiSuccessResponse, SignInModel } from '../../domain/interfaces'
 import Authentication from '../../api/authentication'
-import { setIsUserSignedIn } from './navigation'
+import { setIsUserSignedIn, setUserRole } from './navigation'
 import config from '../../config'
 
 export const signUpUser = (model: SignUpModel) => async (dispatch: ThunkDispatch<{}, {}, AnyAction>): Promise<void> => {
@@ -49,6 +49,9 @@ export const signOutUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyActio
 
     // update isUserSignedIn navigation state
     dispatch(setIsUserSignedIn(true))
+
+    // update userRole navigation state
+    dispatch(setUserRole(null))
     console.log('SIGNOUT ERROR: ', error)
   }
 }
@@ -62,11 +65,17 @@ export const authoriseUser = () => async (dispatch: ThunkDispatch<{}, {}, AnyAct
 
     // update isUserSignedIn navigation state
     dispatch(setIsUserSignedIn(true))
+
+    // update userRole navigation state
+    dispatch(setUserRole(response.data.user.role))
   } catch (error) {
     dispatch({ type: AuthenticationActionType.AUTHORISE_ERROR })
 
     // update isUserSignedIn navigation state
     dispatch(setIsUserSignedIn(false))
+
+    // update userRole navigation state
+    dispatch(setUserRole(null))
     console.log('AUTHORISE ERROR: ', error)
   }
 }

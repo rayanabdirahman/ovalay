@@ -1,6 +1,7 @@
 import { AntDesign, Feather } from '@expo/vector-icons'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 import { createStackNavigator, StackScreenProps } from '@react-navigation/stack'
+import { useSelector } from 'react-redux'
 import { View, Text, Button } from 'react-native'
 import * as React from 'react'
 
@@ -23,12 +24,15 @@ import {
   ProfileParamList
 } from './types'
 import ProductScreen from '../screens/ProductScreen'
+import { UserRolesEnum } from '../domain/enums'
+import { State } from '../store'
+import { NavigationState } from '../store/types'
 
 const BottomTab = createBottomTabNavigator<BottomTabParamList>()
 
 // TODO: Refactor to DRY
 export default function BottomTabNavigator() {
-  const isUserSeller = true
+  const { userRole } = useSelector<State, NavigationState>(state => state.navigation)
 
   const SellerNavigation = () => (
     <BottomTab.Navigator
@@ -122,7 +126,7 @@ export default function BottomTabNavigator() {
   )
 
   return (
-    isUserSeller ? SellerNavigation() : BuyerNavigation()
+    (userRole && userRole[0] === UserRolesEnum.SELLER) ? SellerNavigation() : BuyerNavigation()
   )
 }
 

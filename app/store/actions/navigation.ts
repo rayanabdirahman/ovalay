@@ -1,3 +1,4 @@
+import { UserRolesEnum } from '../../domain/enums'
 import { NavigationActionType, ActionType } from './types'
 
 /**
@@ -21,6 +22,18 @@ export const setIsUserSignedIn  = (isUserSignedIn: boolean) => {
   return {
     type: NavigationActionType.SET_IS_USER_SIGNED_IN,
     payload: { isUserSignedIn },
+    meta: { type: ActionType.NAVIGATION }
+  }
+}
+
+/**
+ * Check user permissions
+ * @param { UserRolesEnum[] | null } userRole - sets user role
+ */
+export const setUserRole  = (userRole: UserRolesEnum[] | null) => {
+  return {
+    type: NavigationActionType.SET_USER_ROLE,
+    payload: { userRole },
     meta: { type: ActionType.NAVIGATION }
   }
 }
