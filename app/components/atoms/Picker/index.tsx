@@ -25,7 +25,7 @@ export default function Picker(props: Props) {
       <Form {...props}>
         <DefaultPicker
           mode="dropdown"
-          iosIcon={<Icon name="arrow-down" style={{ color: theme.colour.grey }} />}
+          iosIcon={<Icon name="arrow-down" style={{ color: theme.colour.black }} />}
           style={{ 
             borderWidth: 1,
             borderColor: theme.colour.black,
