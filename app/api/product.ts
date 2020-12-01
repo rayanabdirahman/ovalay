@@ -5,14 +5,12 @@ import { CreateProductModel, ApiSuccessResponse } from '../domain/interfaces'
 import config from '../config'
 
 const API_BASE_URL = `${config.API_URL}/product`
-// FIXME: use token from redux store
-const token = null
 
 type Product = {
-  createOne(model: CreateProductModel): Promise<ApiSuccessResponse>
+  createOne(token: string | null, model: CreateProductModel): Promise<ApiSuccessResponse>
   // updateOne(model: CreateProductModel): Promise<ApiSuccessResponse>
-  findAll(): Promise<ApiSuccessResponse>
-  findOne(_id: string): Promise<ApiSuccessResponse>
+  findAll(token: string | null): Promise<ApiSuccessResponse>
+  findOne(token: string | null, _id: string): Promise<ApiSuccessResponse>
 }
 
 const ProductApi: Product = {
@@ -21,7 +19,7 @@ const ProductApi: Product = {
    * @param { CreateProductModel } model - stores product details
    * @post /api/product/
    */
-  async createOne(model: CreateProductModel): Promise<ApiSuccessResponse> {
+  async createOne(token: string | null, model: CreateProductModel): Promise<ApiSuccessResponse> {
     try {
       const response  = await buildClient(token).post(`${API_BASE_URL}/`, model)
       return response.data
@@ -33,7 +31,7 @@ const ProductApi: Product = {
    * Find all products
    * @get /api/product/list
    */
-  async findAll(): Promise<ApiSuccessResponse> {
+  async findAll(token: string | null): Promise<ApiSuccessResponse> {
     try {
       const response  = await buildClient(token).get(`${API_BASE_URL}/list`)
       return response.data
@@ -45,7 +43,7 @@ const ProductApi: Product = {
    * Find a single product
    * @get /api/product/:_id
    */
-  async findOne(_id: string): Promise<ApiSuccessResponse> {
+  async findOne(token: string | null, _id: string): Promise<ApiSuccessResponse> {
     try {
       const response  = await buildClient(token).get(`${API_BASE_URL}/${_id}`)
       return response.data

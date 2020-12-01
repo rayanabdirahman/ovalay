@@ -23,7 +23,7 @@ export default function ProductHeader({ username, location }: Props) {
   return (
     <ContentContainer>
       <Container>
-        <Thumbnail username={username} info={location} />
+        <Thumbnail small username={username} info={location} />
         <TouchableOpacity onPress={() => alert('Edit product')}>
           <Feather 
             name="edit"

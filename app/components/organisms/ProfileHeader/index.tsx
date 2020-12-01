@@ -15,7 +15,7 @@ type Props = {
 const Container = styled.View<Props>`
   flex-direction: row;
   align-items: center;
-  margin-bottom: 8px;
+  margin-bottom: 32px;
 `
 
 export default function ProfileHeader({ name, username }: Props) {

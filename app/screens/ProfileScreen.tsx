@@ -11,6 +11,7 @@ import { ProfileParamList, ProfileTabRouteName } from '../navigation/types'
 import { theme } from '../components/Theme'
 import { ProductModel } from '../domain/interfaces'
 import ProfileHeader from '../components/organisms/ProfileHeader'
+import { ImageGrid } from '../components/organisms/ImageGrid'
 
 export default function ProfileScreen(
   { navigation }: StackScreenProps<ProfileParamList, ProfileTabRouteName.PROFILE_SCREEN>
@@ -29,15 +30,7 @@ export default function ProfileScreen(
     <ActivityIndicator size="small" color={theme.colour.black} /> : (
     <Layout>
       <ProfileHeader name={user?.name} username={user?.username} />
-      {
-        products.map((product: ProductModel, index: number) => (
-          <View key={`product--${index}`} style={{ marginBottom: 20 }}>
-            <Button
-              onPress={() => navigation.navigate(ProfileTabRouteName.PRODUCT_SCREEN, { productId: product._id })}
-              title={JSON.stringify(product)} />
-          </View>
-        ))
-      }
+      <ImageGrid images={products}  />
     </Layout>
   )
 }

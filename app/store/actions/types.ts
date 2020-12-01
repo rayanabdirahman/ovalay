@@ -1,5 +1,6 @@
 export enum ActionType {
-  NAVIGATION = 'NAVIGATION'
+  NAVIGATION = 'NAVIGATION', 
+  API = 'API' 
 }
 
 export enum NavigationActionType {

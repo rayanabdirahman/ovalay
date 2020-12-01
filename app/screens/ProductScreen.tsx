@@ -37,12 +37,12 @@ export default function ProductScreen(
       <View style={{ flex: 0.95 }} >
         <ProductHeader username="Footlocker" location="Brent Cross, London" />
         <ScrollView style={{ flexDirection: "column" }} showsVerticalScrollIndicator={false}>      
-          <ProductImage source="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1950&q=80" />
+          <ProductImage source={product.image[0]} />
           <ProductIcons like={true} />
           <ProductInfo
             seller="Footlocker"
             caption="Nike Air Max available now 🔥"
-            description={"Lorem Ipsum is simply dummy text of the printing and typesetting industry."}
+            description={product.description}
             color={product.color}
           />
         </ScrollView>
