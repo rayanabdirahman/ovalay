@@ -21,22 +21,25 @@ export default function SignUpScreen(
     username: '',
     email: '',
     password: '',
-    role: UserRolesEnum.BUYER
+    role: route.params?.userRole
   })
 
   React.useEffect(() => {
-    // set user role on screen load
-    setState({ ...state, role: route.params?.userRole })
   }, [])
 
   return (
     <Layout>
       <Text title style={{ marginBottom: 8 }}>Sign up</Text>
-      <Text>Create an account so you can shop your favourite stores from one place</Text>
+      <Text>
+        { route.params?.userRole === UserRolesEnum.SELLER ?
+          "Create an account to reach your customers online" :
+          "Create an account to shop your favourite highstreet stores from one place"
+        }
+      </Text>
       <Input placeholder="Username" onChangeText={(value: string) => setState({ ...state, username: value })} />
       <Input placeholder="Name" onChangeText={(value: string) => setState({ ...state, name: value })} />
       <Input placeholder="Email" onChangeText={(value: string) => setState({ ...state, email: value })} />
-      <Input placeholder="Password" onChangeText={(value: string) => setState({ ...state, password: value })} />
+      <Input secureTextEntry placeholder="Password" onChangeText={(value: string) => setState({ ...state, password: value })} />
 
       <Button large title="Create an account" onPress={() => dispatch(signUpUser({ ...state }))} />
       <TextWithLink

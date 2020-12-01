@@ -26,7 +26,7 @@ export default function SignInScreen(
       <Text title style={{ marginBottom: 8 }}>Welcome back!</Text>
       <Text>Sign in to your account</Text>
       <Input placeholder="Email" onChangeText={(value: string) => setState({ ...state, email: value })} />
-      <Input placeholder="Password" onChangeText={(value: string) => setState({ ...state, password: value })} />
+      <Input secureTextEntry placeholder="Password" onChangeText={(value: string) => setState({ ...state, password: value })} />
       <Link style={{ alignSelf: "flex-end", marginBottom: 24 }} title="Forgot password?" onPress={() => alert('Forgot password')} />
       <Button large title="Sign in" onPress={() => dispatch(signInUser({ ...state }))} />
       <TextWithLink
