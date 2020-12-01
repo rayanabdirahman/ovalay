@@ -1,12 +1,12 @@
 import styled from 'styled-components/native'
-import { Button as DefaultButton } from 'react-native'
+import { Button as DefaultButton, TouchableOpacity as DefaultTouchableOpacity } from 'react-native'
 import { Feather } from '@expo/vector-icons'
 import React from 'react'
 
 import { Text } from '../Text'
 import { theme } from '../../Theme'
  
-type ButtonProps = DefaultButton['props'] & {
+type ButtonProps = DefaultTouchableOpacity['props'] & DefaultButton['props'] & {
   large?: boolean
   secondary?: boolean
   icon?: string

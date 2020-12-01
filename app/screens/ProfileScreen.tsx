@@ -6,15 +6,17 @@ import * as React from 'react'
 import Layout from '../components/Layouts'
 import { getProducts } from '../store/actions/product'
 import { State } from '../store'
-import { ProductState } from '../store/types'
+import { ProductState, SessionState } from '../store/types'
 import { ProfileParamList, ProfileTabRouteName } from '../navigation/types'
 import { theme } from '../components/Theme'
 import { ProductModel } from '../domain/interfaces'
+import ProfileHeader from '../components/organisms/ProfileHeader'
 
 export default function ProfileScreen(
   { navigation }: StackScreenProps<ProfileParamList, ProfileTabRouteName.PROFILE_SCREEN>
 ) {
   const dispatch = useDispatch()
+  const { user } = useSelector<State, SessionState>(state => state.session)
   const { products } = useSelector<State, ProductState>(state => state.product)
 
   React.useEffect(() => {
@@ -26,7 +28,7 @@ export default function ProfileScreen(
   return !products ?
     <ActivityIndicator size="small" color={theme.colour.black} /> : (
     <Layout>
-      <Text>Profile Screen- product num: {products.length}</Text>
+      <ProfileHeader name={user?.name} username={user?.username} />
       {
         products.map((product: ProductModel, index: number) => (
           <View key={`product--${index}`} style={{ marginBottom: 20 }}>
